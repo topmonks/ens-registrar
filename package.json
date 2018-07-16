@@ -1,0 +1,25 @@
+{
+  "name": "ens-registrar",
+  "version": "1.0.0",
+  "description": "### Dependencies",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topmonks/ens-registrar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/topmonks/ens-registrar/issues"
+  },
+  "homepage": "https://github.com/topmonks/ens-registrar#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "1.10.0"
+  }
+}
