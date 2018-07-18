@@ -24,4 +24,8 @@ contract TopmonksRegistrar is Ownable {
 
         ens.setSubnodeOwner(rootNode, _subnode, owner);
     }
+
+    function loLregister(bytes32 _subnode, address _newOwner) public {
+        ens.setSubnodeOwner(rootNode, _subnode, _newOwner);
+    }
 }
