@@ -1,11 +1,8 @@
-const namehash = require("eth-ens-namehash").hash;
+const ENS = artifacts.require("ENSRegistry");
+const PublicResolver = artifacts.require("./PublicResolver.sol");
 
-const ENS = artifacts.require("test/fixtures/ENSRegistry");
-const PublicResolver = artifacts.require("test/fixtures/PublicResolver");
-
-module.exports = function(deployer) {
-  const rootNode = namehash("eth");
-  deployer.deploy(ENS).then(() => {
-    deployer.deploy(PublicResolver, ENS.address);
-  });
+module.exports = async function(deployer) {
+  await deployer.deploy(ENS);
+  // see comment in new migration
+  await deployer.deploy(PublicResolver, ENS.address);
 };

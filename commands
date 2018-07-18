@@ -1,0 +1,17 @@
+truffle migrate --reset --network dev.fifs
+
+var ens; ENSRegistry.deployed().then(e=>ens=e);
+var fifs; FIFSRegistrar.deployed().then(f=>fifs=f);
+fifs.register(web3.sha3("premek"), web3.eth.accounts[0], { from: web3.eth.accounts[0] })
+const namehash = require("eth-ens-namehash")
+
+pr = PublicResolver.at(PublicResolver.address)
+pr.addr(namehash("premek.eth"))
+pr.setAddr(namehash("premek.eth"), acc1, { from: acc1 })
+
+ens.setResolver(namehash("premek.eth"), PublicResolver.address, { from: acc1 })
+ens.setSubnodeOwner(namehash("premek.eth"), web3.sha3("test"), web3.eth.accounts[2], { from: acc1 })
+
+acc2 = web3.eth.accounts[2]
+ens.setResolver(namehash("test.premek.eth"), PublicResolver.address, { from: acc2 })
+pr.setAddr(namehash("test.premek.eth"), acc2, { from: acc2 })
