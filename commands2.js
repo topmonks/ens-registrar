@@ -32,3 +32,15 @@ var premekResolver; PublicResolver.at(premekResolverAddr).then((r)=>premekResolv
 
 premekResolver.setAddr(namehash('premek.eth'), premek, { from: premek })
 premekResolver.addr(namehash('premek.eth'))
+
+
+///////////////////
+
+const namehash = require("eth-ens-namehash").hash; var ens; ENSRegistry.deployed().then(e=>ens=e);
+var rootAcc = web3.eth.accounts[0]; var topmonks = web3.eth.accounts[1]; var alice = web3.eth.accounts[2]; var bob = web3.eth.accounts[3];
+
+ens.setSubnodeOwner('0x0', web3.sha3('eth'), rootAcc);
+ens.setSubnodeOwner(namehash('eth'), web3.sha3('topmonks'), topmonks);
+ens.setSubnodeOwner(namehash('topmonks.eth'), web3.sha3('alice'), alice, { from: topmonks }); // => patri alici
+ens.setSubnodeOwner(namehash('topmonks.eth'), web3.sha3('alice'), bob, { from: topmonks }); // => patri bobovi, tzn. lze zmenit nadrazenym nodem
+
