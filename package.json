@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/topmonks/ens-registrar#readme",
   "dependencies": {
+    "chai": "^4.1.2",
     "eth-ens-namehash": "^2.0.8",
     "openzeppelin-solidity": "1.10.0"
   },
