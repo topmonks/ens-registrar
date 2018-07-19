@@ -4,24 +4,26 @@ const PublicResolver = artifacts.require("PublicResolver");
 const namehash = require("eth-ens-namehash").hash;
 
 contract('TopmonksRegistrar', async (accounts) => {
-  // it("be ownable", async () => {
-  //   const subject = await TopmonksRegistrar.deployed();
-  //   const owner = await subject.owner();
-  //   expect(owner).to.eq(accounts[0]);
-  // });
+  it("be ownable", async () => {
+    const subject = await TopmonksRegistrar.deployed();
+    const owner = await subject.owner();
+    expect(owner).to.eq(accounts[0]);
+  });
 
-  it("is possible to register a domain", async (accounts) => {
+  it("is possible to register a domain", async () => {
     const ens = await ENS.deployed();
-    const tmRegistrar = await TopmonksRegistrar.deployed();
+    const topmonksRegistrar = await TopmonksRegistrar.deployed();
 
-    alice = web3.eth.accounts[3];
+    admin = await web3.eth.accounts[0];
+    alice = await web3.eth.accounts[3];
 
-    await tmRegistrar.loLregister(namehash('alice.eth'), alice)
-    // const resolver = await PublicResolver.deployed();
+    await ens.setSubnodeOwner('0x0', web3.sha3('eth'), admin);
+    await ens.setSubnodeOwner(namehash('eth'), web3.sha3('topmonks'), topmonksRegistrar.address);
 
+    // await ens.setSubnodeOwner(namehash('topmonks.eth'), web3.sha3('alice'), alice);
+    await topmonksRegistrar.register(web3.sha3('alice'), alice);
 
-
-    owner = await ens.owner(namehash('alice.test'));
+    owner = await ens.owner(namehash('alice.topmonks.eth'));
 
     expect(owner).to.eq(alice);
   });

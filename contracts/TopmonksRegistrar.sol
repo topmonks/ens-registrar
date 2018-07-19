@@ -1,7 +1,7 @@
 pragma solidity ^0.4.22;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
-import "contracts/ENS.sol";
+import "./ENS.sol";
 
 contract TopmonksRegistrar is Ownable {
     ENS ens;
@@ -16,7 +16,7 @@ contract TopmonksRegistrar is Ownable {
         rootNode = _node;
     }
 
-    function register(bytes32 _subnode, address _addr) public {
+    function xregister(bytes32 _subnode, address _addr) public {
         bytes32 node = keccak256(rootNode, _subnode);
         address currentOwner = ens.owner(node);
         if(currentOwner != 0 && currentOwner != msg.sender)
@@ -25,7 +25,7 @@ contract TopmonksRegistrar is Ownable {
         ens.setSubnodeOwner(rootNode, _subnode, owner);
     }
 
-    function loLregister(bytes32 _subnode, address _newOwner) public {
+    function register(bytes32 _subnode, address _newOwner) public {
         ens.setSubnodeOwner(rootNode, _subnode, _newOwner);
     }
 }
