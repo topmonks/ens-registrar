@@ -9,9 +9,5 @@ module.exports = async function(deployer) {
   ensAddr = ENS.address;
   resolverAddress = PublicResolver.address;
 
-  console.log('HOVNO');
-  console.log(resolverAddress);
-  console.log('HOVNO');
-
   await deployer.deploy(TMRegistrar, ensAddr, resolverAddress, rootNode);
 };
