@@ -1,4 +1,3 @@
-const assertRevert = require("./support/revert");
 const namehash = require("eth-ens-namehash").hash;
 
 const TMRegistrar = artifacts.require("TopmonksRegistrar");
@@ -15,8 +14,8 @@ contract('TopmonksRegistrar', async (accounts) => {
     ens = await ENS.new();
     resolver = await PublicResolver.new(ens.address);
     subject = await TMRegistrar.new(tmNode, ens.address, resolver.address, { from: contractOwner });
-    ens.setSubnodeOwner('0x0', web3.sha3("eth"), accounts[1]);
-    ens.setSubnodeOwner(rootNode, web3.sha3("topmonks"), subject.address, { from: contractOwner });
+    await ens.setSubnodeOwner('0x0', web3.sha3("eth"), accounts[1]);
+    await ens.setSubnodeOwner(rootNode, web3.sha3("topmonks"), subject.address, { from: contractOwner });
   })
 
   it("owns topmonks.eth", async () => {
@@ -27,25 +26,31 @@ contract('TopmonksRegistrar', async (accounts) => {
   describe("setResolver", async () => {
     it("sets resolver", async () => {
       const newResolver = await PublicResolver.new(ens.address);
-      subject.setResolver(newResolver.address, { from: contractOwner });
+      await subject.setResolver(newResolver.address, { from: contractOwner });
       expect(await subject.resolver()).to.eq(newResolver.address);
     });
 
     it("not owner throws", async () => {
       const newResolver = await PublicResolver.new(ens.address);
-      assertRevert(subject.setResolver(newResolver.address, { from: accounts[3] }));
+      try {
+        await subject.setResolver(newResolver.address, { from: accounts[5] })
+        expect("to throw").to.eq(false);
+      } catch {
+        return
+      }
+      expect(true).to.eq(false);
     });
   });
 
   it("set root node", async () => {
     const newNode = namehash("blemc.eth");
-    subject.setRootNode(newNode, { from: contractOwner });
+    await subject.setRootNode(newNode, { from: contractOwner });
     expect(await subject.rootNode()).to.eq(newNode);
   });
 
   it("set node owner", async () => {
     expect(await ens.owner(tmNode)).to.eq(subject.address);
-    subject.setNodeOwner(accounts[4], { from: contractOwner });
+    await subject.setNodeOwner(accounts[4], { from: contractOwner });
     expect(await ens.owner(tmNode)).to.eq(accounts[4]);
   });
 
@@ -74,6 +79,25 @@ contract('TopmonksRegistrar', async (accounts) => {
     it("sets address in resolver", async () => {
       const addr = await resolver.addr(subdomain);
       expect(addr).to.eq(accounts[3]);
+    });
+
+    it("doesnt set new owner", async () => {
+      try {
+        await subject.register(web3.sha3("test"), accounts[4], { from: accounts[4] });
+      } catch {
+      } finally {
+        expect(await resolver.addr(subdomain)).to.eq(accounts[3]);
+      }
+    });
+
+    it("reverts when already registered", async () => {
+      try {
+        await subject.register(web3.sha3("test"), accounts[4], { from: accounts[4] });
+      } catch (err) {
+        expect(err.message).to.have.string("revert");
+        return;
+      }
+      expect("to throw exception").to.eq(false);
     });
   });
 });
