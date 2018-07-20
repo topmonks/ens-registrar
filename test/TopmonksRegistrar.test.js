@@ -1,8 +1,8 @@
 const namehash = require("eth-ens-namehash").hash;
 
 const TMRegistrar = artifacts.require("TopmonksRegistrar");
-const ENS = artifacts.require("@ensdomains/ens/contracts/ENSRegistry");
-const PublicResolver = artifacts.require("@ensdomains/ens/contracts/PublicResolver");
+const ENS = artifacts.require("ENSRegistry");
+const PublicResolver = artifacts.require("PublicResolver");
 
 contract('TopmonksRegistrar', async (accounts) => {
   const rootNode = namehash("eth");
