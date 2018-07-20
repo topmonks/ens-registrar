@@ -11,7 +11,7 @@ contract TopmonksRegistrar is Ownable {
 
     modifier onlyDomainOwner(bytes32 subnode) {
         address currentOwner = ens.owner(keccak256(abi.encodePacked(rootNode, subnode)));
-        require(currentOwner == 0 || currentOwner == msg.sender);
+        require(currentOwner == 0 || currentOwner == msg.sender, "Only owner");
         _;
     }
 
