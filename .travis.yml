@@ -7,8 +7,10 @@ cache:
 before_script:
 - npm install -g ganache-cli truffle solium
 - ganache-cli -p 8545 > /dev/null &
-- sleep 5
+- npm install
 script:
 - solium -d contracts
 - truffle compile
 - truffle test
+- ./node_modules/.bin/solidity-coverage
+- bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
