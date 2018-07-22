@@ -10,6 +10,20 @@
 npm install -g truffle ganache-cli
 ```
 
+### Dependencies on Windows
+- Decent console emulator, eg [ConEmu](https://conemu.github.io/)
+- try running `npm install` to install project dependencies.
+- Most likely you will have problems with `node-gyp`
+- you can fix them like this
+- (Taken from http://blog.davidjs.com/2018/07/eternal-problem-with-node-gyp-on-windows/)
+- Open cmd as Administrator (Otherwise the installation fails, meh)
+- run command npm install –global –production windows-build-tools
+- This will install Visual Studio Build Tools (yes, I know, there is mismatch in names)
+- This will also install Python again as a side-effect (meh)
+- run npm rebuild
+- re-open cmd and run npm install
+- all should be fine now
+
 ### Test
 
 ```
