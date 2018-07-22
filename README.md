@@ -13,14 +13,14 @@ npm install -g truffle ganache-cli
 ### Test
 
 ```
-ganache-cli -p 7545 > /dev/null &
+ganache-cli > /dev/null &
 truffle test
 ```
 
 ### Run
 
 ```
-ganache-cli -p 7545 > /dev/null &
+ganache-cli > /dev/null &
 truffle compile
 truffle migrate
 truffle console
