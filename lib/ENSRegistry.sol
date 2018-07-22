@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-import "../../contracts/ENS.sol";
+import './ENS.sol';
 
 /**
  * The ENS registry contract.
@@ -16,7 +16,7 @@ contract ENSRegistry is ENS {
 
     // Permits modifications only by the owner of the specified node.
     modifier only_owner(bytes32 node) {
-        require(records[node].owner == msg.sender, "Only owner");
+        require(records[node].owner == msg.sender);
         _;
     }
 

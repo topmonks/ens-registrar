@@ -1,3 +1,4 @@
 node_modules
 test/fixtures/
 contracts/Migrations.sol
+contracts/TestArtifacts.sol

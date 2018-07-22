@@ -1,9 +1,8 @@
 const namehash = require("eth-ens-namehash").hash;
 
-const ENS = artifacts.require("test/fixtures/ENSRegistry");
 const TMRegistrar = artifacts.require("TopmonksRegistrar.sol");
 
-module.exports = function(deployer) {
-  const rootNode = namehash("topmonks.eth");
-  deployer.deploy(TMRegistrar, ENS.address, rootNode);
+module.exports = function(deployer, network, accounts) {
+  const tmNode = namehash("topmonks.eth");
+  deployer.deploy(TMRegistrar, tmNode, '0x0', '0x0');
 };
