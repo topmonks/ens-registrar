@@ -15,7 +15,8 @@ contract('TopmonksRegistrar', async (accounts) => {
   before(async function() {
     ens = await ENS.deployed();
     topmonksRegistrar = await TopmonksRegistrar.deployed();
-    publicResolver = await PublicResolver.deployed();
+    // publicResolver = await PublicResolver.deployed();
+    publicResolver = await PublicResolver.address;
 
     admin = await web3.eth.accounts[0];
     alice = await web3.eth.accounts[3];
@@ -25,7 +26,7 @@ contract('TopmonksRegistrar', async (accounts) => {
     await ens.setSubnodeOwner(namehash('eth'), web3.sha3('topmonks'), topmonksRegistrar.address);
   });
 
-  it.only("be ownable", async () => {
+  it("be ownable", async () => {
     const subject = await TopmonksRegistrar.deployed();
     const owner = await subject.owner();
 
@@ -60,7 +61,7 @@ contract('TopmonksRegistrar', async (accounts) => {
 
     expect(domainOwner).to.eq(alice);
   });
-  //
+
   // it("subdomain owner can't transfer ownership of his domain");
   //
   // it("contract can transfer ownership of subdomains it owns");
