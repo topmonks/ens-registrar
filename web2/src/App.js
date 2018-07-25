@@ -27,7 +27,10 @@ class App extends Component {
     };
   }
 
-  registerSubdomain = () => {
+  registerSubdomain = (e) => {
+    console.log('whoa');
+    e.preventDefault();
+
     if(this.state.alreadyRegistered.includes(this.state.subdomain)) {
       this.setState({ message: { text: "Unfortunatelly this domain is already registered. Please choose another one.", type: "danger" } });
       setTimeout(() => { this.setState({ message: null }) }, 1800 );
@@ -49,30 +52,32 @@ class App extends Component {
           </div>
 
           <p>
-            To register your Ethereum address with some rememberable subdomain under topmonks.eth domain just type it below and hit Register. You have to have MetaMask installed and working.
+            To register your Ethereum address with some rememberable subdomain under topmonks.eth domain just type it below and hit Register. Your subdomain can only include letters, numbers, and dash or underscore. You also have to have MetaMask installed and working.
           </p>
 
           <FlashMessage message={this.state.message}/>
 
           <div className="text-center">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="e.g. alice"
-                value={this.state.subdomain}
-                onChange={event => { this.setState({ subdomain: event.target.value }) }}
-              />
+            <form onSubmit={ this.registerSubdomain }>
+              <div className="input-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g. alice"
+                  pattern="[a-zA-Z0-9-_]*"
+                  value={this.state.subdomain}
+                  onChange={event => { this.setState({ subdomain: event.target.value }) }}
+                />
 
-            <div className="input-group-append">
-              <span className="input-group-text">.topmonks.eth</span>
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={ this.registerSubdomain }
-              >Register!</button>
+              <div className="input-group-append">
+                <span className="input-group-text">.topmonks.eth</span>
+                <button
+                  className="btn btn-outline-secondary"
+                  type="submit"
+                >Register!</button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
