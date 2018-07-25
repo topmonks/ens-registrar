@@ -1,5 +1,12 @@
-# topmonks.eth subdomains registar
+# ENS Subdomains registar [![Build Status](https://travis-ci.com/topmonks/ens-registrar.svg?branch=master)](https://travis-ci.com/topmonks/ens-registrar) [![codecov](https://codecov.io/gh/topmonks/ens-registrar/branch/master/graph/badge.svg)](https://codecov.io/gh/topmonks/ens-registrar)
 
+This contracts let's anybody register subdomains of domain it owns through simple api. React UI is also provided.
+
+## API
+
+## Deployment
+
+## Development
 ### Dependencies
 
 - recent nodejs
@@ -10,7 +17,7 @@
 npm install -g truffle ganache-cli
 ```
 
-### Dependencies on Windows
+#### Dependencies on Windows
 - Decent console emulator, eg [ConEmu](https://conemu.github.io/)
 - try running `npm install` to install project dependencies.
 - Most likely you will have problems with `node-gyp`
@@ -24,14 +31,14 @@ npm install -g truffle ganache-cli
 - re-open cmd and run npm install
 - all should be fine now
 
-### Test
+#### Test
 
 ```
 ganache-cli > /dev/null &
 truffle test
 ```
 
-### Run
+#### Run
 
 ```
 ganache-cli > /dev/null &
