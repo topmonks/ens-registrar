@@ -7,8 +7,8 @@ main = async () => {
   const TopmonksRegistrar = require('./build/contracts/TopmonksRegistrar.json');
   const Web3 = require('web3');
   const web3 = new Web3('http://127.0.0.1:8545');
-  const ensAddress = "0xb6c985f38556cd0555031e8ad0e836a522618cdf";
-  const tmRegistrarAddress = "0xa5a695f0001d18234bedd822b8b47093fd43aa1d";
+  const ensAddress = "0xec149fdfda7a838a1b81851bb4ccf9a0c1d07d5a";
+  const tmRegistrarAddress = "0x93b518aea388d236b172d6470e229bbd77b3ccc7";
 
   var accounts = await web3.eth.getAccounts()
   var ens = new web3.eth.Contract(ENS.abi, ensAddress);
@@ -23,14 +23,14 @@ main = async () => {
   owner = await ens.methods.owner(namehash("topmonks.eth")).call();
   console.log('Current topmonks.eth owner is', owner);
 
-  await ens.methods.setSubnodeOwner(namehash(""), web3.utils.sha3("eth"), rootNodeOwner).send({ from: deployer });
-  await ens.methods.setSubnodeOwner(namehash("eth"), web3.utils.sha3("topmonks"), topmonks).send({ from: rootNodeOwner });
-  await ens.methods.setSubnodeOwner(namehash("topmonks.eth"), web3.utils.sha3("alice"), alice).send({ from: topmonks });
-
-  await tmRegistrar.methods.register(namehash("premek"), premek).send({ from: premek, gas: '1000000' });
+  await ens.methods.setSubnodeOwner(namehash(""), web3.utils.sha3("eth"), deployer).send({ from: deployer });
+  await ens.methods.setSubnodeOwner(namehash("eth"), web3.utils.sha3("topmonks"), deployer).send({ from: deployer });
+  await ens.methods.setSubnodeOwner(namehash("topmonks.eth"), web3.utils.sha3("alice"), alice).send({ from: deployer });
 
   owner = await ens.methods.owner(namehash("alice.topmonks.eth")).call();
   console.log('Current alice.topmonks.eth owner is', owner);
+
+  await tmRegistrar.methods.register(web3.utils.sha3("premek"), premek).send({ from: premek, gas: '1000000' });
   owner = await ens.methods.owner(namehash("premek.topmonks.eth")).call();
   console.log('Current premek.topmonks.eth owner is', owner);
 

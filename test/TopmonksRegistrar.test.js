@@ -71,7 +71,7 @@ contract('TopmonksRegistrar', async (accounts) => {
       await subject.register(web3.sha3("test"), accounts[3], { from: accounts[3] });
     });
 
-    it("sets domain owner", async () => {
+    it.only("sets domain owner", async () => {
       const owner = await ens.owner(subdomain);
       expect(owner).to.eq(accounts[3]);
     });

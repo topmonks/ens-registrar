@@ -44,3 +44,6 @@ ens.setSubnodeOwner(namehash('eth'), web3.sha3('topmonks'), topmonks);
 ens.setSubnodeOwner(namehash('topmonks.eth'), web3.sha3('alice'), alice, { from: topmonks }); // => patri alici
 ens.setSubnodeOwner(namehash('topmonks.eth'), web3.sha3('alice'), bob, { from: topmonks }); // => patri bobovi, tzn. lze zmenit nadrazenym nodem
 
+
+
+var reg; TopmonksRegistrar.deployed().then(e=>reg=e);
