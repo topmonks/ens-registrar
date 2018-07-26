@@ -1,15 +1,15 @@
 pragma solidity ^0.4.22;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
-import "./ENS.sol";
-import "./ResolverInterface.sol";
-// import "../lib/ENSRegistry.sol";
-// import "../lib/PublicResolver.sol";
+// import "./ENS.sol";
+import "./ENSRegistry.sol";
+// import "./ResolverInterface.sol";
+import "./PublicResolver.sol";
 
 contract TopmonksRegistrar is Ownable {
     bytes32 public rootNode;
-    ENS public ens;
-    ResolverInterface public resolver;
+    ENSRegistry public ens;
+    PublicResolver public resolver;
 
     modifier onlyDomainOwner(bytes32 subnode) {
         address currentOwner = ens.owner(keccak256(abi.encodePacked(rootNode, subnode)));
@@ -19,8 +19,8 @@ contract TopmonksRegistrar is Ownable {
 
     constructor(bytes32 _node, address _ensAddr, address _resolverAddr) public {
         rootNode = _node;
-        ens = ENS(_ensAddr);
-        resolver = ResolverInterface(_resolverAddr);
+        ens = ENSRegistry(_ensAddr);
+        resolver = PublicResolver(_resolverAddr);
     }
 
     function setRootNode(bytes32 _node) public onlyOwner {
@@ -28,7 +28,7 @@ contract TopmonksRegistrar is Ownable {
     }
 
     function setResolver(address _resolverAddr) public onlyOwner {
-        resolver = ResolverInterface(_resolverAddr);
+        resolver = PublicResolver(_resolverAddr);
     }
 
     function setNodeOwner(address _newOwner) public onlyOwner {
