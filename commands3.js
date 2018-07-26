@@ -18,16 +18,21 @@ main = async () => {
   var rootNodeOwner = accounts[9];
   var topmonks = accounts[1];
   var alice = accounts[2];
+  var premek = accounts[3];
 
   owner = await ens.methods.owner(namehash("topmonks.eth")).call();
   console.log('Current topmonks.eth owner is', owner);
 
-  await ens.methods.setSubnodeOwner(namehash(""), web3.utils.sha3("eth"), rootNodeOwner).send({ from: deployer });
-  await ens.methods.setSubnodeOwner(namehash("eth"), web3.utils.sha3("topmonks"), topmonks).send({ from: rootNodeOwner });
-  await ens.methods.setSubnodeOwner(namehash("topmonks.eth"), web3.utils.sha3("alice"), alice).send({ from: topmonks });
+  // await ens.methods.setSubnodeOwner(namehash(""), web3.utils.sha3("eth"), rootNodeOwner).send({ from: deployer });
+  // await ens.methods.setSubnodeOwner(namehash("eth"), web3.utils.sha3("topmonks"), topmonks).send({ from: rootNodeOwner });
+  // await ens.methods.setSubnodeOwner(namehash("topmonks.eth"), web3.utils.sha3("alice"), alice).send({ from: topmonks });
+
+  await tmRegistrar.methods.register(namehash("premek"), premek).send({ from: premek });
 
   owner = await ens.methods.owner(namehash("alice.topmonks.eth")).call();
   console.log('Current alice.topmonks.eth owner is', owner);
+  owner = await ens.methods.owner(namehash("premek.topmonks.eth")).call();
+  console.log('Current premek.topmonks.eth owner is', owner);
 
   console.log('hooray!');
 }

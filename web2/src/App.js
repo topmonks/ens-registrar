@@ -3,6 +3,8 @@ import './App.css';
 
 import Web3 from 'web3';
 const web3 = new Web3('http://localhost:8545');
+const namehash = require("eth-ens-namehash").hash;
+
 web3.eth.getAccounts()
   .then((r) => {
     console.log('goob');
@@ -11,8 +13,17 @@ web3.eth.getAccounts()
     console.log('bad');
     console.log(e);
   });
+
 const ENS = require('./contracts/ENS.json');
 const ens = new web3.eth.Contract(ENS.abi, "0x6470576f42cf8dbfd5c1021cf9d1a0415ba6c74c");
+ens.methods.owner(namehash('topmonks.eth')).call()
+  .then((r) => {
+    console.log('goob');
+    console.log(r);
+  }).catch((e) => {
+    console.log('bad');
+    console.log(e);
+  });
 
 const FlashMessage = ({ message }) => {
   // tohle nejde nejak hezceji abych nemusel psat else?

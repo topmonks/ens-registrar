@@ -1,8 +1,10 @@
 pragma solidity ^0.4.22;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
-import "lib/ENS.sol";
-import "lib/ResolverInterface.sol";
+import "./ENS.sol";
+import "./ResolverInterface.sol";
+// import "../lib/ENSRegistry.sol";
+// import "../lib/PublicResolver.sol";
 
 contract TopmonksRegistrar is Ownable {
     bytes32 public rootNode;
