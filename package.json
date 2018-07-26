@@ -24,6 +24,7 @@
     "chai": "^4.1.2",
     "eth-ens-namehash": "^2.0.8",
     "openzeppelin-solidity": "1.10.0",
+    "remixd": "^0.1.8-alpha.4",
     "web3": "^1.0.0-beta.34"
   },
   "devDependencies": {

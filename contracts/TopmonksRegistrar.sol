@@ -7,6 +7,8 @@ import "./ENSRegistry.sol";
 import "./PublicResolver.sol";
 
 contract TopmonksRegistrar is Ownable {
+    event addrDebug(string msg, address addr);
+
     bytes32 public rootNode;
     ENSRegistry public ens;
     PublicResolver public resolver;
@@ -40,6 +42,9 @@ contract TopmonksRegistrar is Ownable {
     }
 
     function register(bytes32 _subnode, address _addr) public onlyDomainOwner(_subnode) {
+        emit addrDebug('msg.sender je:', msg.sender);
+        emit addrDebug('this je:', this);
+
         ens.setSubnodeOwner(rootNode, _subnode, this);
         bytes32 node = keccak256(abi.encodePacked(rootNode, _subnode));
         ens.setResolver(node, resolver);

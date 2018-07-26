@@ -2,6 +2,7 @@ const namehash = require("eth-ens-namehash").hash;
 
 const Web3 = require('web3');
 const web3 = new Web3('http://127.0.0.1:8545');
+// const web3 = new Web3('ws://127.0.0.1:8545');
 
 const ENS = require('./build/contracts/ENSRegistry.json');
 const PublicResolver = require("./build/contracts/PublicResolver.json");
@@ -25,6 +26,9 @@ main = async () => {
   registrar = await (new web3.eth.Contract(TMRegistrar.abi))
     .deploy({ data: TMRegistrar.bytecode, arguments: [tmNode, ens.options.address, resolver.options.address] })
     .send({ from: accounts[1], gas: '6000000' })
+  // registrar.events.addrDebug({}, (error, event) => {
+  //   console.log(event)
+  // });
 
   console.log('ens: ', ens.options.address);
   console.log('resolver: ', resolver.options.address);
