@@ -25,8 +25,6 @@ contract PublicResolver {
     event TextChanged(bytes32 indexed node, string indexedKey, string key);
     event MultihashChanged(bytes32 indexed node, bytes hash);
 
-    event addrDebug(string msg, address addr);
-
     struct PublicKey {
         bytes32 x;
         bytes32 y;
@@ -47,9 +45,7 @@ contract PublicResolver {
     mapping (bytes32 => Record) records;
 
     modifier only_owner(bytes32 node) {
-        address owner = ens.owner(node);
-        address sender = msg.sender;
-        require(owner == sender);
+        require(ens.owner(node) == msg.sender);
         _;
     }
 
