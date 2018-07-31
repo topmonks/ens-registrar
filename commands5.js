@@ -23,16 +23,11 @@ main = async () => {
     .deploy({ data: PublicResolver.bytecode, arguments: [ens.options.address] })
     .send({ from: accounts[0], gas: '6000000' })
 
+  console.log("Resolver address is ", resolver.options.address);
+
   registrar = await (new web3.eth.Contract(TMRegistrar.abi))
     .deploy({ data: TMRegistrar.bytecode, arguments: [tmNode, ens.options.address, resolver.options.address] })
     .send({ from: accounts[1], gas: '6000000' })
-  // registrar.events.addrDebug({}, (error, event) => {
-  //   console.log(event)
-  // });
-
-  console.log('ens: ', ens.options.address);
-  console.log('resolver: ', resolver.options.address);
-  console.log('registrar: ', registrar.options.address);
 
   await ens.methods.setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), accounts[1])
     .send({ from: accounts[0] });
@@ -43,7 +38,7 @@ main = async () => {
 
   const subdomain = namehash("test.topmonks.eth");
   await registrar.methods.register(web3.utils.sha3("test"), accounts[3])
-    .send({ from: accounts[3] });
+    .send({ from: accounts[3], gas: '6000000' });
 
   console.log('test.topmonks.eth is owned by: ', await ens.methods.owner(subdomain).call());
 }

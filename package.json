@@ -23,10 +23,12 @@
     "@ensdomains/ens": "github:ensdomains/ens",
     "chai": "^4.1.2",
     "eth-ens-namehash": "^2.0.8",
+    "node-gyp": "^3.7.0",
     "openzeppelin-solidity": "1.10.0",
     "remixd": "^0.1.8-alpha.4",
-    "truffle": "^5.0.0-next.6",
-    "web3": "^1.0.0-beta.34"
+    "safe-buffer": "^5.1.1",
+    "web3": "^1.0.0-beta.34",
+    "webpack": "^4.16.3"
   },
   "devDependencies": {
     "solidity-coverage": "^0.5.5",

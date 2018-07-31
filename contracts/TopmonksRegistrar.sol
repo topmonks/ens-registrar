@@ -8,6 +8,7 @@ contract TopmonksRegistrar is Ownable {
     bytes32 public rootNode;
     ENSRegistry public ens;
     PublicResolver public resolver;
+    address public resolverAddr;
 
     modifier onlyDomainOwner(bytes32 subnode) {
         address currentOwner = ens.owner(keccak256(abi.encodePacked(rootNode, subnode)));
@@ -18,6 +19,7 @@ contract TopmonksRegistrar is Ownable {
     constructor(bytes32 _node, address _ensAddr, address _resolverAddr) public {
         rootNode = _node;
         ens = ENSRegistry(_ensAddr);
+        resolverAddr = _resolverAddr;
         resolver = PublicResolver(_resolverAddr);
     }
 
@@ -40,7 +42,7 @@ contract TopmonksRegistrar is Ownable {
     function register(bytes32 _subnode, address _addr) public onlyDomainOwner(_subnode) {
         ens.setSubnodeOwner(rootNode, _subnode, this);
         bytes32 node = keccak256(abi.encodePacked(rootNode, _subnode));
-        ens.setResolver(node, resolver);
+        ens.setResolver(node, resolverAddr);
         resolver.setAddr(node, _addr);
         ens.setSubnodeOwner(rootNode, _subnode, _addr);
     }
