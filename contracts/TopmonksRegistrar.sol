@@ -46,4 +46,8 @@ contract TopmonksRegistrar is Ownable {
         resolver.setAddr(node, _addr);
         ens.setSubnodeOwner(rootNode, _subnode, _addr);
     }
+
+    function neco() public view returns (string) {
+      return 'ahoj';
+    }
 }

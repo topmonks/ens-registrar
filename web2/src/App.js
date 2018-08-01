@@ -5,17 +5,21 @@ import Web3 from 'web3';
 const web3 = new Web3('http://localhost:8545');
 const namehash = require("eth-ens-namehash").hash;
 
+var accounts;
 web3.eth.getAccounts()
   .then((r) => {
-    console.log('goob');
-    console.log(r);
+    accounts = r;
   }).catch((e) => {
-    console.log('bad');
-    console.log(e);
+    throw "Couldn't get ethereum accounts!!! OMG!!"
   });
 
-const ENS = require('./contracts/ENS.json');
-const ens = new web3.eth.Contract(ENS.abi, "0x6470576f42cf8dbfd5c1021cf9d1a0415ba6c74c");
+const ENS = require('./contracts/ENSRegistry.json');
+import TopmonksRegistrar from './contracts/TopmonksRegistrar.json';
+// const TopmonksRegistrar = require('./contracts/TopmonksRegistrar.json');
+const ens = new web3.eth.Contract(ENS.abi, "0xFE753725882318B3BC2e0eF8819FA9F106B9C271");
+
+const registrar = new web3.eth.Contract(TopmonksRegistrar.abi, "0x16BF4F9b95518Bc7FF4a7337c84c329f7636a4E2");
+
 ens.methods.owner(namehash('topmonks.eth')).call()
   .then((r) => {
     console.log('goob');
@@ -50,19 +54,39 @@ class App extends Component {
     };
   }
 
+  // registerSubdomain = (e) => {
+  //   e.preventDefault();
+  //
+  //   if(this.state.alreadyRegistered.includes(this.state.subdomain)) {
+  //     this.setState({ message: { text: "Unfortunatelly this domain is already registered. Please choose another one.", type: "danger" } });
+  //     setTimeout(() => { this.setState({ message: null }) }, 1800 );
+  //   } else {
+  //     this.setState({ message: { text: `Registering ${this.state.subdomain}. Please wait until it gets processed on blockchain`, type: "primary" }, registerInProgress: true });
+  //     setTimeout(() => {
+  //       this.setState({ message: { text: 'Registration completed!', type: "success" }, registerInProgress: false })
+  //       setTimeout(() => { this.setState({ message: null }) }, 1800);
+  //     }, 1800 );
+  //   }
+  // }
+
   registerSubdomain = (e) => {
     e.preventDefault();
 
-    if(this.state.alreadyRegistered.includes(this.state.subdomain)) {
-      this.setState({ message: { text: "Unfortunatelly this domain is already registered. Please choose another one.", type: "danger" } });
-      setTimeout(() => { this.setState({ message: null }) }, 1800 );
-    } else {
-      this.setState({ message: { text: `Registering ${this.state.subdomain}. Please wait until it gets processed on blockchain`, type: "primary" }, registerInProgress: true });
-      setTimeout(() => {
-        this.setState({ message: { text: 'Registration completed!', type: "success" }, registerInProgress: false })
-        setTimeout(() => { this.setState({ message: null }) }, 1800);
-      }, 1800 );
-    }
+    this.setState({ registerInProgress: true });
+
+    // const fullnode = namehash(`${this.state.subdomain}.topmonks.eth`);
+    const node = web3.utils.sha3(this.state.subdomain);
+
+    registrar.methods.register(node, accounts[2])
+      .send({ from: accounts[2] })
+      .on('receipt', (receipt) => {
+        console.log('goob!');
+        console.log(receipt);
+      })
+      .on('error', (error) => {
+        console.log('Somethign went wrong');
+        console.log(error);
+      });
   }
 
   render() {
