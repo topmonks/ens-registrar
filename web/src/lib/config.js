@@ -1,11 +1,19 @@
-// jak konfigurovat?
-const Web3 = require('web3');
-const web3 = new Web3('http://127.0.0.1:8545');
+/* global web3 */
+import Web3 from "web3";
+import addresses from "./addresses.js";
 
-let config = {
-  ensAddress: "0x3eDFf874188f38902D0e59ce5D5956dd3B9C8d4B",
-  registrarAddress: "0x63D01636155a0832749c43AbeBA271571d6A8407",
-  web3: web3
+let web3js;
+// Checking if Web3 has been injected by the browser (Mist/MetaMask)
+if (typeof web3 !== 'undefined') {
+  // Use Mist/MetaMask's provider
+  web3js = new Web3(web3.currentProvider);
+} else {
+  console.log('No web3? You should consider trying MetaMask!')
+  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+  web3js = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-module.exports = config;
+export default {
+  ...addresses,
+  web3: web3js,
+}
