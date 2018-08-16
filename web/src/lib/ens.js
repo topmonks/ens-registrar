@@ -1,9 +1,9 @@
-const namehash = require("eth-ens-namehash").hash;
+import { hash as namehash } from "eth-ens-namehash";
 
-const source = require('./ENSRegistry.json');
-const zeroAddr = '0x0000000000000000000000000000000000000000'
+const source = require('../contracts/ENSRegistry.json');
+const zeroAddr = '0x0000000000000000000000000000000000000000';
 
-class Ens {
+export default class Ens {
   constructor(config) {
     this.contract = new config.web3.eth.Contract(source.abi, config.ensAddress);
   }
@@ -28,5 +28,3 @@ class Ens {
     return result;
   }
 }
-
-module.exports = Ens;

@@ -1,4 +1,4 @@
-const source = require('./TopmonksRegistrar.json');
+const source = require('../contracts/TopmonksRegistrar.json');
 
 class TopmonksRegistrar {
   constructor(config) {

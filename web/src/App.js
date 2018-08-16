@@ -12,14 +12,6 @@ const ens = new Ens(config);
 //   vyuzit i na jine domeny nez topmonks.eth
 const topmonksRegistrar = new TopmonksRegistrar(config);
 
-// Tohle bude potreba upravit pro realny provoz aby bralo account z Mist/MetaMask..
-var accounts;
-config.web3.eth.getAccounts()
-  .then((r) => {
-    accounts = r;
-  });
-
-
 const FlashMessage = ({ message }) => {
   if(message) {
     let spinner;
@@ -46,8 +38,16 @@ class App extends Component {
     this.state = {
       message: null,
       subdomain: '',
-      ethCallInProgress: false
+      ethCallInProgress: false,
+      accounts: [],
+      selectedAccount: null,
     };
+  }
+
+  componentDidMount() {
+    config.web3.eth.getAccounts().then(accounts =>
+      this.setState({ accounts, selectedAccount: accounts[0] })
+    );
   }
 
   setProgress = (ethCallInProgress, msgText, msgType) => {
@@ -70,7 +70,6 @@ class App extends Component {
     });
   }
 
-
   registerSubdomain = (e) => {
     e.preventDefault();
 
@@ -81,7 +80,7 @@ class App extends Component {
     ens.isFree(domain)
       .then((isFree) => {
         if (isFree) {
-          topmonksRegistrar.register(this.state.subdomain, accounts[2])
+          topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount)
             .on('receipt', (receipt) => {
               this.setProgress(false, `Domenu ${domain} jsme zaregistrovali na vasi adresu`, 'success');
             })
@@ -92,6 +91,10 @@ class App extends Component {
           this.setProgress(false, `Domena ${domain} je jiz zaregistrovana. Vyberte si prosim jinou.`, 'danger');
         }
       });
+  }
+
+  setAccount(event) {
+    this.setState({ selectedAccount: event.target.value });
   }
 
   render() {
@@ -111,6 +114,15 @@ class App extends Component {
           <FlashMessage message={this.state.message}/>
 
           <div className="text-center">
+            <select onChange={this.setAccount}>
+              {this.state.accounts.map(addr =>
+              <option
+                value={addr}
+                key={`Addr${addr}`}
+                selected={this.state.selectedAccount === addr}
+              >{ addr }</option>
+              )}
+            </select>
             <form onSubmit={ this.registerSubdomain }>
               <fieldset disabled={disabled}>
                 <div className="input-group">
