@@ -10,7 +10,7 @@ class TopmonksRegistrar {
     let node = this.config.web3.utils.sha3(subdomain);
 
     return this.contract.methods.register(node, account)
-      .send({ from: account, gas: '6000000' });
+      .send({ from: account, gas: '150000' });
   }
 }
 

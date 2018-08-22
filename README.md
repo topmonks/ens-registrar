@@ -31,8 +31,14 @@ npm install -g truffle ganache-cli
 - re-open cmd and run npm install
 - all should be fine now
 
-#### Test
+#### Local setup
+1. Install deps with `npm install` in root directory
+2. Install UI deps with `yarn install` in web/ directory
+3. Start your local eth node and configure in truffle.js
+3. Run `truffle migrate`
+4. Cd into web/ directory and run `yarn start`
 
+## Tests
 ```
 ganache-cli > /dev/null &
 truffle test
@@ -43,13 +49,3 @@ truffle test
 1. in 1st tab run `ganache-cli`
 1. in 2nd tab run `truffle test`
 1. If you dont do it, you will not be able to properly kill the ganache-cli process
-
-### Run
-
-```
-ganache-cli > /dev/null &
-truffle compile
-truffle migrate
-truffle console
-Domains.at(Domains.address).lookup("test")
-```
