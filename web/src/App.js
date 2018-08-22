@@ -31,6 +31,12 @@ const FlashMessage = ({ message }) => {
   }
 }
 
+const log = (toLog) => {
+  if(process.env.NODE_ENV === 'development') {
+    console.log(toLog);
+  }
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +46,7 @@ class App extends Component {
       subdomain: '',
       ethCallInProgress: false,
       accounts: [],
-      selectedAccount: null,
+      selectedAccount: '',
     };
   }
 
@@ -72,6 +78,7 @@ class App extends Component {
 
   registerSubdomain = (e) => {
     e.preventDefault();
+    e.persist();
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
 
@@ -83,17 +90,25 @@ class App extends Component {
           topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount)
             .on('receipt', (receipt) => {
               this.setProgress(false, `Domenu ${domain} jsme zaregistrovali na vasi adresu`, 'success');
+              e.target.reset();
             })
             .on('error', (error) => {
+              log(error);
               this.setProgress(false, `Bohuzel, domenu ${domain} se nepodarilo zaregistrovat.`, 'danger');
             });
         } else {
           this.setProgress(false, `Domena ${domain} je jiz zaregistrovana. Vyberte si prosim jinou.`, 'danger');
+          e.target.reset();
         }
+      })
+      .catch((error) => {
+        log(error);
+        this.setProgress(false, `Bohuzel, domenu ${domain} se nepodarilo zaregistrovat.`, 'danger');
+        e.target.reset();
       });
   }
 
-  setAccount(event) {
+  setAccount = (event) => {
     this.setState({ selectedAccount: event.target.value });
   }
 
@@ -108,46 +123,58 @@ class App extends Component {
           </div>
 
           <p>
-            To register your Ethereum address with some rememberable subdomain under topmonks.eth domain just type it below and hit Register. Your subdomain can only include letters, numbers, and dash or underscore. You also have to have MetaMask installed and working.
+            Associate your Eth address with rememberable subdomain under <b>topmonks.eth</b>.
           </p>
 
           <FlashMessage message={this.state.message}/>
 
-          <div className="text-center">
-            <select onChange={this.setAccount}>
-              {this.state.accounts.map(addr =>
-              <option
-                value={addr}
-                key={`Addr${addr}`}
-                selected={this.state.selectedAccount === addr}
-              >{ addr }</option>
-              )}
-            </select>
+          <div>
             <form onSubmit={ this.registerSubdomain }>
-              <fieldset disabled={disabled}>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="e.g. alice"
-                    pattern="[a-zA-Z0-9-_]*"
-                    value={this.state.subdomain}
-                    onChange={event => { this.setState({ subdomain: event.target.value }) }}
-                  />
-
-                <div className="input-group-append">
-                  <span className="input-group-text">.topmonks.eth</span>
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="submit"
-                  >Register!</button>
-                </div>
+              <div className="form-group">
+                <label htmlFor="addressSelect">Address</label>
+                <select className="form-control" id="addressSelect" onChange={this.setAccount} value={this.state.selectedAccount}>
+                  {this.state.accounts.map(addr =>
+                    <option
+                      value={addr}
+                      key={addr}
+                    >{ addr }</option>
+                  )}
+                </select>
               </div>
-            </fieldset>
-          </form>
+
+              <div className="form-group">
+                <fieldset disabled={disabled}>
+                  <label htmlFor="subdomain">Subdomain</label>
+
+                  <div className="input-group">
+                    <input
+                      id="subdomain"
+                      type="text"
+                      className="form-control"
+                      placeholder="e.g. alice"
+                      pattern="[a-zA-Z0-9-_]*"
+                      required="true"
+                      value={this.state.subdomain}
+                      onChange={event => { this.setState({ subdomain: event.target.value }) }} />
+
+                    <div className="input-group-append">
+                      <span className="input-group-text">.topmonks.eth</span>
+                    </div>
+                  </div>
+                    <small className="form-text text-muted">Only letters, numbers, dash or underscore</small>
+                </fieldset>
+              </div>
+
+              <div className="form-group">
+                <button
+                  className="btn btn-block btn-primary"
+                  type="submit"
+                >Register!</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     );
   }
 }
