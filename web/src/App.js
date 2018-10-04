@@ -82,28 +82,28 @@ class App extends Component {
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
 
-    this.setProgress(true, `Registruji domenu ${domain}`, 'primary');
+    this.setProgress(true, `Registering domain ${domain}`, 'primary');
 
     ens.isFree(domain)
       .then((isFree) => {
         if (isFree) {
           topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount)
             .on('receipt', (receipt) => {
-              this.setProgress(false, `Domenu ${domain} jsme zaregistrovali na vasi adresu`, 'success');
+              this.setProgress(false, `Domain ${domain} has been registered to your address`, 'success');
               e.target.reset();
             })
             .on('error', (error) => {
               log(error);
-              this.setProgress(false, `Bohuzel, domenu ${domain} se nepodarilo zaregistrovat.`, 'danger');
+              this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
             });
         } else {
-          this.setProgress(false, `Domena ${domain} je jiz zaregistrovana. Vyberte si prosim jinou.`, 'danger');
+          this.setProgress(false, `Domain ${domain} is already registered. Please choose different domain.`, 'danger');
           e.target.reset();
         }
       })
       .catch((error) => {
         log(error);
-        this.setProgress(false, `Bohuzel, domenu ${domain} se nepodarilo zaregistrovat.`, 'danger');
+        this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
         e.target.reset();
       });
   }
@@ -132,7 +132,12 @@ class App extends Component {
             <form onSubmit={ this.registerSubdomain }>
               <div className="form-group">
                 <label htmlFor="addressSelect">Address</label>
-                <select className="form-control" id="addressSelect" onChange={this.setAccount} value={this.state.selectedAccount}>
+                <select 
+                  className="form-control" 
+                  id="addressSelect"
+                  onChange={this.setAccount}
+                  value={this.state.selectedAccount}
+                  required="true">
                   {this.state.accounts.map(addr =>
                     <option
                       value={addr}
