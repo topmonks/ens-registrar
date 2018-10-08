@@ -34,7 +34,7 @@ npm install -g truffle ganache-cli
 #### Local setup
 1. Install deps with `npm install` in root directory
 2. Install UI deps with `yarn install` in web/ directory
-3. Start your local eth node and configure in truffle.js
+3. Start your local eth node and configure in truffle.js (You might need to run `truffle develop` to start the local network)
 3. Run `truffle migrate`
 4. Cd into web/ directory and run `yarn start`
 
