@@ -9,7 +9,7 @@ This contracts let's anybody register subdomains of domain it owns through simpl
 ## Development
 ### Dependencies
 
-- recent nodejs
+- recent nodejs (`nvm use`)
 - truffle framework
 - some test ETH node, like [Ganache](https://truffleframework.com/ganache/)
 
