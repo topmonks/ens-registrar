@@ -38,6 +38,28 @@ npm install -g truffle ganache-cli
 3. Run `truffle migrate --network [your_network] --reset` (Reset is optional, it will deploy all contracts from scratch)
 4. Cd into web/ directory and run `yarn start`
 
+### Troubleshooting
+#### Not properly deployed contract 
+1. The compiled contracts are stored in `build/contracts` folder as .json files. They contain the address of the deployed contract, as well as ABI and bytecode.
+1. There is a symlink pointing there from `web/src/contracts` so we do not have to manually copy it
+1. But sometimes the build files are not overwritten by `truffle migrate`
+1. Manually deleting these files and running `truffle migrate` again helps
+
+It is possible to turn on verbose logging in Ganage GUI (Requires restart of the network)
+
+#### Error - Incorrect nonce
+1. The error description says something like `the tx doesn't have the correct nonce. account has nonce of: 0 tx has nonce of: 18`
+1. This is caused by Metamask caching the number of transactions, which gets mapped to nonce.
+1. There should be 2 ways to solve it
+1. A: Open Metamask / Switch to another network / Switch back
+1. B: Open Metamask / Select that account / click Reset button
+1. C: Restart ganache / Redeploy all contracts / Then steps in point A
+
+#### False positive insufficient funds
+1. Error says something like `sender doesn't have enough funds to send tx. The upfront cost is: 300000000000000000 and the sender's account only has: 0`
+1. So far I have no idea how to solve it. The last untried option is restart notebook
+
+
 ## Tests
 ```
 ganache-cli > /dev/null &

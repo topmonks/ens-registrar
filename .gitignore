@@ -4,3 +4,4 @@ node_modules/
 coverage/
 coverageEnv/
 coverage.json
+logs/
