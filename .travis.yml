@@ -9,7 +9,6 @@ before_script:
 - npm install
 script:
 - solium -d contracts
-- cp build/contracts/* src/web/contracts
 - truffle test
 - ./node_modules/.bin/solidity-coverage
 - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
