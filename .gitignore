@@ -5,3 +5,5 @@ coverage/
 coverageEnv/
 coverage.json
 logs/
+.mnemonic.js
+.infura_api_key.js

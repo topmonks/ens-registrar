@@ -33,10 +33,10 @@ contract('TopmonksRegistrar', async (accounts) => {
     it("not owner throws", async () => {
       const newResolver = await PublicResolver.new(ens.address);
       try {
-        await subject.setResolver(newResolver.address, { from: accounts[5] })
+        await subject.setResolver(newResolver.address, { from: accounts[5] });
         expect("to throw").to.eq(false);
-      } catch {
-        return
+      } catch (ex) {
+        return;
       }
       expect(true).to.eq(false);
     });
@@ -84,7 +84,7 @@ contract('TopmonksRegistrar', async (accounts) => {
     it("doesnt set new owner", async () => {
       try {
         await subject.register(web3.sha3("test"), accounts[4], { from: accounts[4] });
-      } catch {
+      } catch (ex) {
       } finally {
         expect(await resolver.addr(subdomain)).to.eq(accounts[3]);
       }

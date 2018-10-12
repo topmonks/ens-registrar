@@ -12,6 +12,11 @@ This contracts let's anybody register subdomains of domain it owns through simpl
 - recent nodejs
 - truffle framework
 - some test ETH node, like [Ganache](https://truffleframework.com/ganache/)
+- Infura API Key for deployment to Ropsten (and later to other networks)
+- mnemonic from MetaMask (used in deployment to Ropsten)
+- you will need to create 2 .js files which are gitignored and contain these keys and mnemonic. The files are named `.mnemonic.js` and `.infura_api_key.js` and must be placed in the root directory. They are read from the `truffle.js` file.
+- Example of `.mnemonic.js` is `module.exports = "your mnemonic comes here"`. 
+- Example of `.infura_api_key.js` is `module.exports = "API key comes here"`. 
 
 ```
 npm install -g truffle ganache-cli
@@ -61,6 +66,7 @@ It is possible to turn on verbose logging in Ganage GUI (Requires restart of the
 
 
 ## Tests
+Test require node.js of version 10 and above. If you are using Node Version Manager, make sure, that correct version is selected.
 ```
 ganache-cli > /dev/null &
 truffle test
