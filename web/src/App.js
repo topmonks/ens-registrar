@@ -82,7 +82,7 @@ class App extends Component {
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
 
-    this.setProgress(true, `Registering domain ${domain}`, 'primary');
+    this.setProgress(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
 
     ens.isFree(domain)
       .then((isFree) => {
