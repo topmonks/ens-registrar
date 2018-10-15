@@ -7,3 +7,6 @@ coverage.json
 logs/
 .mnemonic.js
 .infura_api_key.js
+# TODO: Not yet sure about this but probably ok
+# The scripts are copied via 'yarn start' command
+web/src/contracts/*.json

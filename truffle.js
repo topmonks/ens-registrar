@@ -14,12 +14,35 @@ module.exports = {
     },
     ropsten: {
       provider: function() {        
+        // using process.env.MNENOMIC would be safer, but this is test project
         const mnemonic = require('./.mnemonic');
         const apiKey = require('./.infura_api_key');
-        return new HdWalletProvider(mnemonic, 'https://ropsten.infura.io/' + apiKey)
+        return new HdWalletProvider(mnemonic, 'https://ropsten.infura.io/' + apiKey);
       },
       network_id: 3,
       gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
-    }
+    },
+    rinkeby: {
+      provider: function() {        
+        // using process.env.MNENOMIC would be safer, but this is test project
+        const mnemonic = require('./.mnemonic');
+        const apiKey = require('./.infura_api_key');
+        return new HdWalletProvider(mnemonic, 'https://rinkeby.infura.io/' + apiKey);
+      },
+      network_id: 4,
+      gas: 4612388 // Gas limit used for deploys
+    },
+    // Getting KETH Requires SMS verification 
+    kovan: {
+      provider: function() {
+        // using process.env.MNENOMIC would be safer, but this is test project
+        const mnemonic = require('./.mnemonic');
+        const apiKey = require('./.infura_api_key');
+        return new HdWalletProvider(mnemonic, "https://kovan.infura.io/" + apiKey);
+      },
+      network_id: 42,
+      gas: 3000000,
+      gasPrice: 21
+    },
   }
 };

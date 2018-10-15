@@ -10,7 +10,11 @@ class TopmonksRegistrar {
     let node = this.config.web3.utils.sha3(subdomain);
 
     return this.contract.methods.register(node, account)
-      .send({ from: account, gas: '900000' });
+      .send({ 
+        from: account,
+        // gas: '900000' // Seems to be not enough on Ropsten
+        gas: '4700000' // This is the max on Ropsten but it still fails
+       });
   }
 }
 
