@@ -60,6 +60,17 @@ contract('TopmonksRegistrar', async (accounts) => {
     expect(await ens.owner(subnode)).to.eq(accounts[5]);
   });
 
+  it("set subnode owner - from different account that parent owner should not be possible", async () => {
+    try {
+      await subject.setSubnodeOwner(web3.sha3("david"), accounts[5], { from: accounts[5] });
+    }
+    catch (err) {
+      expect(err.message).to.have.string("revert");
+      return;
+    }
+    expect("to throw exception").to.eq(false);
+  });
+
   // describe("ownable", async () => {
   //
   // });
