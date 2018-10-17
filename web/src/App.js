@@ -6,6 +6,8 @@ import TopmonksRegistrar from './lib/TopmonksRegistrar.js';
 import config from './lib/config.js';
 import 'font-awesome/css/font-awesome.min.css';
 
+import { hash as namehash } from "eth-ens-namehash";
+
 
 const ens = new Ens(config);
 // TopMonksRegistrar by se mozna mel prejmenovat proste na Registrar. Pokud chceme, aby se to dalo
@@ -46,14 +48,34 @@ class App extends Component {
       subdomain: '',
       ethCallInProgress: false,
       accounts: [],
-      selectedAccount: '',
+      selectedAccount: ''
     };
   }
 
-  componentDidMount() {
-    config.web3.eth.getAccounts().then(accounts =>
-      this.setState({ accounts, selectedAccount: accounts[0] })
-    );
+  componentDidMount () {
+    config.web3.eth.getAccounts().then(accounts => {
+      this.setState({ accounts, selectedAccount: accounts[0] });
+
+      // Check who is the owner
+      // for some stupid reason the async/await seems not be supported
+      // and on Ganache v6.1.8 the owner seems to be always 0x000...000
+      var ethOwner, topmonksOwner
+      ens.contract.methods.owner(namehash("eth")).call().then(v => {
+        ethOwner = v;
+        console.log('ethOwner', ethOwner);
+      });
+      ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
+        topmonksOwner = v;
+        console.log('topmonksOwner', topmonksOwner);
+      });      
+
+      // Debugging progress of transaction... 
+      // For some reason it appears multiple times for single transaction
+      const events = topmonksRegistrar.debugValue();
+      events.subscribe(function(err, ok) {
+        console.log('Debug event is', ok.returnValues._step, err);
+      });
+    });
   }
 
   setProgress = (ethCallInProgress, msgText, msgType) => {
@@ -87,7 +109,7 @@ class App extends Component {
     ens.isFree(domain)
       .then((isFree) => {
         if (isFree) {
-          topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount)
+          topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, {gas: 50000})
             .on('receipt', (receipt) => {
               this.setProgress(false, `Domain ${domain} has been registered to your address`, 'success');
               e.target.reset();
