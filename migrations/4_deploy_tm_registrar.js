@@ -12,7 +12,7 @@ console.log(' ');
 
 module.exports = async function(deployer, _, accounts) {
 
-  console.log('accounts', accounts);
+  console.log('accounts step 4', accounts);
 
   await deployer.deploy(
     TMRegistrar,
