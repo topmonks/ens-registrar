@@ -1,6 +1,23 @@
 const HdWalletProvider = require('truffle-hdwallet-provider');
 
 module.exports = {
+
+  // Lumir recommends trying to disable optimizer when we get the "out of gas" error
+  solc: {
+    optimizer: {
+      // enabled: true,
+      // runs: 200 // indicates how many times the contract is supposed to run.
+      /**
+       * From https://solidity.readthedocs.io/en/develop/using-the-compiler.html#compiler-input-and-output-json-description
+       * Before you deploy your contract, activate the optimizer when compiling using solc --optimize --bin sourceFile.sol.
+       * By default, the optimizer will optimize the contract assuming it is called 200 times across its lifetime.
+       * If you want the initial contract deployment to be cheaper and the later function executions to be more expensive, set it to --runs=1. 
+       * If you expect many transactions and do not care for higher deployment cost and output size, set --runs to a high number.
+       */
+      enabled: false
+    }
+  },
+
   networks: {
     ganache: {
       host: "127.0.0.1",
