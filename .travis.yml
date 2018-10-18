@@ -3,12 +3,20 @@ node_js:
 - node
 cache:
   directories:
-  - $(npm config get prefix)/lib/node_modules
+  - "$(npm config get prefix)/lib/node_modules"
 before_script:
 - npm install -g truffle solium
 - npm install
 script:
 - solium -d contracts
 - truffle test
-- ./node_modules/.bin/solidity-coverage
+- "./node_modules/.bin/solidity-coverage"
 - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+deploy:
+  provider: s3
+  access_key_id: AKIAIYMKIXJGGEZTJWHQ
+  secret_access_key:
+    secure: 2SlylzFaFzZZotppnA8xZbo7gB6arJy3i0Fdvxqww6iwrN2uZZWaIV4z59ZX6aq2FslnIzWmpephETQbdniX288N57kmAQhd0kyTCl6/qoesjrIAE6ib06Nnff4fTSCNFCXHXcLj/WI8XLWBUlXccy1dgvOXp7hCpzbqmsTnn5kOuWkLnxvq+CfAyHfSly9d4u7GAqwTHCfFAdVN5aDaCgWJfdHJvT3YuTMTjfu0JqIRE+MiRglyEzoXEAvbPeMrfAmOrXRy9avLfKhusZwmLSfi9yxHwmYoRa8JzIFxrq7O2pNwreSMoLtqXPzN67NavMk0oMtmnSJ/i0t2bzohiyrFQwSMaGvRtyaV/4CIgn6pbOgiyfbzWOazxyLTuJUFz+Fqi8Bn84zGChTunoZg+qnhZ55yPquwrbPrxQg86YLgsgTi75cSEZVYuoEgF1WAkwwk9WKgK54vFHPtJAOj1oDFLmcrYUBmNaiNRcfK5A+K/YNK8aD8Ta8rWOLhwSKM275rrnBwfggQaUn1TWxckGjCiD6MrBIaGq6/54m8NbsHU+OjcG/xjDfzUxH5KWN3DP04QpdrHRmwniyXO+bi2PovcOMRZ0mNtBSKzhmcT6tXwwsZG+HpW+/qr4/ouMsjWRe3RaewpaGJAEeK9haGYDpgDX/SpP4s/8ov9Qc/4DA=
+  bucket: ens.topmonks.com
+  acl: public_read
+  local_dir: web/public
