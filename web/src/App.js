@@ -53,7 +53,11 @@ class App extends Component {
   }
 
   componentDidMount () {
-    config.web3.eth.getAccounts().then(accounts => {
+    // using the new API of MetaMask which protects user's privacy
+    // by explicitly calling enable()
+    // see https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
+    window.ethereum.enable().then(accounts => {
+    // config.web3.eth.getAccounts().then(accounts => {
       this.setState({ accounts, selectedAccount: accounts[0] });
 
       // Check who is the owner
@@ -63,11 +67,15 @@ class App extends Component {
       ens.contract.methods.owner(namehash("eth")).call().then(v => {
         ethOwner = v;
         console.log('ethOwner', ethOwner);
+      }).catch(err => {
+        console.error('Getting owner of domain eth failed', err);
       });
       ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
         topmonksOwner = v;
         console.log('topmonksOwner', topmonksOwner);
-      });      
+      }).catch(err => {
+        console.error('Getting owner of domain topmonks.eth failed', err);
+      });;      
 
       // Debugging progress of transaction... 
       // For some reason it appears multiple times for single transaction

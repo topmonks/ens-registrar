@@ -9,7 +9,7 @@ This contracts let's anybody register subdomains of domain it owns through simpl
 ## Development
 ### Dependencies
 
-- recent nodejs (`nvm use`)
+- recent nodejs (`nvm use`) - 10 and above
 - truffle framework
 - some test ETH node, like [Ganache](https://truffleframework.com/ganache/)
 - Infura API Key for deployment to Ropsten (and later to other networks)
@@ -51,6 +51,9 @@ npm install -g truffle ganache-cli
 1. Manually deleting these files and running `truffle migrate` again helps
 
 It is possible to turn on verbose logging in Ganage GUI (Requires restart of the network)
+
+Important info from https://www.npmjs.com/package/ethereum-ens
+setSubnodeOwner sets the owner of the specified name. The calling account must be the owner of the parent name in order for this call to succeed - for example, to call setSubnodeOwner on 'foo.bar.eth', the caller must be the owner of 'bar.eth'.
 
 #### Error - Incorrect nonce
 1. The error description says something like `the tx doesn't have the correct nonce. account has nonce of: 0 tx has nonce of: 18`
