@@ -9,5 +9,7 @@ logs/
 .infura_api_key.js
 # TODO: Not yet sure about this but probably ok
 # The scripts are copied via 'yarn start' command
-web/src/contracts/*.json
+# web/src/contracts/*.json
+# The contracts need to be under version control, otherwise they are not available in S3
+# or not with correct network.address
 commands.js

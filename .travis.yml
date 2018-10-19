@@ -13,8 +13,8 @@ script:
 - truffle test
 - "./node_modules/.bin/solidity-coverage"
 - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-- truffle compile
-- cp -r ./build/contracts ./web/src/contracts
+# - truffle compile
+# - cp -r ./build/contracts ./web/src/contracts
 - npm install --prefix web
 - npm run-script --prefix web build
 deploy:
