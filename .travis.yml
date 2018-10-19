@@ -20,3 +20,5 @@ deploy:
   bucket: "ens.topmonks.com"
   acl: public_read
   local_dir: web/public
+  skip_cleanup: true
+  region: eu-central-1

@@ -6,6 +6,6 @@ module.exports = async function(deployer, _, accounts) {
 
   const ethOwner = await ens.owner(namehash("eth"));
   const topmosksOwner = await ens.owner(namehash("topmonks.eth"));
-  console.log('the owner of eth should be', accounts[0], 'but it is ', ethOwner);
-  console.log('the owner of topmonks.eth should be', accounts[0], 'but it is ', topmosksOwner);
+  console.log('the owner of eth should be is ', ethOwner);
+  console.log('the owner of topmonks.eth is ', topmosksOwner);
 };

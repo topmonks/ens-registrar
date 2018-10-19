@@ -1,5 +1,5 @@
 const namehash = require("eth-ens-namehash").hash;
-
+const web3 = require("web3");
 const TMRegistrar = artifacts.require("TopmonksRegistrar");
 const ENS = artifacts.require("ENSRegistry");
 const PublicResolver = artifacts.require("PublicResolver");
@@ -10,12 +10,13 @@ contract('TopmonksRegistrar', async (accounts) => {
   const contractOwner = accounts[1];
 
   let ens, resolver, subject;
+  // Does not work with Truffle 5 Beta
   beforeEach(async () => {
     ens = await ENS.new();
     resolver = await PublicResolver.new(ens.address);
     subject = await TMRegistrar.new(tmNode, ens.address, resolver.address, { from: contractOwner });
-    await ens.setSubnodeOwner('0x0', web3.sha3("eth"), accounts[1]);
-    await ens.setSubnodeOwner(rootNode, web3.sha3("topmonks"), subject.address, { from: contractOwner });
+    await ens.setSubnodeOwner('0x0', web3.utils.sha3("eth"), accounts[1]);
+    await ens.setSubnodeOwner(rootNode, web3.utils.sha3("topmonks"), subject.address, { from: contractOwner });
   })
 
   it("owns topmonks.eth", async () => {
@@ -56,13 +57,14 @@ contract('TopmonksRegistrar', async (accounts) => {
 
   it("set subnode owner", async () => {
     const subnode = namehash("mnouk.topmonks.eth");
-    await subject.setSubnodeOwner(web3.sha3("mnouk"), accounts[5], { from: contractOwner });
+    await subject.setSubnodeOwner(web3.utils.sha3("mnouk"), accounts[5], { from: contractOwner });
     expect(await ens.owner(subnode)).to.eq(accounts[5]);
   });
 
   it("set subnode owner - from different account that parent owner should not be possible", async () => {
     try {
-      await subject.setSubnodeOwner(web3.sha3("david"), accounts[5], { from: accounts[5] });
+      // contractOwner is accounts[1]
+      await subject.setSubnodeOwner(web3.utils.sha3("david"), accounts[5], { from: accounts[5] });
     }
     catch (err) {
       expect(err.message).to.have.string("revert");
@@ -79,7 +81,7 @@ contract('TopmonksRegistrar', async (accounts) => {
     const subdomain = namehash("test.topmonks.eth");
 
     beforeEach(async () => {
-      await subject.register(web3.sha3("test"), accounts[3], { from: accounts[3] });
+      await subject.register(web3.utils.sha3("test"), accounts[3], { from: accounts[3] });
     });
 
     it("sets domain owner", async () => {
@@ -94,7 +96,7 @@ contract('TopmonksRegistrar', async (accounts) => {
 
     it("doesnt set new owner", async () => {
       try {
-        await subject.register(web3.sha3("test"), accounts[4], { from: accounts[4] });
+        await subject.register(web3.utils.sha3("test"), accounts[4], { from: accounts[4] });
       } catch (ex) {
       } finally {
         expect(await resolver.addr(subdomain)).to.eq(accounts[3]);
@@ -103,7 +105,7 @@ contract('TopmonksRegistrar', async (accounts) => {
 
     it("reverts when already registered", async () => {
       try {
-        await subject.register(web3.sha3("test"), accounts[4], { from: accounts[4] });
+        await subject.register(web3.utils.sha3("test"), accounts[4], { from: accounts[4] });
       } catch (err) {
         expect(err.message).to.have.string("revert");
         return;
