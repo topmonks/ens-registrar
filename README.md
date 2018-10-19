@@ -5,6 +5,13 @@ This contracts let's anybody register subdomains of domain it owns through simpl
 ## API
 
 ## Deployment
+Production application lives on AWS S3 on address ens.topmonks.com
+The public bucket address is http://ens.topmonks.com.s3-website.eu-central-1.amazonaws.com
+The deployment is done via Travis CI
+but it requires that `src/contracts` are under version control. Otherwise we would not have correct `network.address` in the contract files. We could call `truffle compile` from within Travis, but we definitely do not want to deploy from Travis. 
+So be very careful with the content of `src/contracts` which you push to master branch.
+
+For some reason the credentials for AWS S3 can not be stored in Travis file, even when they are encrypted, because calling `travis encrypt --add" always generates different value. Which is weird, it should be the same value, when calculated from the same input. For that reason the credentials are stored in Travis as environment variables.
 
 ## Development
 ### Dependencies
