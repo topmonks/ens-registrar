@@ -4,6 +4,7 @@ node_js:
 cache:
   directories:
   - "$(npm config get prefix)/lib/node_modules"
+  - "$(npm config get prefix)/web/node_modules"
 before_script:
 - npm install -g truffle solium
 - npm install
@@ -12,13 +13,14 @@ script:
 - truffle test
 - "./node_modules/.bin/solidity-coverage"
 - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+- npm run-script --prefix web build
 deploy:
   provider: s3
   access_key_id: AKIAIYMKIXJGGEZTJWHQ
   secret_access_key:
-    secure: 2SlylzFaFzZZotppnA8xZbo7gB6arJy3i0Fdvxqww6iwrN2uZZWaIV4z59ZX6aq2FslnIzWmpephETQbdniX288N57kmAQhd0kyTCl6/qoesjrIAE6ib06Nnff4fTSCNFCXHXcLj/WI8XLWBUlXccy1dgvOXp7hCpzbqmsTnn5kOuWkLnxvq+CfAyHfSly9d4u7GAqwTHCfFAdVN5aDaCgWJfdHJvT3YuTMTjfu0JqIRE+MiRglyEzoXEAvbPeMrfAmOrXRy9avLfKhusZwmLSfi9yxHwmYoRa8JzIFxrq7O2pNwreSMoLtqXPzN67NavMk0oMtmnSJ/i0t2bzohiyrFQwSMaGvRtyaV/4CIgn6pbOgiyfbzWOazxyLTuJUFz+Fqi8Bn84zGChTunoZg+qnhZ55yPquwrbPrxQg86YLgsgTi75cSEZVYuoEgF1WAkwwk9WKgK54vFHPtJAOj1oDFLmcrYUBmNaiNRcfK5A+K/YNK8aD8Ta8rWOLhwSKM275rrnBwfggQaUn1TWxckGjCiD6MrBIaGq6/54m8NbsHU+OjcG/xjDfzUxH5KWN3DP04QpdrHRmwniyXO+bi2PovcOMRZ0mNtBSKzhmcT6tXwwsZG+HpW+/qr4/ouMsjWRe3RaewpaGJAEeK9haGYDpgDX/SpP4s/8ov9Qc/4DA=
-  bucket: "ens.topmonks.com"
+    secure: TaxbQx5Oq8cjJK66paubt6/tAmn1fkhcgjXoJfGTzBHvRRBf4DBrcf+gSkDCexqrGCAD2Gkc/rs1O4uzes0JIuEhXLCHHCBMleFx1btpIJd4cpISRXaN4dY8Fbo54sEk9SbsSa5EnzEW8Z2htPYacMaR+eR052S6AGWWGtVIF26QX+SJPy6yRxE3/UtC7QClVUYq4Ul8PYL1Cklp5PRzx9oV890ikVTIYAPEhmVe+XCrSgqcp90TIZ1Op2GTQeviRV/o8l1tsWTSD91QMvc0UUEQDyur8v05qg+fVLxn1HaVzjC2PjDp45ZjCgNUgzsc/QbgK7BMPmQhHUHJv1u2H6GmQncbdr7p0/bpvTwYwiowsMMXZ8aU4E9aE97wQxKrgYxOA6uaNw1x8Ss4d+9SmaoUOOiXEEqqs06vGO33rR5942Fx4zu2VKxtcU8FFppcKHGLQh2PolpGerw9YuN8sNjalabjBhuBCyfUZuQtD+doKRbxxC0nxvJWkDXtv32dbwLUMhL5o6ESwNVVzA+Nw1ss2G3YZdNOik4mWmw+fgH1sHWBaRscvKSpy1LEwZAh8Gd8Cu38ICZGWIFuZP31ED5VqHTWBLmOpzzfWlgCxanWWVRLw0183WOhOI+zxNAaxrIlgxl3XjEcomEa/CML7aRr5UAldNxtYZrlKCZA5LM=
+  bucket: ens.topmonks.com
   acl: public_read
-  local_dir: web/public
+  local_dir: web/build
   skip_cleanup: true
   region: eu-central-1
