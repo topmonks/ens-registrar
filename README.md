@@ -24,23 +24,23 @@ The migration steps which commonly fail are 5-6-7. Which translates to these com
 So to perform the manual migration, do this:
 - travis console --network [ropsten|rinkeby]
 - Steps for #5:
--- const namehash = require("eth-ens-namehash").hash;
--- let ens;
--- ENSRegistry.deployed().then(function(instance) {ens = instance});
--- let accounts = web3.eth.getAccounts();
--- ens.setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), accounts[0]);
--- copy the transaction hash and check its status on [networkname].etherscan.io
+    - const namehash = require("eth-ens-namehash").hash;
+    - let ens;
+    - ENSRegistry.deployed().then(function(instance) {ens = instance});
+    - let accounts = web3.eth.getAccounts();
+    - ens.setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), accounts[0]);
+    - copy the transaction hash and check its status on [networkname].etherscan.io
 - Steps for #6:
--- let tm;
--- TopmonksRegistry.deployed().then(function(instance) {tm = instance});
--- ens.setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), tm.address);
--- copy the transaction hash and check its status on [networkname].etherscan.io
+    - let tm;
+    - TopmonksRegistry.deployed().then(function(instance) {tm = instance});
+    - ens.setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), tm.address);
+    - copy the transaction hash and check its status on [networkname].etherscan.io
 - Steps for #7:
--- ens.owner(namehash("eth")); // should print some address, if it prints 0x000...000 then the owner is not set
--- ens.owner(namehash("topmonks.eth"));  // should print some address, if it prints 0x000...000 then the owner is not set
+    - ens.owner(namehash("eth")); // should print some address, if it prints 0x000...000 then the owner is not set
+    - ens.owner(namehash("topmonks.eth"));  // should print some address, if it prints 0x000...000 then the owner is not set
 - run web:
--- yarn start
--- try to register some subdomain on given network
+    - yarn start
+    - try to register some subdomain on given network
 
 ## Development
 ### Dependencies
