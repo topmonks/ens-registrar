@@ -30,6 +30,16 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     ropsten: {
+      // "provider" is for Infura
+      // "host" is for Geth
+      // Ropsten is refered to as "testnet" in Geth
+      host: "localhost",
+      port: 8888, // post is specified in the "geth.exe shortcut on my desktop" - like this "C:\Program Files\Geth\geth.exe" -syncmode light --testnet --rpc --rpcport 8888 --rpcapi db,eth,net,web3,personal
+      from: "0x57fE0D17CA12cceD8931742EFd0503488B446AfA", // default account, copied from my MetaMask
+      network_id: 3,
+      gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
+    },
+    ropsten_infura: {
       provider: function() {        
         // using process.env.MNENOMIC would be safer, but this is test project
         const mnemonic = require('./.mnemonic');
@@ -40,15 +50,25 @@ module.exports = {
       gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
     },
     rinkeby: {
+      // "provider" is for Infura
+      // "host" is for Geth
+      host: "localhost",
+      port: 9999, // post is specified in the "geth.exe shortcut on my desktop" - like this "C:\Program Files\Geth\geth.exe" -syncmode light --rinkeby --rpc --rpcport 9999 --rpcapi db,eth,net,web3,personal --unlock="0x57fE0D17CA12cceD8931742EFd0503488B446AfA"
+      from: "0x57fE0D17CA12cceD8931742EFd0503488B446AfA", // default account, copied from my MetaMask
+      network_id: 4,      
+      gas: 4612388 // Gas limit used for deploys
+    },
+    rinkeby_infura: {
       provider: function() {        
         // using process.env.MNENOMIC would be safer, but this is test project
         const mnemonic = require('./.mnemonic');
         const apiKey = require('./.infura_api_key');
         return new HdWalletProvider(mnemonic, 'https://rinkeby.infura.io/' + apiKey);
       },
-      network_id: 4,
+      network_id: 4,      
       gas: 4612388 // Gas limit used for deploys
     },
+
     // Getting KETH Requires SMS verification 
     kovan: {
       provider: function() {

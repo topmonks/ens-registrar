@@ -13,6 +13,35 @@ So be very careful with the content of `src/contracts` which you push to master 
 
 For some reason the credentials for AWS S3 can not be stored in Travis file, even when they are encrypted, because calling `travis encrypt --add" always generates different value. Which is weird, it should be the same value, when calculated from the same input. For that reason the credentials are stored in Travis as environment variables.
 
+### Deployment to ETH Network
+Most often the deployment via Truffle migrate scripts fails when deploying to public testnest. Errors are random, but repeated. But if you try the exact same steps in the truffle console, then it works. It is frustrating, to say the least. So I "migrate manually" but then truffle can not correctly track the deployed migrations. It uses really simple mechanism. Every deployed migration increments the internal counter, so that truffle knows which migration script is the next one. Each migration script must be prefixed with incrementing numbers.
+
+The migration steps which commonly fail are 5-6-7. Which translates to these commands:
+- #5: ens.setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), accounts[0])
+- #6: ens.setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), tm.address)
+- #7: check that the owner is correctly set
+
+So to perform the manual migration, do this:
+- travis console --network [ropsten|rinkeby]
+- Steps for #5:
+-- const namehash = require("eth-ens-namehash").hash;
+-- let ens;
+-- ENSRegistry.deployed().then(function(instance) {ens = instance});
+-- let accounts = web3.eth.getAccounts();
+-- ens.setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), accounts[0]);
+-- copy the transaction hash and check its status on [networkname].etherscan.io
+- Steps for #6:
+-- let tm;
+-- TopmonksRegistry.deployed().then(function(instance) {tm = instance});
+-- ens.setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), tm.address);
+-- copy the transaction hash and check its status on [networkname].etherscan.io
+- Steps for #7:
+-- ens.owner(namehash("eth")); // should print some address, if it prints 0x000...000 then the owner is not set
+-- ens.owner(namehash("topmonks.eth"));  // should print some address, if it prints 0x000...000 then the owner is not set
+- run web:
+-- yarn start
+-- try to register some subdomain on given network
+
 ## Development
 ### Dependencies
 
