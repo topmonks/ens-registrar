@@ -3,6 +3,7 @@ const namehash = require("eth-ens-namehash").hash;
 const ENS = artifacts.require("ENSRegistry");
 const PublicResolver = artifacts.require("PublicResolver");
 const TMRegistrar = artifacts.require("TopmonksRegistrar");
+const web3 = require("web3");
 
 console.log(' ');
 console.log('Check the address');
