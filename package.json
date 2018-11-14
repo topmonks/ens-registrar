@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/truffle test",
+    "ganache": "./node_modules/.bin/ganache-cli -p 7545"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
   },
   "devDependencies": {
     "solidity-coverage": "^0.5.5",
-    "solium": "^1.1.8"
+    "solium": "^1.1.8",
+    "truffle": "^4.1.14",
+    "ganache-cli": "^6.1.8"
   }
 }
