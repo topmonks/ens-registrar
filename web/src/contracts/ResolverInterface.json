@@ -114,9 +114,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.18;\r\n\r\ncontract ResolverInterface {\r\n    function PublicResolver(address ensAddr) public;\r\n    function setAddr(bytes32 node, address addr) public;\r\n    function setHash(bytes32 node, bytes32 hash) public;\r\n    function addr(bytes32 node) public view returns (address);\r\n    function hash(bytes32 node) public view returns (bytes32);\r\n    function supportsInterface(bytes4 interfaceID) public pure returns (bool);\r\n}\r\n",
-  "sourcePath": "C:\\src\\Personal\\ens-registrar\\lib\\ResolverInterface.sol",
+  "sourcePath": "C:\\src\\personal\\ens-registrar\\lib\\ResolverInterface.sol",
   "ast": {
-    "absolutePath": "/C/src/Personal/ens-registrar/lib/ResolverInterface.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/lib/ResolverInterface.sol",
     "exportedSymbols": {
       "ResolverInterface": [
         1089
@@ -626,7 +626,7 @@
     "src": "0:439:6"
   },
   "legacyAST": {
-    "absolutePath": "/C/src/Personal/ens-registrar/lib/ResolverInterface.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/lib/ResolverInterface.sol",
     "exportedSymbols": {
       "ResolverInterface": [
         1089
@@ -1141,5 +1141,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-19T08:53:38.230Z"
+  "updatedAt": "2018-12-03T09:29:28.173Z"
 }

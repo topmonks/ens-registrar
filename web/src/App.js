@@ -75,13 +75,6 @@ class App extends Component {
         console.log('topmonksOwner', topmonksOwner);
       }).catch(err => {
         console.error('Getting owner of domain topmonks.eth failed', err);
-      });;      
-
-      // Debugging progress of transaction... 
-      // For some reason it appears multiple times for single transaction
-      const events = topmonksRegistrar.debugValue();
-      events.subscribe(function(err, ok) {
-        console.log('Debug event is', ok.returnValues._step, err);
       });
     });
   }

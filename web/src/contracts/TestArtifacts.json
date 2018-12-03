@@ -8,14 +8,14 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058205ffa3d75d6d73f4431dd9b29cffa3fdb9ef07c162517da9b33b0cadd0316641a0029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a723058205ffa3d75d6d73f4431dd9b29cffa3fdb9ef07c162517da9b33b0cadd0316641a0029",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582008982dd00e276067bcecc80cbdfe9f6ad859a2b7b9eb392aec3bde9f2a9137ae0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a7230582008982dd00e276067bcecc80cbdfe9f6ad859a2b7b9eb392aec3bde9f2a9137ae0029",
   "sourceMap": "73:49:1:-;;;103:16;8:9:-1;5:2;;;30:1;27;20:12;5:2;103:16:1;73:49;;;;;;",
   "deployedSourceMap": "73:49:1:-;;;;;",
   "source": "import \"../lib/ENSRegistry.sol\";\r\nimport \"../lib/PublicResolver.sol\";\r\n\r\ncontract TestArtifacts {\r\n    constructor() {}\r\n}\r\n",
-  "sourcePath": "C:\\src\\Personal\\ens-registrar\\contracts\\TestArtifacts.sol",
+  "sourcePath": "C:\\src\\personal\\ens-registrar\\contracts\\TestArtifacts.sol",
   "ast": {
-    "absolutePath": "/C/src/Personal/ens-registrar/contracts/TestArtifacts.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/contracts/TestArtifacts.sol",
     "exportedSymbols": {
       "TestArtifacts": [
         64
@@ -25,7 +25,7 @@
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "absolutePath": "/C/src/Personal/ens-registrar/lib/ENSRegistry.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/ENSRegistry.sol",
         "file": "../lib/ENSRegistry.sol",
         "id": 58,
         "nodeType": "ImportDirective",
@@ -36,7 +36,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/src/Personal/ens-registrar/lib/PublicResolver.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/PublicResolver.sol",
         "file": "../lib/PublicResolver.sol",
         "id": 59,
         "nodeType": "ImportDirective",
@@ -101,7 +101,7 @@
     "src": "0:124:1"
   },
   "legacyAST": {
-    "absolutePath": "/C/src/Personal/ens-registrar/contracts/TestArtifacts.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/contracts/TestArtifacts.sol",
     "exportedSymbols": {
       "TestArtifacts": [
         64
@@ -111,7 +111,7 @@
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "absolutePath": "/C/src/Personal/ens-registrar/lib/ENSRegistry.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/ENSRegistry.sol",
         "file": "../lib/ENSRegistry.sol",
         "id": 58,
         "nodeType": "ImportDirective",
@@ -122,7 +122,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/src/Personal/ens-registrar/lib/PublicResolver.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/PublicResolver.sol",
         "file": "../lib/PublicResolver.sol",
         "id": 59,
         "nodeType": "ImportDirective",
@@ -192,5 +192,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-19T08:53:38.220Z"
+  "updatedAt": "2018-12-03T09:29:28.158Z"
 }
