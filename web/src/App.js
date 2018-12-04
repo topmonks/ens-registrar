@@ -44,6 +44,8 @@ class App extends Component {
     super(props);
 
     this.state = {
+      minimumLength: 7,
+      isValid: false,
       message: null,
       subdomain: '',
       ethCallInProgress: false,
@@ -103,6 +105,10 @@ class App extends Component {
     e.preventDefault();
     e.persist();
 
+    if (this.getIsValid()) {
+      return;
+    }
+
     let domain = `${this.state.subdomain}.topmonks.eth`;
 
     this.setProgress(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
@@ -135,6 +141,11 @@ class App extends Component {
     this.setState({ selectedAccount: event.target.value });
   }
 
+  getIsValid = () => {
+    const isValid = !!this.state.subdomain && this.state.subdomain.trim().length >= this.state.minimumLength;
+    this.setState({ isValid });
+  }
+
   render() {
     let disabled = this.state.ethCallInProgress === true;
 
@@ -154,7 +165,7 @@ class App extends Component {
           <div>
             <form onSubmit={ this.registerSubdomain }>
               <div className="form-group">
-                <label htmlFor="addressSelect">Address</label>
+                <label htmlFor="addressSelect">Your Account Address</label>
                 <select 
                   className="form-control" 
                   id="addressSelect"
@@ -183,13 +194,15 @@ class App extends Component {
                       pattern="[a-zA-Z0-9-_]*"
                       required="true"
                       value={this.state.subdomain}
-                      onChange={event => { this.setState({ subdomain: event.target.value }) }} />
+                      onChange={event => { this.setState({ subdomain: event.target.value }); this.getIsValid() }}
+                      onBlur={event => this.getIsValid()}
+                      />
 
                     <div className="input-group-append">
                       <span className="input-group-text">.topmonks.eth</span>
                     </div>
                   </div>
-                    <small className="form-text text-muted">Only letters, numbers, dash or underscore</small>
+                    <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
                 </fieldset>
               </div>
 
@@ -197,7 +210,7 @@ class App extends Component {
                 <button
                   className="btn btn-block btn-primary"
                   type="submit"
-                >Register!</button>
+                  disabled={!this.state.isValid || disabled}>Register!</button>
               </div>
             </form>
           </div>
