@@ -19,6 +19,7 @@ module.exports = async function(deployer, _, accounts) {
   console.log(`Step 4, gas price is ${gasPrice}`);
 
   try {
+    // pass constructor arguments to TMRegistrar
     await deployer.deploy(
       TMRegistrar,
       namehash("topmonks.eth"),
