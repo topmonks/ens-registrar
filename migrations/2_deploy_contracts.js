@@ -6,28 +6,40 @@ const Web3 = require("web3");
 
 module.exports = async function(deployer, _, accounts) {
   try {
+
+    // In order to succesfully register subdomain via TMRegistrar,
+    // the owner of TMRegistrar must the same as owner of the "topmonks.eth" domain
+    // registered in the public (3rd party for us) ENS Registrar.
+    // Then anyone can register subdomain as long as it is not already taken.
+
     const config = {
-      network: 'ganache_cli', // ganache_cli | ropsten | mainnet
-      deployENS: false, // default false
-      createResolver: false, // default false
-      createRegistrar: false, // default false
-      registerDomain: false, // default false. Should be true when we also createRegistrar is true
+      network: 'ropsten', // ganache_cli | ropsten | mainnet
+      deployENS: false, // default false. If false, it is read from the addresses/[network].js file
+      createResolver: true, // default false. If false, it is read from the addresses/[network].js file
+      createTopmonksRegistrar: true, // default false. If false, it is read from the addresses/[network].js file
+      // registerTopmonksDomain should be false in all networks except local Ganache. Otherwise it will fail, when already registered
+      registerTopmonksDomain: true, // default false. Should be true when we also createTopmonksRegistrar is true. Registers topmonks.eth
       registerSubdomain: true, // default true
       
-      gasPrice: Web3.utils.toWei('30', 'gwei')
+      gasPrice: Web3.utils.toWei('30', 'gwei'),
+      // to simulate that owner of ENS is different than the owner of TM Domain
+      ensOwner: accounts[1],
+      topmonksAccount: accounts[0]
     };
 
     const addresses = require("../addresses/" + config.network);    
 
     let ensAddress = addresses.ensAddress;
     let resolverAddress = addresses.resolverAddress;
-    let registrarAddress = addresses.registrarAddress;
+    let topmonksRegistrarAddress = addresses.registrarAddress;
 
     /////////////////////////////
     // step 1
     /////////////////////////////
     if (config.deployENS) {
-      await deployer.deploy(ENS);
+      await deployer.deploy(ENS, {
+        from: config.ensOwner
+      });
 
       let ens = await ENS.deployed();
       console.log('ENS.address', ens.address);
@@ -36,62 +48,101 @@ module.exports = async function(deployer, _, accounts) {
       // Set root subnode owner, seems like requirement (commands.js)
       const ensContract = new web3.eth.Contract(ENS.abi, ensAddress);
       await ensContract.methods
-        .setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), accounts[1])
-        .send({ from: accounts[0] });
+        .setSubnodeOwner(namehash(''), web3.utils.sha3("eth"), config.ensOwner)
+        .send({ from: config.ensOwner });
+
+      console.log('ETH root registered');
     }
 
     /////////////////////////////
     // step 2
     /////////////////////////////
     if (config.createResolver) {
+      console.log('Creating topmonks instance of PublicResolver');
       await deployer.deploy(PublicResolver, ensAddress, {
         gas: 4000000,
-        from: accounts[0]
+        from: config.ensOwner
       });
 
       let resolver = await PublicResolver.deployed();
-      console.log('PublicResolver.address', resolver.address);
+      console.log('PublicResolver created on address', resolver.address);
       resolverAddress = resolver.address;
     }    
 
     /////////////////////////////
     // step 3
     /////////////////////////////
-    if (config.createRegistrar) {
-      // pass constructor arguments to TMRegistrar
+    if (config.createTopmonksRegistrar) {
+      // Docs:
+      // A registrar is simply a smart contract that owns a domain, and issues subdomains of that domain to users 
+      // that follow some set of rules defined in the contract.
+      //
+      // Pass constructor arguments to TMRegistrar
       await deployer.deploy(
         TMRegistrar,
         namehash("topmonks.eth"),
         ensAddress,
         resolverAddress,
         { 
-          // from: accounts[0],
-          from: accounts[1], // "1" is used in commands.js which works
+          from: config.topmonksAccount,
           gas: 4000000,
           gasPrice: config.gasPrice
         }
       );
 
       let registrar = await TMRegistrar.deployed();
-      registrarAddress = registrar.address
+      topmonksRegistrarAddress = registrar.address
       console.log('TM Registrar.address', registrar.address);
     }
 
     /////////////////////////////
     // step 4 - register topmonks eth domain
     /////////////////////////////
-
-    if (config.registerDomain) {
+    if (config.registerTopmonksDomain) {
       console.log('registering domain topmonks.eth');
+
       let ens = new web3.eth.Contract(ENS.abi, ensAddress);
-      await ens.methods
-        .setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), registrarAddress)
-        .send({ 
-          // from: accounts[1], // Why was here second account in a row? And why I see only 1 item in the accounts array?
-          from: accounts[1],
-          gas: 4000000,
-          gasPrice: config.gasPrice
-      });
+
+      // Check if given domain is already registered
+      // if it is, then this step will fail
+      const ownerOfTopmonksDomain = await ens.methods.owner(namehash('topmonks.eth')).call();
+      console.log('Current owner of topmonks.eth is', ownerOfTopmonksDomain);
+
+      if (ownerOfTopmonksDomain.indexOf('0x00000') !== 0) {
+        console.log('-------------------------------------------------');
+        console.log('domain topmonks.eth is already registered in ENS');
+        console.log('Only its owner can call the ens.setSubnodeOwner() and assign the topmonksRegistrarAddress as its owner');
+        console.log('-------------------------------------------------');
+
+        if (accounts[0] != ownerOfTopmonksDomain) {
+          console.log('Exiting ...');
+          throw new Error("Truffle ignores return, throwing Error instead");
+          return;
+        }
+      }
+      else {
+        // This results in Invalid JUMP in Ropsten even when the domain is actually free.
+        // Because we would have to be the actual owners of the eth node.
+        const ownerOfEth = await ens.methods.owner(namehash('eth')).call();
+        if (ownerOfEth != accounts[0]) {
+          console.log('');
+          console.log('Can not register domain under the .eth because the owner of .eth is ', ownerOfEth);
+          console.log('This because most likely we not on private testnet, but on ', config.network);
+          console.log('');
+
+          throw new Error("Truffle ignores return, throwing Error instead");
+          return;
+        }
+
+        await ens.methods
+          .setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), topmonksRegistrarAddress)
+          .send({ 
+            from: accounts[0],
+            gas: 4000000,
+            gasPrice: config.gasPrice
+        });
+      }
+
       console.log('Domain topmonks.eth registered');
     }
 
@@ -107,29 +158,24 @@ module.exports = async function(deployer, _, accounts) {
       console.table({
         ensAddress,
         resolverAddress,
-        registrarAddress
+        topmonksRegistrarAddress
       });
 
       const testDomain = 'a' + (new Date()).getTime().toString();
       const fullname = testDomain + '.topmonks.eth';
-      console.log('testDomain', testDomain, 'fullname', fullname);
-  
+      console.log('testDomain is', testDomain, ' and fullname is', fullname);  
       const hashedDomain = web3.utils.sha3(testDomain);
-      console.log('hashedDomain', hashedDomain);
   
-      // Note: It should not matter if I use the "already deployed contract" or "contract from address" approach
-      const tmRegistrarContract = new web3.eth.Contract(TMRegistrar.abi, registrarAddress);
+      const tmRegistrarContract = new web3.eth.Contract(TMRegistrar.abi, topmonksRegistrarAddress);
       const ensContract = new web3.eth.Contract(ENS.abi, ensAddress);
       console.log('contract tmRegistrarContract', tmRegistrarContract.options.address);
   
       const gasPrice = Web3.utils.toWei('60', 'gwei');
-      // Note: we register just he subdomain name -- web3.utils.sha3(subdomain)
+      // Note: we register just the subdomain name -- web3.utils.sha3(subdomain)
       // then we ask for the fullname -- ens.owner(subdomain.domain.eth)
   
-      const subdomainOwnerAddress = accounts[1];
-      console.log('tmRegistrarContract.methods.register', tmRegistrarContract.methods.register);
-      // console.log('tmRegistrarContract.methods.register()', tmRegistrarContract.methods.register(hashedDomain, accounts[0]));
-      console.log('my account is', accounts[0], subdomainOwnerAddress);
+      const subdomainOwnerAddress = accounts[2];
+      console.log('my account is', accounts[0], 'the subdomain owner will be', subdomainOwnerAddress);
   
       // For some obscure reason, this transaction reverts
       const txReceipt = await tmRegistrarContract.methods
