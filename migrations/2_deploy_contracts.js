@@ -18,8 +18,8 @@ module.exports = async function(deployer, _, accounts) {
       createResolver: true, // default false. If false, it is read from the addresses/[network].js file
       createTopmonksRegistrar: true, // default false. If false, it is read from the addresses/[network].js file
       // registerTopmonksDomain should be false in all networks except local Ganache. Otherwise it will fail, when already registered
-      registerTopmonksDomain: true, // default false. Should be true when we also createTopmonksRegistrar is true. Registers topmonks.eth
-      registerSubdomain: true, // default true
+      registerTopmonksDomain: false, // default false. Should be true when we also createTopmonksRegistrar is true. Registers topmonks.eth
+      registerSubdomain: false, // default true
       
       gasPrice: Web3.utils.toWei('30', 'gwei'),
       // to simulate that owner of ENS is different than the owner of TM Domain
@@ -32,6 +32,9 @@ module.exports = async function(deployer, _, accounts) {
     let ensAddress = addresses.ensAddress;
     let resolverAddress = addresses.resolverAddress;
     let topmonksRegistrarAddress = addresses.registrarAddress;
+
+    console.log('Accounts are:');
+    console.table(accounts);
 
     /////////////////////////////
     // step 1
@@ -61,7 +64,8 @@ module.exports = async function(deployer, _, accounts) {
       console.log('Creating topmonks instance of PublicResolver');
       await deployer.deploy(PublicResolver, ensAddress, {
         gas: 4000000,
-        from: config.ensOwner
+        // from: config.ensOwner // seems not be available on Ropsten
+        from: config.topmonksAccount
       });
 
       let resolver = await PublicResolver.deployed();
@@ -124,7 +128,7 @@ module.exports = async function(deployer, _, accounts) {
         // This results in Invalid JUMP in Ropsten even when the domain is actually free.
         // Because we would have to be the actual owners of the eth node.
         const ownerOfEth = await ens.methods.owner(namehash('eth')).call();
-        if (ownerOfEth != accounts[0]) {
+        if (ownerOfEth != accounts[1]) {
           console.log('');
           console.log('Can not register domain under the .eth because the owner of .eth is ', ownerOfEth);
           console.log('This because most likely we not on private testnet, but on ', config.network);

@@ -8,12 +8,12 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582008982dd00e276067bcecc80cbdfe9f6ad859a2b7b9eb392aec3bde9f2a9137ae0029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a7230582008982dd00e276067bcecc80cbdfe9f6ad859a2b7b9eb392aec3bde9f2a9137ae0029",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820e64d60158ac1cd6ac8a5c62b6c5412cdcc714617128ed0bcc3882f2078e99bf10029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820e64d60158ac1cd6ac8a5c62b6c5412cdcc714617128ed0bcc3882f2078e99bf10029",
   "sourceMap": "73:49:1:-;;;103:16;8:9:-1;5:2;;;30:1;27;20:12;5:2;103:16:1;73:49;;;;;;",
   "deployedSourceMap": "73:49:1:-;;;;;",
   "source": "import \"../lib/ENSRegistry.sol\";\r\nimport \"../lib/PublicResolver.sol\";\r\n\r\ncontract TestArtifacts {\r\n    constructor() {}\r\n}\r\n",
-  "sourcePath": "C:\\src\\personal\\ens-registrar\\contracts\\TestArtifacts.sol",
+  "sourcePath": "C:/src/personal/ens-registrar/contracts/TestArtifacts.sol",
   "ast": {
     "absolutePath": "/C/src/personal/ens-registrar/contracts/TestArtifacts.sol",
     "exportedSymbols": {
@@ -30,7 +30,7 @@
         "id": 58,
         "nodeType": "ImportDirective",
         "scope": 65,
-        "sourceUnit": 539,
+        "sourceUnit": 511,
         "src": "0:32:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -41,7 +41,7 @@
         "id": 59,
         "nodeType": "ImportDirective",
         "scope": 65,
-        "sourceUnit": 1047,
+        "sourceUnit": 1019,
         "src": "34:35:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -116,7 +116,7 @@
         "id": 58,
         "nodeType": "ImportDirective",
         "scope": 65,
-        "sourceUnit": 539,
+        "sourceUnit": 511,
         "src": "0:32:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -127,7 +127,7 @@
         "id": 59,
         "nodeType": "ImportDirective",
         "scope": 65,
-        "sourceUnit": 1047,
+        "sourceUnit": 1019,
         "src": "34:35:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -188,9 +188,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-12-03T09:29:28.158Z"
+  "schemaVersion": "3.0.0-beta.1",
+  "updatedAt": "2018-12-07T09:37:44.824Z"
 }
