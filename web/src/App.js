@@ -44,7 +44,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      minimumLength: 7,
+      minimumLength: 1,
       isValid: false,
       message: null,
       subdomain: '',
@@ -105,7 +105,9 @@ class App extends Component {
     e.preventDefault();
     e.persist();
 
-    if (this.getIsValid()) {
+    debugger
+    if (this.checkValidity(this.state.subdomain) === false) {
+      console.log('domain name is not valid');
       return;
     }
 
@@ -141,9 +143,15 @@ class App extends Component {
     this.setState({ selectedAccount: event.target.value });
   }
 
-  getIsValid = () => {
-    const isValid = !!this.state.subdomain && this.state.subdomain.trim().length >= this.state.minimumLength;
+  checkValidity = (subdomain) => {
+    const isValid = !!subdomain && subdomain.trim().length >= this.state.minimumLength;
     this.setState({ isValid });
+    return isValid;
+  }
+  
+  handleChange = (event) => {
+    this.setState({ subdomain: event.target.value });
+    this.checkValidity(event.target.value);
   }
 
   render() {
@@ -194,8 +202,7 @@ class App extends Component {
                       pattern="[a-zA-Z0-9-_]*"
                       required="true"
                       value={this.state.subdomain}
-                      onChange={event => { this.setState({ subdomain: event.target.value }); this.getIsValid() }}
-                      onBlur={event => this.getIsValid()}
+                      onChange={this.handleChange}
                       />
 
                     <div className="input-group-append">
