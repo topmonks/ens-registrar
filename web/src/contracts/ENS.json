@@ -212,7 +212,7 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.18;\r\n\r\ninterface ENS {\r\n\r\n    // Logged when the owner of a node assigns a new owner to a subnode.\r\n    event NewOwner(bytes32 indexed node, bytes32 indexed label, address owner);\r\n\r\n    // Logged when the owner of a node transfers ownership to a new account.\r\n    event Transfer(bytes32 indexed node, address owner);\r\n\r\n    // Logged when the resolver for a node changes.\r\n    event NewResolver(bytes32 indexed node, address resolver);\r\n\r\n    // Logged when the TTL of a node changes\r\n    event NewTTL(bytes32 indexed node, uint64 ttl);\r\n\r\n\r\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) public;\r\n    function setResolver(bytes32 node, address resolver) public;\r\n    function setOwner(bytes32 node, address owner) public;\r\n    function setTTL(bytes32 node, uint64 ttl) public;\r\n    function owner(bytes32 node) public view returns (address);\r\n    function resolver(bytes32 node) public view returns (address);\r\n    function ttl(bytes32 node) public view returns (uint64);\r\n\r\n}\r\n",
+  "source": "pragma solidity ^0.4.24;\r\n\r\ninterface ENS {\r\n\r\n    // Logged when the owner of a node assigns a new owner to a subnode.\r\n    event NewOwner(bytes32 indexed node, bytes32 indexed label, address owner);\r\n\r\n    // Logged when the owner of a node transfers ownership to a new account.\r\n    event Transfer(bytes32 indexed node, address owner);\r\n\r\n    // Logged when the resolver for a node changes.\r\n    event NewResolver(bytes32 indexed node, address resolver);\r\n\r\n    // Logged when the TTL of a node changes\r\n    event NewTTL(bytes32 indexed node, uint64 ttl);\r\n\r\n\r\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) public;\r\n    function setResolver(bytes32 node, address resolver) public;\r\n    function setOwner(bytes32 node, address owner) public;\r\n    function setTTL(bytes32 node, uint64 ttl) public;\r\n    function owner(bytes32 node) public view returns (address);\r\n    function resolver(bytes32 node) public view returns (address);\r\n    function ttl(bytes32 node) public view returns (uint64);\r\n\r\n}\r\n",
   "sourcePath": "C:\\src\\personal\\ens-registrar\\lib\\ENS.sol",
   "ast": {
     "absolutePath": "/C/src/personal/ens-registrar/lib/ENS.sol",
@@ -230,7 +230,7 @@
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:3"
@@ -1177,7 +1177,7 @@
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:3"
@@ -2114,5 +2114,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.1",
-  "updatedAt": "2018-12-07T09:37:44.833Z"
+  "updatedAt": "2018-12-11T09:13:25.293Z"
 }
