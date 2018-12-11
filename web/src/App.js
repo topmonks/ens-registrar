@@ -105,7 +105,6 @@ class App extends Component {
     e.preventDefault();
     e.persist();
 
-    debugger
     if (this.checkValidity(this.state.subdomain) === false) {
       console.log('domain name is not valid');
       return;

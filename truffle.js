@@ -29,6 +29,16 @@ module.exports = {
       port: 8545,
       network_id: "*" // Match any network id
     },
+    mainnet: {
+      // must be a thunk, otherwise truffle commands may hang in CI
+      provider: () => {
+        const mnemonic = require('./.mnemonic');
+        const apiKey = require('./.infura_api_key');
+        return new HdWalletProvider(mnemonic, "https://mainnet.infura.io/" + apiKey);
+      },
+      network_id: 1,
+      gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
+    },
     ropsten: {
       // "provider" is for Infura
       // "host" is for Geth

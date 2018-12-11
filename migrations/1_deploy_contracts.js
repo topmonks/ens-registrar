@@ -13,15 +13,15 @@ module.exports = async function(deployer, _, accounts) {
     // Then anyone can register subdomain as long as it is not already taken.
 
     const config = {
-      network: 'ropsten', // ganache_cli | ropsten | mainnet
+      network: 'mainnet', // ganache_cli | ropsten | mainnet
       deployENS: false, // default false. If false, it is read from the addresses/[network].js file
-      createResolver: true, // default false. If false, it is read from the addresses/[network].js file
+      createResolver: false, // default false. If false, it is read from the addresses/[network].js file
       createTopmonksRegistrar: true, // default false. If false, it is read from the addresses/[network].js file
       // registerTopmonksDomain should be false in all networks except local Ganache. Otherwise it will fail, when already registered
       registerTopmonksDomain: false, // default false. Should be true when we also createTopmonksRegistrar is true. Registers topmonks.eth
       registerSubdomain: false, // default true
       
-      gasPrice: Web3.utils.toWei('30', 'gwei'),
+      gasPrice: Web3.utils.toWei('10', 'gwei'),
       // to simulate that owner of ENS is different than the owner of TM Domain
       ensOwner: accounts[1],
       topmonksAccount: accounts[0]
