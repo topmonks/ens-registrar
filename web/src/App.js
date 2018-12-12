@@ -63,7 +63,6 @@ class App extends Component {
     // see https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
     if (window.ethereum) {
       window.ethereum.enable().then(accounts => {
-        // config.web3.eth.getAccounts().then(accounts => {
           this.setState({ accounts, selectedAccount: accounts[0] });
     
           // Check who is the owner
@@ -180,8 +179,10 @@ class App extends Component {
               Please install MetaMask extension to enable reading data from ETH Blockchain.
             </p>
             <ul class="list">
-              <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" target="_BLANK">Install for Chrome.</a></li>
-              <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" target="_BLANK">Install for Firefox.</a></li>
+              <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" 
+                target="_BLANK" rel="noopener noreferrer" >Install for Chrome.</a></li>
+              <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" 
+                target="_BLANK" rel="noopener noreferrer" >Install for Firefox.</a></li>
             </ul>
           </div>
         )
@@ -217,6 +218,7 @@ class App extends Component {
                         >{ addr }</option>
                       )}
                     </select>
+
                     <div className="input-group-append">
                       <span className="violet clickable input-group-text" 
                         title="Copy to clipboard"
