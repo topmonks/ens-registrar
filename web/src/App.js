@@ -9,6 +9,7 @@ import config from './lib/config.js';
 import 'font-awesome/css/font-awesome.min.css';
 
 import { hash as namehash } from "eth-ens-namehash";
+import { appendFileSync } from 'fs';
 
 
 const ens = new Ens(config);
@@ -46,14 +47,19 @@ class App extends Component {
     super(props);
 
     this.state = {
+      unsupportedBrowser: false,
       minimumLength: 1,
+
       isValid: false,
       message: null,
       subdomain: '',
       ethCallInProgress: false,
       accounts: [],
       selectedAccount: '',
-      unsupportedBrowser: false
+      
+      availabilityChecked: false,
+      isCheckingAvailability: false,
+      isAvailable: false
     };
   }
 
@@ -133,7 +139,7 @@ class App extends Component {
               this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
             });
         } else {
-          this.setProgress(false, `Domain ${domain} is already registered. Please choose different domain.`, 'danger');
+          this.setProgress(false, `Domain ${domain} is already taken. Please choose different domain.`, 'danger');
           e.target.reset();
         }
       })
@@ -148,6 +154,27 @@ class App extends Component {
     this.setState({ selectedAccount: event.target.value });
   }
 
+  checkAvailability = () => {
+    let domain = `${this.state.subdomain}.topmonks.eth`;
+    this.setState({
+      isCheckingAvailability: true,
+      availabilityChecked: false
+    });
+
+    ens.isFree(domain)
+      .then((isAvailable) => {
+        this.setState({
+          isAvailable,
+          isCheckingAvailability: false,
+          availabilityChecked: true
+        });
+      })
+      .catch((err) => {
+        console.error('Checking domain availability failed with err:', err);
+        this.setState({isCheckingAvailability: false});
+      });
+  }
+
   copyAccountAddress = () => {
     copyToClipboard(this.state.selectedAccount);
   }
@@ -159,7 +186,10 @@ class App extends Component {
   }
   
   handleChange = (event) => {
-    this.setState({ subdomain: event.target.value });
+    this.setState({ 
+      subdomain: event.target.value,
+      availabilityChecked: false
+    });
     this.checkValidity(event.target.value);
   }
 
@@ -180,9 +210,9 @@ class App extends Component {
             </p>
             <ul class="list">
               <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" 
-                target="_BLANK" rel="noopener noreferrer" >Install for Chrome.</a></li>
+                target="_BLANK" rel="noopener noreferrer">Install for Chrome.</a></li>
               <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" 
-                target="_BLANK" rel="noopener noreferrer" >Install for Firefox.</a></li>
+                target="_BLANK" rel="noopener noreferrer">Install for Firefox.</a></li>
             </ul>
           </div>
         )
@@ -204,7 +234,7 @@ class App extends Component {
                 <div className="form-group">
                   <label htmlFor="addressSelect" className="upper">Your Account Address</label>
 
-                  <div className="input-group">
+                  <div className="input-group">                  
                     <select 
                       className="form-control" 
                       id="addressSelect"
@@ -230,7 +260,7 @@ class App extends Component {
 
                 <div className="form-group">
                   <fieldset disabled={disabled}>
-                    <label htmlFor="subdomain" className="upper">Subdomain</label>
+                    <label htmlFor="subdomain" className="upper">Your new address name</label>
 
                     <div className="input-group">
                       <input
@@ -246,9 +276,31 @@ class App extends Component {
 
                       <div className="input-group-append">
                         <span className="input-group-text">.topmonks.eth</span>
+
+                        <button className="btn violet"
+                          type="button"
+                          onClick={this.checkAvailability}
+                          disabled={this.state.domain && this.state.isCheckingAvailability}>Available?</button>
                       </div>
                     </div>
                       <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
+
+                      {/* TODO: Optimize, code is ugly. */}
+                      {this.state.subdomain && this.state.availabilityChecked && this.state.isCheckingAvailability === false && this.state.isAvailable
+                      ? (
+                        <div className="availability">
+                          <strong>{this.state.subdomain}</strong> is available.
+                        </div>
+                      )
+                      : ('')}
+
+                      {this.state.subdomain && this.state.availabilityChecked && this.state.isCheckingAvailability === false && this.state.isAvailable === false
+                      ? (
+                        <div className="availability">
+                          <strong>{this.state.subdomain}</strong> is not available.
+                        </div>
+                      )
+                      : ('')}
                   </fieldset>
                 </div>
 
