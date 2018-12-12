@@ -52,7 +52,8 @@ class App extends Component {
       subdomain: '',
       ethCallInProgress: false,
       accounts: [],
-      selectedAccount: ''
+      selectedAccount: '',
+      unsupportedBrowser: false
     };
   }
 
@@ -82,6 +83,8 @@ class App extends Component {
             console.error('Getting owner of domain topmonks.eth failed', err);
           });
         });
+    } else {
+      this.setState({unsupportedBrowser: true});
     }
   }
 
@@ -166,90 +169,108 @@ class App extends Component {
 
     return (
       <div className="container">
-        <div className="offset-md-2 col-md-8">
-          <div className="text-center">
-            <img className="logo" src={logo} alt="TopMonks logo"></img>
-            <h1 className="upper centered header">ENS Registrar</h1>
+
+        {this.state.unsupportedBrowser === true 
+        ? (
+          <div class="ui negative message">
+            <div class="header">
+              Unsupported browser
+            </div>
+            <p>
+              Please install MetaMask extension to enable reading data from ETH Blockchain.
+            </p>
+            <ul class="list">
+              <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" target="_BLANK">Install for Chrome.</a></li>
+              <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" target="_BLANK">Install for Firefox.</a></li>
+            </ul>
           </div>
+        )
+        : (
+          <div className="offset-md-2 col-md-8">
+            <div className="text-center">
+              <img className="logo" src={logo} alt="TopMonks logo"></img>
+              <h1 className="upper centered header">ENS Registrar</h1>
+            </div>
 
-          <p className="promo centered">
-            Associate your Eth address with something you will actually remember.
-          </p>
+            <p className="promo centered">
+              Associate your Eth address with something you will actually remember.
+            </p>
 
-          <FlashMessage message={this.state.message}/>
+            <FlashMessage message={this.state.message}/>
 
-          <div>
-            <form onSubmit={ this.registerSubdomain }>
-              <div className="form-group">
-                <label htmlFor="addressSelect" className="upper">Your Account Address</label>
-
-                <div className="input-group">
-                  <select 
-                    className="form-control" 
-                    id="addressSelect"
-                    onChange={this.setAccount}
-                    value={this.state.selectedAccount}
-                    required="true">
-                    {this.state.accounts.map(addr =>
-                      <option
-                        value={addr}
-                        key={addr}
-                      >{ addr }</option>
-                    )}
-                  </select>
-                  <div className="input-group-append">
-                    <span className="violet clickable input-group-text" 
-                      title="Copy to clipboard"
-                      onClick={this.copyAccountAddress}>Copy</span>
-                  </div>
-                </div>
-                
-              </div>
-
-              <div className="form-group">
-                <fieldset disabled={disabled}>
-                  <label htmlFor="subdomain" className="upper">Subdomain</label>
+            <div>
+              <form onSubmit={ this.registerSubdomain }>
+                <div className="form-group">
+                  <label htmlFor="addressSelect" className="upper">Your Account Address</label>
 
                   <div className="input-group">
-                    <input
-                      id="subdomain"
-                      type="text"
-                      className="form-control"
-                      placeholder="e.g. alice"
-                      pattern="[a-zA-Z0-9-_]*"
-                      required="true"
-                      value={this.state.subdomain}
-                      onChange={this.handleChange}
-                      />
-
+                    <select 
+                      className="form-control" 
+                      id="addressSelect"
+                      onChange={this.setAccount}
+                      value={this.state.selectedAccount}
+                      required="true">
+                      {this.state.accounts.map(addr =>
+                        <option
+                          value={addr}
+                          key={addr}
+                        >{ addr }</option>
+                      )}
+                    </select>
                     <div className="input-group-append">
-                      <span className="input-group-text">.topmonks.eth</span>
+                      <span className="violet clickable input-group-text" 
+                        title="Copy to clipboard"
+                        onClick={this.copyAccountAddress}>Copy</span>
                     </div>
                   </div>
-                    <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
-                </fieldset>
-              </div>
+                  
+                </div>
 
-              <div className="form-group">
+                <div className="form-group">
+                  <fieldset disabled={disabled}>
+                    <label htmlFor="subdomain" className="upper">Subdomain</label>
 
-                {this.state.subdomain && this.state.subdomain.length > 0
-                  ? (
-                    <button
-                      className="btn btn-block orange btn-subdomain"
-                      type="submit"
-                      disabled={!this.state.isValid || disabled}>
-                        <div className="upper">Register</div>
-                        <div className="big">{this.state.subdomain}.topmonks.eth</div>
-                      </button>
-                  )
-                  : (
-                    <button className="btn btn-block orange"
-                    type="submit" disabled>Register</button>
-                  )}
-              </div>
-            </form>
+                    <div className="input-group">
+                      <input
+                        id="subdomain"
+                        type="text"
+                        className="form-control"
+                        placeholder="e.g. alice"
+                        pattern="[a-zA-Z0-9-_]*"
+                        required="true"
+                        value={this.state.subdomain}
+                        onChange={this.handleChange}
+                        />
+
+                      <div className="input-group-append">
+                        <span className="input-group-text">.topmonks.eth</span>
+                      </div>
+                    </div>
+                      <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
+                  </fieldset>
+                </div>
+
+                <div className="form-group">
+
+                  {this.state.subdomain && this.state.subdomain.length > 0
+                    ? (
+                      <button
+                        className="btn btn-block orange btn-subdomain"
+                        type="submit"
+                        disabled={!this.state.isValid || disabled}>
+                          <div className="upper">Register</div>
+                          <div className="big">{this.state.subdomain}.topmonks.eth</div>
+                        </button>
+                    )
+                    : (
+                      <button className="btn btn-block orange"
+                      type="submit" disabled>Register</button>
+                    )}
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
