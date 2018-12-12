@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './images/logo.png';
 
 import Ens from './lib/ens.js';
+import copyToClipboard from './lib/copy.js';
 import TopmonksRegistrar from './lib/TopmonksRegistrar.js';
 import config from './lib/config.js';
 import 'font-awesome/css/font-awesome.min.css';
@@ -58,27 +60,29 @@ class App extends Component {
     // using the new API of MetaMask which protects user's privacy
     // by explicitly calling enable()
     // see https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
-    window.ethereum.enable().then(accounts => {
-    // config.web3.eth.getAccounts().then(accounts => {
-      this.setState({ accounts, selectedAccount: accounts[0] });
-
-      // Check who is the owner
-      // for some stupid reason the async/await seems not be supported
-      // and on Ganache v6.1.8 the owner seems to be always 0x000...000
-      var ethOwner, topmonksOwner
-      ens.contract.methods.owner(namehash("eth")).call().then(v => {
-        ethOwner = v;
-        console.log('ethOwner', ethOwner);
-      }).catch(err => {
-        console.error('Getting owner of domain eth failed', err);
-      });
-      ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
-        topmonksOwner = v;
-        console.log('topmonksOwner', topmonksOwner);
-      }).catch(err => {
-        console.error('Getting owner of domain topmonks.eth failed', err);
-      });
-    });
+    if (window.ethereum) {
+      window.ethereum.enable().then(accounts => {
+        // config.web3.eth.getAccounts().then(accounts => {
+          this.setState({ accounts, selectedAccount: accounts[0] });
+    
+          // Check who is the owner
+          // for some stupid reason the async/await seems not be supported
+          // and on Ganache v6.1.8 the owner seems to be always 0x000...000
+          var ethOwner, topmonksOwner
+          ens.contract.methods.owner(namehash("eth")).call().then(v => {
+            ethOwner = v;
+            console.log('ethOwner', ethOwner);
+          }).catch(err => {
+            console.error('Getting owner of domain eth failed', err);
+          });
+          ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
+            topmonksOwner = v;
+            console.log('topmonksOwner', topmonksOwner);
+          }).catch(err => {
+            console.error('Getting owner of domain topmonks.eth failed', err);
+          });
+        });
+    }
   }
 
   setProgress = (ethCallInProgress, msgText, msgType) => {
@@ -142,6 +146,10 @@ class App extends Component {
     this.setState({ selectedAccount: event.target.value });
   }
 
+  copyAccountAddress = () => {
+    copyToClipboard(this.state.selectedAccount);
+  }
+
   checkValidity = (subdomain) => {
     const isValid = !!subdomain && subdomain.trim().length >= this.state.minimumLength;
     this.setState({ isValid });
@@ -160,11 +168,12 @@ class App extends Component {
       <div className="container">
         <div className="offset-md-2 col-md-8">
           <div className="text-center">
-            <h1>TopMonks registrar</h1>
+            <img className="logo" src={logo} alt="TopMonks logo"></img>
+            <h1 className="upper centered header">ENS Registrar</h1>
           </div>
 
-          <p>
-            Associate your Eth address with rememberable subdomain under <b>topmonks.eth</b>.
+          <p className="promo centered">
+            Associate your Eth address with something you will actually remember.
           </p>
 
           <FlashMessage message={this.state.message}/>
@@ -172,25 +181,34 @@ class App extends Component {
           <div>
             <form onSubmit={ this.registerSubdomain }>
               <div className="form-group">
-                <label htmlFor="addressSelect">Your Account Address</label>
-                <select 
-                  className="form-control" 
-                  id="addressSelect"
-                  onChange={this.setAccount}
-                  value={this.state.selectedAccount}
-                  required="true">
-                  {this.state.accounts.map(addr =>
-                    <option
-                      value={addr}
-                      key={addr}
-                    >{ addr }</option>
-                  )}
-                </select>
+                <label htmlFor="addressSelect" className="upper">Your Account Address</label>
+
+                <div className="input-group">
+                  <select 
+                    className="form-control" 
+                    id="addressSelect"
+                    onChange={this.setAccount}
+                    value={this.state.selectedAccount}
+                    required="true">
+                    {this.state.accounts.map(addr =>
+                      <option
+                        value={addr}
+                        key={addr}
+                      >{ addr }</option>
+                    )}
+                  </select>
+                  <div className="input-group-append">
+                    <span className="violet clickable input-group-text" 
+                      title="Copy to clipboard"
+                      onClick={this.copyAccountAddress}>Copy</span>
+                  </div>
+                </div>
+                
               </div>
 
               <div className="form-group">
                 <fieldset disabled={disabled}>
-                  <label htmlFor="subdomain">Subdomain</label>
+                  <label htmlFor="subdomain" className="upper">Subdomain</label>
 
                   <div className="input-group">
                     <input
@@ -213,10 +231,21 @@ class App extends Component {
               </div>
 
               <div className="form-group">
-                <button
-                  className="btn btn-block btn-primary"
-                  type="submit"
-                  disabled={!this.state.isValid || disabled}>Register!</button>
+
+                {this.state.subdomain && this.state.subdomain.length > 0
+                  ? (
+                    <button
+                      className="btn btn-block orange btn-subdomain"
+                      type="submit"
+                      disabled={!this.state.isValid || disabled}>
+                        <div className="upper">Register</div>
+                        <div className="big">{this.state.subdomain}.topmonks.eth</div>
+                      </button>
+                  )
+                  : (
+                    <button className="btn btn-block orange"
+                    type="submit" disabled>Register</button>
+                  )}
               </div>
             </form>
           </div>
