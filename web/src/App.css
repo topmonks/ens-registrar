@@ -102,3 +102,7 @@ label {
 .availability .circle {
     margin-right: 0.4rem;
 }
+
+.container .text-muted {
+  color: #a1aab2!important;
+} 

@@ -4,6 +4,7 @@ import logo from './images/logo.png';
 import checkMark from './images/check-mark.png';
 import xMark from './images/x-mark.png';
 
+import FlashMessage from './flash-message';
 import Ens from './lib/ens.js';
 import copyToClipboard from './lib/copy.js';
 import parseTransactionFromError from './lib/parseError';
@@ -16,31 +17,8 @@ import { hash as namehash } from "eth-ens-namehash";
 
 const ens = new Ens(config);
 // TopMonksRegistrar by se mozna mel prejmenovat proste na Registrar. Pokud chceme, aby se to dalo
-//   vyuzit i na jine domeny nez topmonks.eth
+// vyuzit i na jine domeny nez topmonks.eth
 const topmonksRegistrar = new TopmonksRegistrar(config);
-
-const FlashMessage = ({ message }) => {
-  if(message) {
-    let spinner;
-    if (message.spin) {
-      spinner = <i className="fa fa-spinner fa-spin"></i>;
-    }
-
-    return(
-      <div className={`alert alert-${message.type}`} role="alert">
-        {spinner}
-        &nbsp;
-        {message.text}
-
-        {message.txLink 
-        ? (<div>Check the transaction at <a href={message.txLink} target="_BLANK" rel="noopener noreferrer">Etherscan.io</a></div>) 
-        : ''}
-      </div>
-    )
-  } else {
-    return null
-  }
-}
 
 const log = (toLog) => {
   if(process.env.NODE_ENV === 'development') {
@@ -54,6 +32,7 @@ class App extends Component {
 
     this.state = {
       unsupportedBrowser: false,
+      ethereumEnabled: false,
       minimumLength: 1,
       networkType: null,
 
@@ -85,32 +64,41 @@ class App extends Component {
         this.setState({networkType: network});
       });
 
+      // namespace window.ethereum exists but is not yet enabled
+      this.setState({
+        ethereumEnabled: false
+      });
+
       window.ethereum.enable().then(accounts => {
-          this.setState({ accounts, selectedAccount: accounts[0] });
-    
-          // Check who is the owner
-          // for some stupid reason the async/await seems not be supported
-          // and on Ganache v6.1.8 the owner seems to be always 0x000...000
-          var ethOwner, topmonksOwner
-          ens.contract.methods.owner(namehash("eth")).call().then(v => {
-            ethOwner = v;
-            console.log('ethOwner', ethOwner);
-          }).catch(err => {
-            console.error('Getting owner of domain eth failed', err);
-          });
-          ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
-            topmonksOwner = v;
-            console.log('topmonksOwner', topmonksOwner);
-          }).catch(err => {
-            console.error('Getting owner of domain topmonks.eth failed', err);
-          });
+        this.setState({ 
+          accounts,
+          selectedAccount: accounts[0],
+          ethereumEnabled: true
         });
+  
+        // Check who is the owner
+        // for some stupid reason the async/await seems not be supported
+        // and on Ganache v6.1.8 the owner seems to be always 0x000...000
+        var ethOwner, topmonksOwner
+        ens.contract.methods.owner(namehash("eth")).call().then(v => {
+          ethOwner = v;
+          console.log('ethOwner', ethOwner);
+        }).catch(err => {
+          console.error('Getting owner of domain eth failed', err);
+        });
+        ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
+          topmonksOwner = v;
+          console.log('topmonksOwner', topmonksOwner);
+        }).catch(err => {
+          console.error('Getting owner of domain topmonks.eth failed', err);
+        });
+      });
     } else {
       this.setState({unsupportedBrowser: true});
     }
   }
 
-  setProgress = (ethCallInProgress, msgText, msgType, txLink = null) => {
+  setMessage = (ethCallInProgress, msgText, msgType, txLink = null) => {
     this.setState({
       ethCallInProgress: ethCallInProgress,
       message: {
@@ -132,14 +120,14 @@ class App extends Component {
     }
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
-    this.setProgress(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
+    this.setMessage(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
 
     const isAvailable = await this.checkAvailability();
     
     if (isAvailable) {
       topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, {gas: 50000})
         .on('receipt', (receipt) => {
-          this.setProgress(false, `Domain ${domain} has been registered to your address`, 'success');
+          this.setMessage(false, `Domain ${domain} has been registered to your address`, 'success');
           event.target.reset();
         })
         .on('error', (error) => {
@@ -153,7 +141,7 @@ class App extends Component {
           // If the error message contained transaction receipt
           // then try to parse it and show link to etherscan.io
           const txObj = parseTransactionFromError(error);
-          debugger
+
           if (txObj) {
             const tx = txObj.transactionHash;
             const etherscanLink = this.state.networkType === 'main'
@@ -162,7 +150,7 @@ class App extends Component {
             txLink = `${etherscanLink}tx/${tx}`;
           }
           
-          this.setProgress(false, errorMessage, 'danger', txLink);
+          this.setMessage(false, errorMessage, 'danger', txLink);
 
           // Check availability again. Has the domain been taken by someone else in the meantime?
           this.checkAvailability();
@@ -253,6 +241,14 @@ class App extends Component {
             </p>
 
             <FlashMessage message={this.state.message}/>
+
+            {this.state.ethereumEnabled === false 
+              ? (<FlashMessage message={{
+                text: 'Please, log in to your Metamask account.',
+                type: 'warning'
+              }}/>) 
+              : ''
+            }
 
             <div>
               <form onSubmit={ this.registerSubdomain }>
