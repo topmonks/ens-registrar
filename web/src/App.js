@@ -9,7 +9,6 @@ import config from './lib/config.js';
 import 'font-awesome/css/font-awesome.min.css';
 
 import { hash as namehash } from "eth-ens-namehash";
-import { appendFileSync } from 'fs';
 
 
 const ens = new Ens(config);
@@ -59,7 +58,8 @@ class App extends Component {
       
       availabilityChecked: false,
       isCheckingAvailability: false,
-      isAvailable: false
+      isAvailable: false,
+      networkType: null
     };
   }
 
@@ -68,6 +68,14 @@ class App extends Component {
     // by explicitly calling enable()
     // see https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
     if (window.ethereum) {
+
+      // Detect to which eth network we are currently connected
+      config.web3.eth.net
+      .getNetworkType()
+      .then(network => {
+        this.setState({networkType: network});
+      });
+
       window.ethereum.enable().then(accounts => {
           this.setState({ accounts, selectedAccount: accounts[0] });
     
@@ -233,6 +241,10 @@ class App extends Component {
               <form onSubmit={ this.registerSubdomain }>
                 <div className="form-group">
                   <label htmlFor="addressSelect" className="upper">Your Account Address</label>
+
+                  {this.state.networkType 
+                  ? (<span className="right">Currently connected to {this.state.networkType}</span>)
+                  : (<span className="right">Not connected to any ETH network</span>)}
 
                   <div className="input-group">                  
                     <select 

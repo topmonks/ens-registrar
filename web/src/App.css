@@ -58,6 +58,14 @@ body {
     color: white;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
  /** Forms */
 form {
     border: 1px solid rgba(255, 255, 255, 0.2);
