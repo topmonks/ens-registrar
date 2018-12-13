@@ -217,7 +217,7 @@ class App extends Component {
         ? (
           <div class="ui negative message">
             <div class="header">
-              Unsupported browser
+              Ethereum wallet required
             </div>
             <p>
               Please install MetaMask extension to enable reading data from ETH Blockchain.
@@ -347,7 +347,7 @@ class App extends Component {
 
                 <div className="form-group">
 
-                  {this.state.subdomain && this.state.subdomain.length > 0
+                  {this.state.ethereumEnabled && this.state.subdomain && this.state.subdomain.length > 0
                     ? (
                       <button
                         className="btn btn-block orange btn-subdomain"
