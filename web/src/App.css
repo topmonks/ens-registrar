@@ -43,6 +43,7 @@ body {
     cursor: pointer;
 }
 
+/** Colors */
 .violet {
     background-color: #824487;
     border-color: #824487;
@@ -58,6 +59,15 @@ body {
     color: white;
 }
 
+.red {
+    background-color: #EC5C4E;
+}
+
+.green {
+    background-color: #8FC658;
+}
+
+/** layout */
 .left {
     float: left;
 }
@@ -73,14 +83,6 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-}
-
-.red {
-    background-color: #EC5C4E;
-}
-
-.green {
-    background-color: #8FC658;
 }
 
 
@@ -105,4 +107,13 @@ label {
 
 .container .text-muted {
   color: #a1aab2!important;
-} 
+}
+
+.list a {
+    color: white;
+}
+
+img.metamask {
+    display: block;
+    max-width: 500px;
+}

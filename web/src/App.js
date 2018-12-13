@@ -3,6 +3,7 @@ import './App.css';
 import logo from './images/logo.png';
 import checkMark from './images/check-mark.png';
 import xMark from './images/x-mark.png';
+import metamask from './images/download-metamask-dark.png';
 
 import FlashMessage from './flash-message';
 import Ens from './lib/ens.js';
@@ -220,6 +221,7 @@ class App extends Component {
             </div>
             <p>
               Please install MetaMask extension to enable reading data from ETH Blockchain.
+              <img class="metamask" src={metamask} alt="Metamask logo"/>
             </p>
             <ul class="list">
               <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" 
