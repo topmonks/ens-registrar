@@ -33,7 +33,7 @@ const FlashMessage = ({ message }) => {
         {message.text}
 
         {message.txLink 
-        ? (<div>Check the transaction at <a href={message.txLink}>Etherscan.io</a></div>) 
+        ? (<div>Check the transaction at <a href={message.txLink} target="_BLANK" rel="noopener noreferrer">Etherscan.io</a></div>) 
         : ''}
       </div>
     )
