@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from './images/logo.png';
+import checkMark from './images/check-mark.png';
+import xMark from './images/x-mark.png';
 
 import Ens from './lib/ens.js';
 import copyToClipboard from './lib/copy.js';
@@ -301,7 +303,10 @@ class App extends Component {
                       {this.state.subdomain && this.state.availabilityChecked && this.state.isCheckingAvailability === false && this.state.isAvailable
                       ? (
                         <div className="availability">
-                          <strong>{this.state.subdomain}</strong> is available.
+                          <div className="green circle">
+                            <img src={checkMark} alt="check mark"></img>
+                          </div>
+                          <strong>{this.state.subdomain}.topmonks.eth</strong> is available.
                         </div>
                       )
                       : ('')}
@@ -309,7 +314,10 @@ class App extends Component {
                       {this.state.subdomain && this.state.availabilityChecked && this.state.isCheckingAvailability === false && this.state.isAvailable === false
                       ? (
                         <div className="availability">
-                          <strong>{this.state.subdomain}</strong> is not available.
+                          <div className="red circle">
+                            <img src={xMark} alt="x mark"></img>
+                          </div>
+                          <strong>{this.state.subdomain}.topmonks.eth</strong> is not available.
                         </div>
                       )
                       : ('')}
