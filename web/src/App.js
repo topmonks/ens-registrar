@@ -6,6 +6,7 @@ import xMark from './images/x-mark.png';
 
 import Ens from './lib/ens.js';
 import copyToClipboard from './lib/copy.js';
+import parseTransactionFromError from './lib/parseError';
 import TopmonksRegistrar from './lib/TopmonksRegistrar.js';
 import config from './lib/config.js';
 import 'font-awesome/css/font-awesome.min.css';
@@ -105,23 +106,14 @@ class App extends Component {
     }
   }
 
-  setProgress = (ethCallInProgress, msgText, msgType) => {
-    let newSubdomain;
-
-    if (this.state.ethCallInProgress === true && ethCallInProgress === false) {
-      newSubdomain = '';
-    } else {
-      newSubdomain = this.state.subdomain;
-    }
-
+  setProgress = (ethCallInProgress, msgText, msgType, transactionHash = null) => {
     this.setState({
       ethCallInProgress: ethCallInProgress,
       message: {
         text: msgText,
         type: msgType,
         spin: ethCallInProgress
-      },
-      //subdomain: newSubdomain
+      }
     });
   }
 
@@ -135,8 +127,6 @@ class App extends Component {
     }
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
-
-    // todo: nice message 
     this.setProgress(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
 
     const isAvailable = await this.checkAvailability();
@@ -148,13 +138,29 @@ class App extends Component {
           event.target.reset();
         })
         .on('error', (error) => {
+          // oh boy, the error contains stringified tx receipt, prepended with some error message
+          // I need to parse the object from it, to get the transactionHash
           log(error);
-          this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
+
+          let errorMessage = `We are sorry, registratin of domain ${domain} failed.`;
+
+          // If the error message contained transaction receipt
+          // then try to parse it and show link to etherscan.io
+          const txObj = parseTransactionFromError(error);
+          if (txObj) {
+            const tx = txObj.transactionHash;
+            const etherscanLink = this.state.networkType === 'main'
+              ? 'https://etherscan.io/'
+              : `https://${this.state.networkType}.etherscan.io/`;
+            const txLink = `${etherscanLink}tx/${tx}`;
+            errorMessage = `We are sorry, registratin of domain ${domain} failed. Check transaction on <a href="${txLink}">Etherscan</a>.`;
+          }
+          
+          this.setProgress(false, errorMessage, 'danger');
         });
     } else {
       // domain is not available.
       // message is already displayed by checkAvailability() method
-      debugger
       event.target.reset();
     }
   }
@@ -248,8 +254,8 @@ class App extends Component {
                   ? (<span className="right">Currently connected to {this.state.networkType}</span>)
                   : (<span className="right">Not connected to any ETH network</span>)}
 
-                  <div className="input-group">                  
-                    <select 
+                  <div className="input-group">
+                    {/* <select 
                       className="form-control" 
                       id="addressSelect"
                       onChange={this.setAccount}
@@ -261,7 +267,15 @@ class App extends Component {
                           key={addr}
                         >{ addr }</option>
                       )}
-                    </select>
+                    </select> */}
+
+                    <input
+                      className="form-control" 
+                      id="addressSelect"
+                      onChange={this.setAccount}
+                      value={this.state.selectedAccount}
+                      placeholder="Please, fill your account address"
+                      required="true" />
 
                     <div className="input-group-append">
                       <span className="violet clickable input-group-text" 
