@@ -31,6 +31,10 @@ const FlashMessage = ({ message }) => {
         {spinner}
         &nbsp;
         {message.text}
+
+        {message.txLink 
+        ? (<div>Check the transaction at <a href={message.txLink}>Etherscan.io</a></div>) 
+        : ''}
       </div>
     )
   } else {
@@ -54,7 +58,7 @@ class App extends Component {
       networkType: null,
 
       isValid: false,
-      message: null,
+      message: null, // object
       subdomain: '',
       ethCallInProgress: false,
       accounts: [],
@@ -106,13 +110,14 @@ class App extends Component {
     }
   }
 
-  setProgress = (ethCallInProgress, msgText, msgType, transactionHash = null) => {
+  setProgress = (ethCallInProgress, msgText, msgType, txLink = null) => {
     this.setState({
       ethCallInProgress: ethCallInProgress,
       message: {
         text: msgText,
         type: msgType,
-        spin: ethCallInProgress
+        spin: ethCallInProgress,
+        txLink
       }
     });
   }
@@ -142,21 +147,25 @@ class App extends Component {
           // I need to parse the object from it, to get the transactionHash
           log(error);
 
-          let errorMessage = `We are sorry, registratin of domain ${domain} failed.`;
+          const errorMessage = `We are sorry, registratin of domain ${domain} failed.`;
+          let txLink;
 
           // If the error message contained transaction receipt
           // then try to parse it and show link to etherscan.io
           const txObj = parseTransactionFromError(error);
+          debugger
           if (txObj) {
             const tx = txObj.transactionHash;
             const etherscanLink = this.state.networkType === 'main'
               ? 'https://etherscan.io/'
               : `https://${this.state.networkType}.etherscan.io/`;
-            const txLink = `${etherscanLink}tx/${tx}`;
-            errorMessage = `We are sorry, registratin of domain ${domain} failed. Check transaction on <a href="${txLink}">Etherscan</a>.`;
+            txLink = `${etherscanLink}tx/${tx}`;
           }
           
-          this.setProgress(false, errorMessage, 'danger');
+          this.setProgress(false, errorMessage, 'danger', txLink);
+
+          // Check availability again. Has the domain been taken by someone else in the meantime?
+          this.checkAvailability();
         });
     } else {
       // domain is not available.
