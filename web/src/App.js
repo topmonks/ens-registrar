@@ -50,6 +50,7 @@ class App extends Component {
     this.state = {
       unsupportedBrowser: false,
       minimumLength: 1,
+      networkType: null,
 
       isValid: false,
       message: null,
@@ -58,10 +59,11 @@ class App extends Component {
       accounts: [],
       selectedAccount: '',
       
+      // todo move to object
       availabilityChecked: false,
       isCheckingAvailability: false,
       isAvailable: false,
-      networkType: null
+      
     };
   }
 
@@ -119,13 +121,13 @@ class App extends Component {
         type: msgType,
         spin: ethCallInProgress
       },
-      subdomain: newSubdomain
+      //subdomain: newSubdomain
     });
   }
 
-  registerSubdomain = (e) => {
-    e.preventDefault();
-    e.persist();
+  registerSubdomain = async (event) => {
+    event.preventDefault();
+    event.persist();
 
     if (this.checkValidity(this.state.subdomain) === false) {
       console.log('domain name is not valid');
@@ -134,55 +136,53 @@ class App extends Component {
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
 
+    // todo: nice message 
     this.setProgress(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
 
-    ens.isFree(domain)
-      .then((isFree) => {
-        if (isFree) {
-          topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, {gas: 50000})
-            .on('receipt', (receipt) => {
-              this.setProgress(false, `Domain ${domain} has been registered to your address`, 'success');
-              e.target.reset();
-            })
-            .on('error', (error) => {
-              log(error);
-              this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
-            });
-        } else {
-          this.setProgress(false, `Domain ${domain} is already taken. Please choose different domain.`, 'danger');
-          e.target.reset();
-        }
-      })
-      .catch((error) => {
-        log(error);
-        this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
-        e.target.reset();
-      });
+    const isAvailable = await this.checkAvailability();
+    
+    if (isAvailable) {
+      topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, {gas: 50000})
+        .on('receipt', (receipt) => {
+          this.setProgress(false, `Domain ${domain} has been registered to your address`, 'success');
+          event.target.reset();
+        })
+        .on('error', (error) => {
+          log(error);
+          this.setProgress(false, `We are sorry, registratin of domain ${domain} failed.`, 'danger');
+        });
+    } else {
+      // domain is not available.
+      // message is already displayed by checkAvailability() method
+      debugger
+      event.target.reset();
+    }
   }
 
   setAccount = (event) => {
     this.setState({ selectedAccount: event.target.value });
   }
 
-  checkAvailability = () => {
+  checkAvailability = async () => {
     let domain = `${this.state.subdomain}.topmonks.eth`;
     this.setState({
       isCheckingAvailability: true,
       availabilityChecked: false
     });
 
-    ens.isFree(domain)
-      .then((isAvailable) => {
-        this.setState({
-          isAvailable,
-          isCheckingAvailability: false,
-          availabilityChecked: true
-        });
-      })
-      .catch((err) => {
-        console.error('Checking domain availability failed with err:', err);
-        this.setState({isCheckingAvailability: false});
-      });
+    const isAvailable = await ens.isFree(domain).catch((err) => {
+      console.error('Checking domain availability failed with err:', err);
+      // todo: Display error
+      this.setState({isCheckingAvailability: false});
+    });
+
+    this.setState({
+      isAvailable,
+      isCheckingAvailability: false,
+      availabilityChecked: true
+    });
+
+    return isAvailable;
   }
 
   copyAccountAddress = () => {
