@@ -44,11 +44,12 @@ class App extends Component {
       accounts: [],
       selectedAccount: '',
       
-      // todo move to object
-      availabilityChecked: false,
-      isCheckingAvailability: false,
-      isAvailable: false,
-      availabilityCheckFailed: false
+      availability: {
+        availabilityChecked: false,
+        isCheckingAvailability: false,
+        isAvailable: false,
+        availabilityCheckFailed: false
+      }
     };
   }
 
@@ -169,28 +170,38 @@ class App extends Component {
 
   checkAvailability = async () => {
     let domain = `${this.state.subdomain}.topmonks.eth`;
-    this.setState({
+    let state = {
       isCheckingAvailability: true,
       availabilityChecked: false,
       availabilityCheckFailed: false
-    });
+    };
+    this._setAvailabilityState(state);
 
+
+    // handle error
     const isAvailable = await ens.isFree(domain).catch((err) => {
       console.error('Checking domain availability failed with err:', err);
-      // todo: Display error
-      this.setState({
+      state = {
         isCheckingAvailability: false,
         availabilityCheckFailed: true
-      });
+      }
+      this._setAvailabilityState(state);
     });
 
-    this.setState({
+    state = {
       isAvailable,
       isCheckingAvailability: false,
       availabilityChecked: true
-    });
+    }
+    this._setAvailabilityState(state);
 
     return isAvailable;
+  }
+
+  _setAvailabilityState = (newState) => {
+    const oldState = this.state.availability;
+    const targetState = Object.assign({}, oldState, newState);
+    this.setState({availability: targetState});
   }
 
   copyAccountAddress = () => {
@@ -206,7 +217,10 @@ class App extends Component {
   handleChange = (event) => {
     this.setState({ 
       subdomain: event.target.value,
-      availabilityChecked: false
+      // todo: Need to test this, it might reset the whole state sub object
+      availability: {
+        availabilityChecked: false
+      }
     });
     this.checkValidity(event.target.value);
   }
@@ -319,13 +333,13 @@ class App extends Component {
                         <button className="btn violet"
                           type="button"
                           onClick={this.checkAvailability}
-                          disabled={this.state.domain && this.state.isCheckingAvailability}>Available?</button>
+                          disabled={this.state.domain && this.state.availability.isCheckingAvailability}>Available?</button>
                       </div>
                     </div>
                       <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
 
                       {/* TODO: Optimize, code is ugly. */}
-                      {this.state.subdomain && this.state.availabilityChecked && this.state.isCheckingAvailability === false && this.state.isAvailable
+                      {this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable
                       ? (
                         <div className="availability">
                           <div className="green circle">
@@ -336,7 +350,7 @@ class App extends Component {
                       )
                       : ('')}
 
-                      {this.state.subdomain && this.state.availabilityChecked && this.state.isCheckingAvailability === false && this.state.isAvailable === false
+                      {this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable === false
                       ? (
                         <div className="availability">
                           <div className="red circle">
@@ -347,7 +361,7 @@ class App extends Component {
                       )
                       : ('')}
 
-                      {this.state.availabilityCheckFailed
+                      {this.state.availability.availabilityCheckFailed
                       ? (
                         <div className="availability">
                           <div className="red circle">
