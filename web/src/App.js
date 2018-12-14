@@ -48,7 +48,7 @@ class App extends Component {
       availabilityChecked: false,
       isCheckingAvailability: false,
       isAvailable: false,
-      
+      availabilityCheckFailed: false
     };
   }
 
@@ -171,13 +171,17 @@ class App extends Component {
     let domain = `${this.state.subdomain}.topmonks.eth`;
     this.setState({
       isCheckingAvailability: true,
-      availabilityChecked: false
+      availabilityChecked: false,
+      availabilityCheckFailed: false
     });
 
     const isAvailable = await ens.isFree(domain).catch((err) => {
       console.error('Checking domain availability failed with err:', err);
       // todo: Display error
-      this.setState({isCheckingAvailability: false});
+      this.setState({
+        isCheckingAvailability: false,
+        availabilityCheckFailed: true
+      });
     });
 
     this.setState({
@@ -342,6 +346,16 @@ class App extends Component {
                         </div>
                       )
                       : ('')}
+
+                      {this.state.availabilityCheckFailed
+                      ? (
+                        <div className="availability">
+                          <div className="red circle">
+                            <img src={xMark} alt="x mark"></img>
+                          </div>
+                          <strong>Domain availability check failed.</strong>
+                        </div>
+                      ) : ''}
                   </fieldset>
                 </div>
 
