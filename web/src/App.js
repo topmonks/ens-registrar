@@ -48,7 +48,8 @@ class App extends Component {
         availabilityChecked: false,
         isCheckingAvailability: false,
         isAvailable: false,
-        availabilityCheckFailed: false
+        availabilityCheckFailed: false,
+        getEnsOwnerFailed: false
       }
     };
   }
@@ -87,6 +88,9 @@ class App extends Component {
           console.log('ethOwner', ethOwner);
         }).catch(err => {
           console.error('Getting owner of domain eth failed', err);
+          this._setAvailabilityState({
+            getEnsOwnerFailed: true
+          });
         });
         ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
           topmonksOwner = v;
@@ -368,6 +372,16 @@ class App extends Component {
                             <img src={xMark} alt="x mark"></img>
                           </div>
                           <strong>Domain availability check failed.</strong>
+                        </div>
+                      ) : ''}
+
+                      {this.state.availability.getEnsOwnerFailed
+                      ? (
+                        <div className="availability">
+                          <div className="red circle">
+                            <img src={xMark} alt="x mark"></img>
+                          </div>
+                          <strong>Error reading from ENS. Please check selected ETH network.</strong>
                         </div>
                       ) : ''}
                   </fieldset>
