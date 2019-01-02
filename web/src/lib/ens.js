@@ -4,8 +4,8 @@ const source = require('../contracts/ENSRegistry.json');
 const zeroAddr = '0x0000000000000000000000000000000000000000';
 
 export default class Ens {
-  constructor(config) {
-    this.contract = new config.web3.eth.Contract(source.abi, config.ensAddress);
+  constructor(config, networkId) {
+    this.contract = new config.web3.eth.Contract(source.abi, config.getEnsAddress(networkId));
   }
 
   isRegistered(domain) {

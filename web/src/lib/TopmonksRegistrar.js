@@ -1,9 +1,9 @@
 const source = require('../contracts/TopmonksRegistrar.json');
 
 class TopmonksRegistrar {
-  constructor(config) {
+  constructor(config, networkId) {
     this.config = config;
-    this.contract = new config.web3.eth.Contract(source.abi, config.registrarAddress);
+    this.contract = new config.web3.eth.Contract(source.abi, config.getRegistrarAddress(networkId));
   }
 
   register(subdomain, account) {

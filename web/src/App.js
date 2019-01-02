@@ -15,12 +15,6 @@ import 'font-awesome/css/font-awesome.min.css';
 
 import { hash as namehash } from "eth-ens-namehash";
 
-
-const ens = new Ens(config);
-// TopMonksRegistrar by se mozna mel prejmenovat proste na Registrar. Pokud chceme, aby se to dalo
-// vyuzit i na jine domeny nez topmonks.eth
-const topmonksRegistrar = new TopmonksRegistrar(config);
-
 const log = (toLog) => {
   if(process.env.NODE_ENV === 'development') {
     console.log(toLog);
@@ -52,9 +46,35 @@ class App extends Component {
         getEnsOwnerFailed: false
       }
     };
+
+    // web3.eth.net.getId() returns "numeric id" of network
+    // while web3.eth.net.getNetwork() returns "name", such as "main" or "ropsten"
+    config.web3.eth.net.getId().then(networkId => {
+      console.log("network id is:", networkId);
+      
+      // TopMonksRegistrar by se mozna mel prejmenovat proste na Registrar. Pokud chceme, aby se to dalo
+      // vyuzit i na jine domeny nez topmonks.eth
+      try {
+        const topmonksRegistrar = new TopmonksRegistrar(config, networkId);
+        const ens = new Ens(config, networkId);
+    
+        this.contracts = {
+          ens,
+          topmonksRegistrar
+        };
+      }
+      catch (ex) {
+        alert("TopMonks Registrar is not deployed to network: " + networkId);
+      }
+    });
   }
 
-  componentDidMount () {
+  contracts = {
+    ens: null,
+    topmonksRegistrar: null
+  }
+
+  componentDidMount = () => {
     // using the new API of MetaMask which protects user's privacy
     // by explicitly calling enable()
     // see https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
@@ -83,7 +103,7 @@ class App extends Component {
         // for some stupid reason the async/await seems not be supported
         // and on Ganache v6.1.8 the owner seems to be always 0x000...000
         var ethOwner, topmonksOwner
-        ens.contract.methods.owner(namehash("eth")).call().then(v => {
+        this.contracts.ens.contract.methods.owner(namehash("eth")).call().then(v => {
           ethOwner = v;
           console.log('ethOwner', ethOwner);
         }).catch(err => {
@@ -92,7 +112,7 @@ class App extends Component {
             getEnsOwnerFailed: true
           });
         });
-        ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
+        this.contracts.ens.contract.methods.owner(namehash("topmonks.eth")).call().then(v => {
           topmonksOwner = v;
           console.log('topmonksOwner', topmonksOwner);
         }).catch(err => {
@@ -131,7 +151,7 @@ class App extends Component {
     const isAvailable = await this.checkAvailability();
     
     if (isAvailable) {
-      topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, {gas: 50000})
+      this.contracts.topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, {gas: 50000})
         .on('receipt', (receipt) => {
           this.setMessage(false, `Domain ${domain} has been registered to your address`, 'success');
           event.target.reset();
@@ -183,7 +203,7 @@ class App extends Component {
 
 
     // handle error
-    const isAvailable = await ens.isFree(domain).catch((err) => {
+    const isAvailable = await this.contracts.ens.isFree(domain).catch((err) => {
       console.error('Checking domain availability failed with err:', err);
       state = {
         isCheckingAvailability: false,

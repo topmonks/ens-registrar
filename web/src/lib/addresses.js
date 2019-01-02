@@ -1,11 +1,17 @@
 import TopmonksRegistrar from "../contracts/TopmonksRegistrar.json";
 import ENSRegistry from "../contracts/ENSRegistry.json";
 
-function getAddr(contract) {
-  return contract.networks[Object.keys(contract.networks)[0]].address;
+function getAddr(contract, networkId) {
+  const network = contract.networks[networkId];
+  if (!network) {
+    const errMsg = `No configuration found for network id ${networkId}`;
+    console.error(errMsg);
+    throw new Error(errMsg);
+  }
+  return network.address;
 }
 
 export default {
-  ensAddress: getAddr(ENSRegistry),
-  registrarAddress: getAddr(TopmonksRegistrar),
+  getEnsAddress: (networkId) => getAddr(ENSRegistry, networkId),
+  getRegistrarAddress: (networkId) => getAddr(TopmonksRegistrar, networkId),
 }
