@@ -6,11 +6,12 @@ cache:
   - "$(npm config get prefix)/lib/node_modules"
   - "$(npm config get prefix)/web/node_modules"
 before_script:
-- npm install -g truffle solium
+# - npm install -g truffle solium
+- npm install -g solium
 - npm install
 script:
 - solium -d contracts
-- truffle test
+# - truffle test
 - "./node_modules/.bin/solidity-coverage"
 - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 # - truffle compile
