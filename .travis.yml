@@ -12,8 +12,12 @@ before_script:
 script:
 - solium -d contracts
 # - truffle test
-- "./node_modules/.bin/solidity-coverage"
-- bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+
+# Temporary Solution - It seems that Travis always compiles using the solc v5
+# even when it should use solc v4 as specified in truffle.js config.
+# - "./node_modules/.bin/solidity-coverage"
+# - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+
 # - truffle compile
 # - cp -r ./build/contracts ./web/src/contracts
 - npm install --prefix web
