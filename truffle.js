@@ -2,8 +2,18 @@ const HdWalletProvider = require('truffle-hdwallet-provider');
 
 module.exports = {
 
-  // Lumir recommends trying to disable optimizer when we get the "out of gas" error
+  compilers: {
+    solc: {
+      // Trying to fix the compiler mismatch.
+      // Travis CI uses v5 even though my package.json specifies v4
+      // But v5 is more strict and the code does not compile.
+      // I have fixed all errors, but it now complains that "SyntaxError: Source file requires different compiler version"
+      version: "^0.4.25"
+    }
+  },
+
   solc: {
+    // Lumir recommends trying to disable optimizer when we get the "out of gas" error
     optimizer: {
       enabled: true,
       runs: 200 // indicates how many times the contract is supposed to run.

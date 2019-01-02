@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.25;
 
 /**
  * @title Deed to hold ether in exchange for ownership of a node
