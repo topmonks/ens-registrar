@@ -69,7 +69,7 @@
   "sourceMap": "28:500:0:-;;;121:52;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;149:5:0;:18;;-1:-1:-1;;;;;;149:18:0;157:10;149:18;;;28:500;;;;;;",
   "deployedSourceMap": "28:500:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;357:168;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;357:168:0;;;;;;;;;78:36;;8:9:-1;5:2;;;30:1;27;20:12;5:2;78:36:0;;;;;;;;;;;;;;;;;;;;53:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;53:20:0;;;;;;;;;;;;;;;;;;;;;;;246:105;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;246:105:0;;;;;357:168;420:19;226:5;;;;212:10;:19;208:26;;;453:11;420:45;;472:8;:21;;;494:24;;472:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;472:47:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;472:47:0;;;;208:26;357:168;;:::o;78:36::-;;;;:::o;53:20::-;;;;;;:::o;246:105::-;226:5;;;;212:10;:19;208:26;;;309:24;:36;;;208:26;246:105;:::o",
   "source": "pragma solidity ^0.4.25;\r\n\r\ncontract Migrations {\r\n  address public owner;\r\n  uint public last_completed_migration;\r\n\r\n  constructor() public {\r\n    owner = msg.sender;\r\n  }\r\n\r\n  modifier restricted() {\r\n    if (msg.sender == owner) _;\r\n  }\r\n\r\n  function setCompleted(uint completed) public restricted {\r\n    last_completed_migration = completed;\r\n  }\r\n\r\n  function upgrade(address new_address) public restricted {\r\n    Migrations upgraded = Migrations(new_address);\r\n    upgraded.setCompleted(last_completed_migration);\r\n  }\r\n}\r\n",
-  "sourcePath": "C:\\src\\personal\\ens-registrar\\contracts\\Migrations.sol",
+  "sourcePath": "C:/src/personal/ens-registrar/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "/C/src/personal/ens-registrar/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -1376,7 +1376,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-02T10:58:59.707Z",
+  "updatedAt": "2019-01-03T09:34:52.140Z",
   "devdoc": {
     "methods": {}
   },

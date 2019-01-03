@@ -2812,7 +2812,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-02T10:58:59.710Z",
+  "updatedAt": "2019-01-02T14:27:03.551Z",
   "devdoc": {
     "methods": {
       "isOwner()": {
