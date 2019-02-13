@@ -94,6 +94,9 @@ body {
 .input-group > .form-control {
     border: 1px solid transparent;
 }
+.input-group > .form-control:disabled {
+    border: 1px solid #e9ecef;
+}
 
 .header {
     /* color: white; */
@@ -195,7 +198,12 @@ label {
     padding-top: 1rem;
 } */
 .btn-register {
-
+    position: relative;
+}
+.btn-register > i.fa-spinner {
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-top: -1rem; margin-left: -1rem;
 }
 
 .availability .circle {

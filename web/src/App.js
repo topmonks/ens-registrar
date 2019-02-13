@@ -37,6 +37,9 @@ class App extends Component {
       message: null, // object
       subdomain: '',
       ethCallInProgress: false,
+      ethCallSuccess: false,
+      ethCallError: false,
+      ethCallFinished: false,
       accounts: [],
       selectedAccount: '',
 
@@ -126,17 +129,16 @@ class App extends Component {
     }
   }
 
-  setMessage = (ethCallInProgress, msgText, msgType, txLink = null) => {
-    this.setState({
-      ethCallInProgress: ethCallInProgress,
-      message: {
-        text: msgText,
-        type: msgType,
-        spin: ethCallInProgress,
-        txLink
-      }
-    });
-  }
+  // setMessage = (ethCallInProgress, msgText, msgType, txLink = null) => {
+  //   this.setState({
+  //     ethCallInProgress,
+  //     message: {
+  //       text: msgText,
+  //       type: msgType,
+  //       txLink
+  //     }
+  //   });
+  // }
 
   registerSubdomain = async (event) => {
     event.preventDefault();
@@ -148,14 +150,31 @@ class App extends Component {
     }
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
-    this.setMessage(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'primary');
+    // this.setMessage(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'warning');
+    this.setState({
+      ethCallInProgress: true,
+      message: {
+        text: `Registering domain ${domain}. This may take some time, please be patient.`,
+        type: 'warning',
+        txLink: null,
+      }
+    });
 
     const isAvailable = await this.checkAvailability();
 
     if (isAvailable) {
       this.contracts.topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, { gas: 50000 })
         .on('receipt', (receipt) => {
-          this.setMessage(false, `Domain ${domain} has been registered to your address`, 'success');
+          // this.setMessage(false, `Domain ${domain} has been registered to your address`, 'success');
+          this.setState({
+            ethCallInProgress: false,
+            ethCallSuccess: true,
+            message: {
+              text: `Domain ${domain} has been registered to your address`,
+              type: 'success',
+              txLink: null,
+            }
+          });
           event.target.reset();
         })
         .on('error', (error) => {
@@ -163,7 +182,6 @@ class App extends Component {
           // I need to parse the object from it, to get the transactionHash
           log(error);
 
-          const errorMessage = `We are sorry, registratin of domain ${domain} failed.`;
           let txLink;
 
           // If the error message contained transaction receipt
@@ -178,7 +196,16 @@ class App extends Component {
             txLink = `${etherscanLink}tx/${tx}`;
           }
 
-          this.setMessage(false, errorMessage, 'danger', txLink);
+          // this.setMessage(false, errorMessage, 'danger', txLink);
+          this.setState({
+            ethCallInProgress: false,
+            ethCallError: true,
+            message: {
+              text: `We are sorry, registratin of domain ${domain} failed.`,
+              type: 'danger',
+              txLink,
+            }
+          });
 
           // Check availability again. Has the domain been taken by someone else in the meantime?
           this.checkAvailability();
@@ -203,6 +230,13 @@ class App extends Component {
     };
     this._setAvailabilityState(state);
 
+
+    return this._setAvailabilityState({
+      isCheckingAvailability: false,
+      availabilityCheckFailed: false,
+      availabilityChecked: true,
+      isAvailable: true,
+    })
 
     // handle error
     const isAvailable = await this.contracts.ens.isFree(domain).catch((err) => {
@@ -253,6 +287,10 @@ class App extends Component {
 
   render() {
     let disabled = this.state.ethCallInProgress === true;
+
+    const callSuccess = this.state.ethCallFinished && this.state.ethCallSuccess
+    const callError = this.state.ethCallFinished && this.state.ethCallError
+    const callInProgress = this.state.ethCallInProgress
 
     return (
       <div className="container">
@@ -348,15 +386,13 @@ class App extends Component {
 
                   <hr />
 
-                  <FlashMessage message={this.state.message} />
-
                   <div>
                     <form id="ens-registration" name="ens-registration" onSubmit={this.registerSubdomain}>
                       <div className="form-group">
                         <label htmlFor="addressSelect" className="upper">Your Account Address</label>
 
                         {this.state.networkType
-                          ? (<span className="right">Currently connected to {this.state.networkType}</span>)
+                          ? (<span className="right text-muted"><i className="fa fa-database" /> {this.state.networkType}</span>)
                           : (<span className="right">Not connected to any ETH network</span>)}
 
                         <div className="input-group">
@@ -394,6 +430,12 @@ class App extends Component {
                       <div className="form-group">
                         <fieldset disabled={disabled}>
                           <label htmlFor="subdomain" className="upper">Your new address name</label>
+                          {this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable && (
+                            <span className="right text-success">Available</span>
+                          )}
+                          {this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable === false && (
+                            <span className="right text-danger">Not available</span>
+                          )}
 
                           <div className="input-group">
                             <input
@@ -419,27 +461,27 @@ class App extends Component {
                           <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
 
                           {/* TODO: Optimize, code is ugly. */}
-                          {this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable
+                          {/*this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable
                             ? (
                               <div className="availability">
                                 <div className="green circle">
                                   <img src={checkMark} alt="check mark"></img>
                                 </div>
                                 <strong>{this.state.subdomain}.topmonks.eth</strong> is available.
-                          </div>
+                              </div>
                             )
-                            : ('')}
+                            : ('') */}
 
-                          {this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable === false
+                          {/*this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable === false
                             ? (
                               <div className="availability">
                                 <div className="red circle">
                                   <img src={xMark} alt="x mark"></img>
                                 </div>
                                 <strong>{this.state.subdomain}.topmonks.eth</strong> is not available.
-                          </div>
+                              </div>
                             )
-                            : ('')}
+                            : ('')*/}
 
                           {this.state.availability.availabilityCheckFailed
                             ? (
@@ -482,6 +524,7 @@ class App extends Component {
                           )}
                       </div> */}
                     </form>
+                    <FlashMessage message={this.state.message} />
                   </div>
                 </div>
               )}
@@ -489,19 +532,27 @@ class App extends Component {
           <div className='text-center'>
             {this.state.ethereumEnabled && (
               <button
-                className="btn btn-register"
+                className={
+                  "btn btn-register"
+                  + (callSuccess ? " btn-success" : "")
+                  + (callError ? " btn-danger" : "")
+                }
                 type="submit"
                 form="ens-registration"
                 disabled={!this.state.isValid || disabled || !this.state.subdomain.length}
               >
-                {this.state.message && this.state.message.spin ? (
-                  <i className="fa fa-2x fa-spinner fa-spin" />
-                ) : (
-                  <div>
-                    <div className="upper">Register</div>
-                    <div className="big">{this.state.subdomain}.topmonks.eth</div>
-                  </div>
+                {( callInProgress || callSuccess || callError ) && (
+                  <i className={
+                    "fa fa-2x "
+                    + (callInProgress ? "fa-spinner fa-spin" : "")
+                    + (callSuccess ? "fa-check" : "")
+                    + (callError ? "fa-times" : "")
+                  } />
                 )}
+                <div style={ ( callInProgress || callSuccess || callError ) ? {opacity: 0} : {} }>
+                  <div className="upper">Register</div>
+                  <div className="big">{this.state.subdomain}.topmonks.eth</div>
+                </div>
               </button>
             )}
           </div>
