@@ -185,14 +185,21 @@ label {
     color: #fff;
     background-color: #ec5c4e;
 }
-.btn:not([disabled]):hover {
+.btn:hover {
     background-color: #e9867d;
 }
-.btn:not([disabled]):focus {
+.btn:focus {
     opacity: .9;
 }
-.btn:not([disabled]):active {
+.btn:active {
     background-color: #bd3d30;
+}
+.btn:disabled,
+.btn:disabled:hover,
+.btn:disabled:focus,
+.btn:disabled:active {
+    opacity: 1;
+    background: #ec5c4e;
 }
 /* .btn-subdomain {
     padding-top: 1rem;
@@ -200,10 +207,15 @@ label {
 .btn-register {
     position: relative;
 }
-.btn-register > i.fa-spinner {
+.btn-register > i.fa {
     position: absolute;
     top: 50%; left: 50%;
     margin-top: -1rem; margin-left: -1rem;
+}
+.btn.btn-success,
+.btn.btn-success:hover,
+.btn.btn-success:focus {
+    background-color: #67e5a2;
 }
 
 .availability .circle {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 // import logo from './images/logo.png';
-import checkMark from './images/check-mark.png';
+// import checkMark from './images/check-mark.png';
 import xMark from './images/x-mark.png';
 import metamask from './images/download-metamask-dark.png';
 import logoFF from './images/browser-ff.png';
@@ -153,6 +153,7 @@ class App extends Component {
     // this.setMessage(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'warning');
     this.setState({
       ethCallInProgress: true,
+      ethCallFinished: false,
       message: {
         text: `Registering domain ${domain}. This may take some time, please be patient.`,
         type: 'warning',
@@ -199,6 +200,7 @@ class App extends Component {
           // this.setMessage(false, errorMessage, 'danger', txLink);
           this.setState({
             ethCallInProgress: false,
+            ethCallFinished: true,
             ethCallError: true,
             message: {
               text: `We are sorry, registratin of domain ${domain} failed.`,
@@ -229,14 +231,6 @@ class App extends Component {
       availabilityCheckFailed: false
     };
     this._setAvailabilityState(state);
-
-
-    return this._setAvailabilityState({
-      isCheckingAvailability: false,
-      availabilityCheckFailed: false,
-      availabilityChecked: true,
-      isAvailable: true,
-    })
 
     // handle error
     const isAvailable = await this.contracts.ens.isFree(domain).catch((err) => {
@@ -274,22 +268,38 @@ class App extends Component {
     return isValid;
   }
 
+  resetForm = () => {
+    this.setState({
+      subdomain: '',
+      availability: {
+        availabilityChecked: false
+      },
+      message: null,
+      ethCallFinished: false,
+      ethCallSuccess: false,
+      ethCallError: false,
+    });
+  }
+
   handleChange = (event) => {
     this.setState({
       subdomain: event.target.value,
       // todo: Need to test this, it might reset the whole state sub object
       availability: {
         availabilityChecked: false
-      }
+      },
+      ethCallFinished: false,
+      ethCallSuccess: false,
+      ethCallError: false,
     });
     this.checkValidity(event.target.value);
   }
 
   render() {
-    let disabled = this.state.ethCallInProgress === true;
+    let disabled = this.state.ethCallInProgress === true || this.state.ethCallSuccess;
 
     const callSuccess = this.state.ethCallFinished && this.state.ethCallSuccess
-    const callError = this.state.ethCallFinished && this.state.ethCallError
+    // const callError = this.state.ethCallFinished && this.state.ethCallError
     const callInProgress = this.state.ethCallInProgress
 
     return (
@@ -458,7 +468,7 @@ class App extends Component {
                                 disabled={this.state.domain && this.state.availability.isCheckingAvailability}>Available?</button>
                             </div>
                           </div>
-                          <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letters.</small>
+                          <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letter.</small>
 
                           {/* TODO: Optimize, code is ugly. */}
                           {/*this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable
@@ -524,7 +534,12 @@ class App extends Component {
                           )}
                       </div> */}
                     </form>
+
                     <FlashMessage message={this.state.message} />
+                    {callSuccess && (
+                      <a href='#' onClick={this.resetForm}>Register another address?</a>
+                    )}
+
                   </div>
                 </div>
               )}
@@ -535,21 +550,21 @@ class App extends Component {
                 className={
                   "btn btn-register"
                   + (callSuccess ? " btn-success" : "")
-                  + (callError ? " btn-danger" : "")
+                  // + (callError ? " btn-danger" : "")
                 }
                 type="submit"
                 form="ens-registration"
                 disabled={!this.state.isValid || disabled || !this.state.subdomain.length}
               >
-                {( callInProgress || callSuccess || callError ) && (
+                {(callInProgress || callSuccess/* || callError*/) && (
                   <i className={
                     "fa fa-2x "
                     + (callInProgress ? "fa-spinner fa-spin" : "")
                     + (callSuccess ? "fa-check" : "")
-                    + (callError ? "fa-times" : "")
+                    // + (callError ? "fa-times" : "")
                   } />
                 )}
-                <div style={ ( callInProgress || callSuccess || callError ) ? {opacity: 0} : {} }>
+                <div style={(callInProgress || callSuccess/* || callError*/) ? { opacity: 0 } : {}}>
                   <div className="upper">Register</div>
                   <div className="big">{this.state.subdomain}.topmonks.eth</div>
                 </div>
