@@ -136,7 +136,6 @@ class App extends Component {
     }
 
     let domain = `${this.state.subdomain}.topmonks.eth`;
-    // this.setMessage(true, `Registering domain ${domain}. This may take some time, please be patient.`, 'warning');
     this.setState({
       ethCallInProgress: true,
       ethCallFinished: false,
@@ -152,7 +151,6 @@ class App extends Component {
     if (isAvailable) {
       this.contracts.topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, { gas: 50000 })
         .on('receipt', (receipt) => {
-          // this.setMessage(false, `Domain ${domain} has been registered to your address`, 'success');
           this.setState({
             ethCallInProgress: false,
             ethCallSuccess: true,
@@ -183,7 +181,6 @@ class App extends Component {
             txLink = `${etherscanLink}tx/${tx}`;
           }
 
-          // this.setMessage(false, errorMessage, 'danger', txLink);
           this.setState({
             ethCallInProgress: false,
             ethCallFinished: true,
