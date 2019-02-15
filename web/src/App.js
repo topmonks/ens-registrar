@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import logo from './images/logo.png';
-// import checkMark from './images/check-mark.png';
 import xMark from './images/x-mark.png';
 import metamask from './images/download-metamask-dark.png';
 import logoFF from './images/browser-ff.png';
@@ -38,7 +36,6 @@ class App extends Component {
       subdomain: '',
       ethCallInProgress: false,
       ethCallSuccess: false,
-      ethCallError: false,
       ethCallFinished: false,
       accounts: [],
       selectedAccount: '',
@@ -129,17 +126,6 @@ class App extends Component {
     }
   }
 
-  // setMessage = (ethCallInProgress, msgText, msgType, txLink = null) => {
-  //   this.setState({
-  //     ethCallInProgress,
-  //     message: {
-  //       text: msgText,
-  //       type: msgType,
-  //       txLink
-  //     }
-  //   });
-  // }
-
   registerSubdomain = async (event) => {
     event.preventDefault();
     event.persist();
@@ -201,7 +187,6 @@ class App extends Component {
           this.setState({
             ethCallInProgress: false,
             ethCallFinished: true,
-            ethCallError: true,
             message: {
               text: `We are sorry, registratin of domain ${domain} failed.`,
               type: 'danger',
@@ -277,7 +262,6 @@ class App extends Component {
       message: null,
       ethCallFinished: false,
       ethCallSuccess: false,
-      ethCallError: false,
     });
   }
 
@@ -290,7 +274,6 @@ class App extends Component {
       },
       ethCallFinished: false,
       ethCallSuccess: false,
-      ethCallError: false,
     });
     this.checkValidity(event.target.value);
   }
@@ -299,7 +282,6 @@ class App extends Component {
     let disabled = this.state.ethCallInProgress === true || this.state.ethCallSuccess;
 
     const callSuccess = this.state.ethCallFinished && this.state.ethCallSuccess
-    // const callError = this.state.ethCallFinished && this.state.ethCallError
     const callInProgress = this.state.ethCallInProgress
 
     return (
@@ -342,16 +324,7 @@ class App extends Component {
 
         <div className="offset-lg-2 col-lg-8">
           <div className="jumbotron position-relative">
-            {this.state.ethereumEnabled === false
-              ? (
-                // <FlashMessage message={{
-                //   text: 'Please, log in to your Metamask account.',
-                //   type: 'warning'
-                // }} />
-                <div className='opaque-overlay'>Please, log in to your Metamask account.</div>
-              )
-              : ''
-            }
+            {this.state.ethereumEnabled === false ? (<div className='opaque-overlay'>Please, log in to your Metamask account.</div>) : ''}
 
             {this.state.unsupportedBrowser === true
               ? (
@@ -385,10 +358,6 @@ class App extends Component {
               )
               : (
                 <div className={this.state.ethereumEnabled === false ? "blur" : ""}>
-                  {/* <div className="text-center">
-                    <img className="logo" src={logo} alt="TopMonks logo"></img>
-                    <h1 className="upper centered header">ENS Registrar</h1>
-                  </div> */}
 
                   <p className="promo centered">
                     Associate your Eth address with something you will actually remember.
@@ -471,28 +440,6 @@ class App extends Component {
                           <small className="form-text text-muted">Only letters, numbers, dash or underscore. Minimum length of subdomain is {this.state.minimumLength} letter.</small>
 
                           {/* TODO: Optimize, code is ugly. */}
-                          {/*this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable
-                            ? (
-                              <div className="availability">
-                                <div className="green circle">
-                                  <img src={checkMark} alt="check mark"></img>
-                                </div>
-                                <strong>{this.state.subdomain}.topmonks.eth</strong> is available.
-                              </div>
-                            )
-                            : ('') */}
-
-                          {/*this.state.subdomain && this.state.availability.availabilityChecked && this.state.availability.isCheckingAvailability === false && this.state.availability.isAvailable === false
-                            ? (
-                              <div className="availability">
-                                <div className="red circle">
-                                  <img src={xMark} alt="x mark"></img>
-                                </div>
-                                <strong>{this.state.subdomain}.topmonks.eth</strong> is not available.
-                              </div>
-                            )
-                            : ('')*/}
-
                           {this.state.availability.availabilityCheckFailed
                             ? (
                               <div className="availability">
@@ -514,25 +461,6 @@ class App extends Component {
                             ) : ''}
                         </fieldset>
                       </div>
-
-                      {/* <div className="form-group">
-
-                        {this.state.ethereumEnabled && this.state.subdomain && this.state.subdomain.length > 0
-                          ? (
-                            <button
-                              className="btn btn-block orange btn-subdomain"
-                              type="submit"
-                              form="ens-registration"
-                              disabled={!this.state.isValid || disabled}>
-                              <div className="upper">Register</div>
-                              <div className="big">{this.state.subdomain}.topmonks.eth</div>
-                            </button>
-                          )
-                          : (
-                            <button className="btn btn-block orange"
-                              type="submit" disabled>Register</button>
-                          )}
-                      </div> */}
                     </form>
 
                     <FlashMessage message={this.state.message} />
@@ -550,21 +478,19 @@ class App extends Component {
                 className={
                   "btn btn-register"
                   + (callSuccess ? " btn-success" : "")
-                  // + (callError ? " btn-danger" : "")
                 }
                 type="submit"
                 form="ens-registration"
                 disabled={!this.state.isValid || disabled || !this.state.subdomain.length}
               >
-                {(callInProgress || callSuccess/* || callError*/) && (
+                {(callInProgress || callSuccess) && (
                   <i className={
                     "fa fa-2x "
                     + (callInProgress ? "fa-spinner fa-spin" : "")
                     + (callSuccess ? "fa-check" : "")
-                    // + (callError ? "fa-times" : "")
                   } />
                 )}
-                <div style={(callInProgress || callSuccess/* || callError*/) ? { opacity: 0 } : {}}>
+                <div style={(callInProgress || callSuccess) ? { opacity: 0 } : {}}>
                   <div className="upper">Register</div>
                   <div className="big">{this.state.subdomain}.topmonks.eth</div>
                 </div>
