@@ -1,5 +1,7 @@
-body {
+html {
     background: linear-gradient(122.96deg, #6551E0 -0.25%, #6B359D 101.31%);
+}
+body {
     min-height: 100vh;
     height: 100%;
     color: white;
@@ -9,6 +11,12 @@ body {
     font-family: 'PT Sans', sans-serif;
     padding-top: 3.25rem;
     padding-bottom: 4.25rem;
+
+    background-size: 1108px 651px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    background-color: transparent;
 }
 
 .logo {
@@ -214,6 +222,7 @@ label {
 }
 .btn.btn-success,
 .btn.btn-success:hover,
+.btn.btn-success:active,
 .btn.btn-success:focus {
     background-color: #67e5a2;
 }
