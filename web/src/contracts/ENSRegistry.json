@@ -5,7 +5,8 @@
       "inputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor"
+      "type": "constructor",
+      "signature": "constructor"
     },
     {
       "anonymous": false,
@@ -27,7 +28,8 @@
         }
       ],
       "name": "NewOwner",
-      "type": "event"
+      "type": "event",
+      "signature": "0xce0457fe73731f824cc272376169235128c118b49d344817417c6d108d155e82"
     },
     {
       "anonymous": false,
@@ -44,7 +46,8 @@
         }
       ],
       "name": "Transfer",
-      "type": "event"
+      "type": "event",
+      "signature": "0xd4735d920b0f87494915f556dd9b54c8f309026070caea5c737245152564d266"
     },
     {
       "anonymous": false,
@@ -61,7 +64,8 @@
         }
       ],
       "name": "NewResolver",
-      "type": "event"
+      "type": "event",
+      "signature": "0x335721b01866dc23fbee8b6b2c7b1e14d6f05c28cd35a2c934239f94095602a0"
     },
     {
       "anonymous": false,
@@ -78,7 +82,8 @@
         }
       ],
       "name": "NewTTL",
-      "type": "event"
+      "type": "event",
+      "signature": "0x1d4f9bbfc9cab89d66e1a1562f2233ccbf1308cb4f63de2ead5787adddb8fa68"
     },
     {
       "constant": false,
@@ -96,7 +101,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x5b0fc9c3"
     },
     {
       "constant": false,
@@ -118,7 +124,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x06ab5923"
     },
     {
       "constant": false,
@@ -136,7 +143,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x1896f70a"
     },
     {
       "constant": false,
@@ -154,7 +162,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x14ab9038"
     },
     {
       "constant": true,
@@ -173,7 +182,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x02571be3"
     },
     {
       "constant": true,
@@ -192,7 +202,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x0178b8bf"
     },
     {
       "constant": true,
@@ -211,17 +222,18 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x16a25cbd"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000808060010260001916815260200190815260200160002060000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506109778061007b6000396000f300608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630178b8bf1461008857806302571be3146100f957806306ab59231461016a57806314ab9038146101c957806316a25cbd1461020e5780631896f70a146102675780635b0fc9c3146102b8575b600080fd5b34801561009457600080fd5b506100b76004803603810190808035600019169060200190929190505050610309565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010557600080fd5b506101286004803603810190808035600019169060200190929190505050610350565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561017657600080fd5b506101c760048036038101908080356000191690602001909291908035600019169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610397565b005b3480156101d557600080fd5b5061020c6004803603810190808035600019169060200190929190803567ffffffffffffffff16906020019092919050505061057d565b005b34801561021a57600080fd5b5061023d600480360381019080803560001916906020019092919050505061068e565b604051808267ffffffffffffffff1667ffffffffffffffff16815260200191505060405180910390f35b34801561027357600080fd5b506102b66004803603810190808035600019169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506106c9565b005b3480156102c457600080fd5b506103076004803603810190808035600019169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061080a565b005b6000806000836000191660001916815260200190815260200160002060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b6000806000836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b6000833373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561041157600080fd5b84846040516020018083600019166000191681526020018260001916600019168152602001925050506040516020818303038152906040526040518082805190602001908083835b60208310151561047e5780518252602082019150602081019050602083039250610459565b6001836020036101000a03801982511681845116808217855250505050505090500191505060405180910390209150836000191685600019167fce0457fe73731f824cc272376169235128c118b49d344817417c6d108d155e8285604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a382600080846000191660001916815260200190815260200160002060000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b813373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415156105f557600080fd5b82600019167f1d4f9bbfc9cab89d66e1a1562f2233ccbf1308cb4f63de2ead5787adddb8fa6883604051808267ffffffffffffffff1667ffffffffffffffff16815260200191505060405180910390a281600080856000191660001916815260200190815260200160002060010160146101000a81548167ffffffffffffffff021916908367ffffffffffffffff160217905550505050565b6000806000836000191660001916815260200190815260200160002060010160149054906101000a900467ffffffffffffffff169050919050565b813373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561074157600080fd5b82600019167f335721b01866dc23fbee8b6b2c7b1e14d6f05c28cd35a2c934239f94095602a083604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a281600080856000191660001916815260200190815260200160002060010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505050565b813373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561088257600080fd5b82600019167fd4735d920b0f87494915f556dd9b54c8f309026070caea5c737245152564d26683604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a281600080856000191660001916815260200190815260200160002060000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505600a165627a7a72305820ed15782659a2fc1a8550bf5a72326929f81e28881e21e087d7e2d202c27584ac0029",
-  "deployedBytecode": "0x608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630178b8bf1461008857806302571be3146100f957806306ab59231461016a57806314ab9038146101c957806316a25cbd1461020e5780631896f70a146102675780635b0fc9c3146102b8575b600080fd5b34801561009457600080fd5b506100b76004803603810190808035600019169060200190929190505050610309565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561010557600080fd5b506101286004803603810190808035600019169060200190929190505050610350565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561017657600080fd5b506101c760048036038101908080356000191690602001909291908035600019169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610397565b005b3480156101d557600080fd5b5061020c6004803603810190808035600019169060200190929190803567ffffffffffffffff16906020019092919050505061057d565b005b34801561021a57600080fd5b5061023d600480360381019080803560001916906020019092919050505061068e565b604051808267ffffffffffffffff1667ffffffffffffffff16815260200191505060405180910390f35b34801561027357600080fd5b506102b66004803603810190808035600019169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506106c9565b005b3480156102c457600080fd5b506103076004803603810190808035600019169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061080a565b005b6000806000836000191660001916815260200190815260200160002060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b6000806000836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b6000833373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561041157600080fd5b84846040516020018083600019166000191681526020018260001916600019168152602001925050506040516020818303038152906040526040518082805190602001908083835b60208310151561047e5780518252602082019150602081019050602083039250610459565b6001836020036101000a03801982511681845116808217855250505050505090500191505060405180910390209150836000191685600019167fce0457fe73731f824cc272376169235128c118b49d344817417c6d108d155e8285604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a382600080846000191660001916815260200190815260200160002060000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b813373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415156105f557600080fd5b82600019167f1d4f9bbfc9cab89d66e1a1562f2233ccbf1308cb4f63de2ead5787adddb8fa6883604051808267ffffffffffffffff1667ffffffffffffffff16815260200191505060405180910390a281600080856000191660001916815260200190815260200160002060010160146101000a81548167ffffffffffffffff021916908367ffffffffffffffff160217905550505050565b6000806000836000191660001916815260200190815260200160002060010160149054906101000a900467ffffffffffffffff169050919050565b813373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561074157600080fd5b82600019167f335721b01866dc23fbee8b6b2c7b1e14d6f05c28cd35a2c934239f94095602a083604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a281600080856000191660001916815260200190815260200160002060010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505050565b813373ffffffffffffffffffffffffffffffffffffffff16600080836000191660001916815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561088257600080fd5b82600019167fd4735d920b0f87494915f556dd9b54c8f309026070caea5c737245152564d26683604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a281600080856000191660001916815260200190815260200160002060000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505600a165627a7a72305820ed15782659a2fc1a8550bf5a72326929f81e28881e21e087d7e2d202c27584ac0029",
-  "sourceMap": "85:2875:4:-;;;497:69;8:9:-1;5:2;;;30:1;27;20:12;5:2;497:69:4;549:10;528:7;:12;536:3;528:12;;;;;;;;;;;;;;;;:18;;;:31;;;;;;;;;;;;;;;;;;85:2875;;;;;;",
-  "deployedSourceMap": "85:2875:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2584:108;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2584:108:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2309:102;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2309:102:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1268:251;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1268:251:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2011:138;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2011:138:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2860:97;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2860:97:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1694:169;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1694:169:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;805:151;;8:9:-1;5:2;;;30:1;27;20:12;5:2;805:151:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2584:108;2637:7;2663;:13;2671:4;2663:13;;;;;;;;;;;;;;;;;:22;;;;;;;;;;;;2656:29;;2584:108;;;:::o;2309:102::-;2359:7;2385;:13;2393:4;2385:13;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;2378:26;;2309:102;;;:::o;1268:251::-;1371:15;1355:4;402:10;379:33;;:7;:13;387:4;379:13;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;:33;;;371:42;;;;;;;;1416:4;1422:5;1399:29;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;1399:29:4;;;1389:40;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1389:40:4;;;;;;;;;;;;;;;;1371:58;;1459:5;1444:28;;;1453:4;1444:28;;;;1466:5;1444:28;;;;;;;;;;;;;;;;;;;;;;1507:5;1482:7;:16;1490:7;1482:16;;;;;;;;;;;;;;;;;:22;;;:30;;;;;;;;;;;;;;;;;;1268:251;;;;;:::o;2011:138::-;2071:4;402:10;379:33;;:7;:13;387:4;379:13;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;:33;;;371:42;;;;;;;;2099:4;2092:17;;;;2105:3;2092:17;;;;;;;;;;;;;;;;;;;;;;2139:3;2119:7;:13;2127:4;2119:13;;;;;;;;;;;;;;;;;:17;;;:23;;;;;;;;;;;;;;;;;;2011:138;;;:::o;2860:97::-;2908:6;2933:7;:13;2941:4;2933:13;;;;;;;;;;;;;;;;;:17;;;;;;;;;;;;2926:24;;2860:97;;;:::o;1694:169::-;1765:4;402:10;379:33;;:7;:13;387:4;379:13;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;:33;;;371:42;;;;;;;;1798:4;1786:27;;;;1804:8;1786:27;;;;;;;;;;;;;;;;;;;;;;1848:8;1823:7;:13;1831:4;1823:13;;;;;;;;;;;;;;;;;:22;;;:33;;;;;;;;;;;;;;;;;;1694:169;;;:::o;805:151::-;870:4;402:10;379:33;;:7;:13;387:4;379:13;;;;;;;;;;;;;;;;;:19;;;;;;;;;;;;:33;;;371:42;;;;;;;;900:4;891:21;;;;906:5;891:21;;;;;;;;;;;;;;;;;;;;;;944:5;922:7;:13;930:4;922:13;;;;;;;;;;;;;;;;;:19;;;:27;;;;;;;;;;;;;;;;;;805:151;;;:::o",
-  "source": "pragma solidity ^0.4.25;\n\nimport './ENS.sol';\n\n/**\n * The ENS registry contract.\n */\ncontract ENSRegistry is ENS {\n    struct Record {\n        address owner;\n        address resolver;\n        uint64 ttl;\n    }\n\n    mapping (bytes32 => Record) records;\n\n    // Permits modifications only by the owner of the specified node.\n    modifier only_owner(bytes32 node) {\n        require(records[node].owner == msg.sender);\n        _;\n    }\n\n    /**\n     * @dev Constructs a new ENS registrar.\n     */\n    constructor() public {\n        records[0x0].owner = msg.sender;\n    }\n\n    /**\n     * @dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.\n     * @param node The node to transfer ownership of.\n     * @param owner The address of the new owner.\n     */\n    function setOwner(bytes32 node, address owner) public only_owner(node) {\n        emit Transfer(node, owner);\n        records[node].owner = owner;\n    }\n\n    /**\n     * @dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\n     * @param node The parent node.\n     * @param label The hash of the label specifying the subnode.\n     * @param owner The address of the new owner.\n     */\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) public only_owner(node) {\n        bytes32 subnode = keccak256(abi.encodePacked(node, label));\n        emit NewOwner(node, label, owner);\n        records[subnode].owner = owner;\n    }\n\n    /**\n     * @dev Sets the resolver address for the specified node.\n     * @param node The node to update.\n     * @param resolver The address of the resolver.\n     */\n    function setResolver(bytes32 node, address resolver) public only_owner(node) {\n        emit NewResolver(node, resolver);\n        records[node].resolver = resolver;\n    }\n\n    /**\n     * @dev Sets the TTL for the specified node.\n     * @param node The node to update.\n     * @param ttl The TTL in seconds.\n     */\n    function setTTL(bytes32 node, uint64 ttl) public only_owner(node) {\n        emit NewTTL(node, ttl);\n        records[node].ttl = ttl;\n    }\n\n    /**\n     * @dev Returns the address that owns the specified node.\n     * @param node The specified node.\n     * @return address of the owner.\n     */\n    function owner(bytes32 node) public view returns (address) {\n        return records[node].owner;\n    }\n\n    /**\n     * @dev Returns the address of the resolver for the specified node.\n     * @param node The specified node.\n     * @return address of the resolver.\n     */\n    function resolver(bytes32 node) public view returns (address) {\n        return records[node].resolver;\n    }\n\n    /**\n     * @dev Returns the TTL of a node, and any records associated with it.\n     * @param node The specified node.\n     * @return ttl of the node.\n     */\n    function ttl(bytes32 node) public view returns (uint64) {\n        return records[node].ttl;\n    }\n\n}\n",
-  "sourcePath": "C:\\Users\\Gaspari\\Office\\TM\\ens\\git\\lib\\ENSRegistry.sol",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008080526020527fad3228b676f7d3cd4284a5443f17f1962b36e491b30a40b2405849e597ba5fb58054600160a060020a03191633179055610562806100596000396000f3006080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630178b8bf811461008757806302571be3146100bb57806306ab5923146100d357806314ab9038146100fc57806316a25cbd146101215780631896f70a146101565780635b0fc9c31461017a575b600080fd5b34801561009357600080fd5b5061009f60043561019e565b60408051600160a060020a039092168252519081900360200190f35b3480156100c757600080fd5b5061009f6004356101bc565b3480156100df57600080fd5b506100fa600435602435600160a060020a03604435166101d7565b005b34801561010857600080fd5b506100fa60043567ffffffffffffffff602435166102f3565b34801561012d57600080fd5b506101396004356103bc565b6040805167ffffffffffffffff9092168252519081900360200190f35b34801561016257600080fd5b506100fa600435600160a060020a03602435166103f3565b34801561018657600080fd5b506100fa600435600160a060020a0360243516610496565b600090815260208190526040902060010154600160a060020a031690565b600090815260208190526040902054600160a060020a031690565b6000838152602081905260408120548490600160a060020a031633146101fc57600080fd5b604080516020808201889052818301879052825180830384018152606090920192839052815191929182918401908083835b6020831061024d5780518252601f19909201916020918201910161022e565b51815160209384036101000a600019018019909216911617905260408051929094018290038220600160a060020a038a16835293519397508995508a94507fce0457fe73731f824cc272376169235128c118b49d344817417c6d108d155e829391829003019150a3506000908152602081905260409020805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555050565b6000828152602081905260409020548290600160a060020a0316331461031857600080fd5b6040805167ffffffffffffffff84168152905184917f1d4f9bbfc9cab89d66e1a1562f2233ccbf1308cb4f63de2ead5787adddb8fa68919081900360200190a250600091825260208290526040909120600101805467ffffffffffffffff90921674010000000000000000000000000000000000000000027fffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffff909216919091179055565b60009081526020819052604090206001015474010000000000000000000000000000000000000000900467ffffffffffffffff1690565b6000828152602081905260409020548290600160a060020a0316331461041857600080fd5b60408051600160a060020a0384168152905184917f335721b01866dc23fbee8b6b2c7b1e14d6f05c28cd35a2c934239f94095602a0919081900360200190a250600091825260208290526040909120600101805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03909216919091179055565b6000828152602081905260409020548290600160a060020a031633146104bb57600080fd5b60408051600160a060020a0384168152905184917fd4735d920b0f87494915f556dd9b54c8f309026070caea5c737245152564d266919081900360200190a250600091825260208290526040909120805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a039092169190911790555600a165627a7a723058202dcbb5ea0e4efb92d285e83b82b59afcbd68609efc5a1348f121d04b2069c1450029",
+  "deployedBytecode": "0x6080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630178b8bf811461008757806302571be3146100bb57806306ab5923146100d357806314ab9038146100fc57806316a25cbd146101215780631896f70a146101565780635b0fc9c31461017a575b600080fd5b34801561009357600080fd5b5061009f60043561019e565b60408051600160a060020a039092168252519081900360200190f35b3480156100c757600080fd5b5061009f6004356101bc565b3480156100df57600080fd5b506100fa600435602435600160a060020a03604435166101d7565b005b34801561010857600080fd5b506100fa60043567ffffffffffffffff602435166102f3565b34801561012d57600080fd5b506101396004356103bc565b6040805167ffffffffffffffff9092168252519081900360200190f35b34801561016257600080fd5b506100fa600435600160a060020a03602435166103f3565b34801561018657600080fd5b506100fa600435600160a060020a0360243516610496565b600090815260208190526040902060010154600160a060020a031690565b600090815260208190526040902054600160a060020a031690565b6000838152602081905260408120548490600160a060020a031633146101fc57600080fd5b604080516020808201889052818301879052825180830384018152606090920192839052815191929182918401908083835b6020831061024d5780518252601f19909201916020918201910161022e565b51815160209384036101000a600019018019909216911617905260408051929094018290038220600160a060020a038a16835293519397508995508a94507fce0457fe73731f824cc272376169235128c118b49d344817417c6d108d155e829391829003019150a3506000908152602081905260409020805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555050565b6000828152602081905260409020548290600160a060020a0316331461031857600080fd5b6040805167ffffffffffffffff84168152905184917f1d4f9bbfc9cab89d66e1a1562f2233ccbf1308cb4f63de2ead5787adddb8fa68919081900360200190a250600091825260208290526040909120600101805467ffffffffffffffff90921674010000000000000000000000000000000000000000027fffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffff909216919091179055565b60009081526020819052604090206001015474010000000000000000000000000000000000000000900467ffffffffffffffff1690565b6000828152602081905260409020548290600160a060020a0316331461041857600080fd5b60408051600160a060020a0384168152905184917f335721b01866dc23fbee8b6b2c7b1e14d6f05c28cd35a2c934239f94095602a0919081900360200190a250600091825260208290526040909120600101805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03909216919091179055565b6000828152602081905260409020548290600160a060020a031633146104bb57600080fd5b60408051600160a060020a0384168152905184917fd4735d920b0f87494915f556dd9b54c8f309026070caea5c737245152564d266919081900360200190a250600091825260208290526040909120805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a039092169190911790555600a165627a7a723058202dcbb5ea0e4efb92d285e83b82b59afcbd68609efc5a1348f121d04b2069c1450029",
+  "sourceMap": "92:2966:4:-;;;522:71;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;554:7:4;:12;;;;;;:31;;-1:-1:-1;;;;;;554:31:4;575:10;554:31;;;92:2966;;;;;;",
+  "deployedSourceMap": "92:2966:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2669:110;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;2669:110:4;;;;;;;;;-1:-1:-1;;;;;2669:110:4;;;;;;;;;;;;;;2385:104;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;2385:104:4;;;;;1313:255;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1313:255:4;;;;;-1:-1:-1;;;;;1313:255:4;;;;;;;2077:141;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;2077:141:4;;;;;;;;;2954:99;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;2954:99:4;;;;;;;;;;;;;;;;;;;;;;;;1750:172;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1750:172:4;;;-1:-1:-1;;;;;1750:172:4;;;;;839:154;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;839:154:4;;;-1:-1:-1;;;;;839:154:4;;;;;2669:110;2722:7;2749:13;;;;;;;;;;:22;;;-1:-1:-1;;;;;2749:22:4;;2669:110::o;2385:104::-;2435:7;2462:13;;;;;;;;;;:19;-1:-1:-1;;;;;2462:19:4;;2385:104::o;1313:255::-;1417:15;397:13;;;;;;;;;;:19;1400:4;;-1:-1:-1;;;;;397:19:4;420:10;397:33;389:42;;;;;;1445:29;;;;;;;;;;;;;;;;;;26:21:-1;;;22:32;;6:49;;1445:29:4;;;;;;;;1435:40;;1445:29;;;;;1435:40;;;;1445:29;1435:40;36:153:-1;66:2;58:11;;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;1435:40:4;;;;;;;;;;;;-1:-1:-1;;;;;1491:28:4;;;;;;1435:40;;-1:-1:-1;1506:5:4;;-1:-1:-1;1500:4:4;;-1:-1:-1;1491:28:4;;;;;;;;-1:-1:-1;1491:28:4;-1:-1:-1;1530:7:4;:16;;;;;;;;;;:30;;-1:-1:-1;;1530:30:4;-1:-1:-1;;;;;1530:30:4;;;;;;;;;;-1:-1:-1;;1313:255:4:o;2077:141::-;397:7;:13;;;;;;;;;;:19;2137:4;;-1:-1:-1;;;;;397:19:4;420:10;397:33;389:42;;;;;;2159:17;;;;;;;;;;2166:4;;2159:17;;;;;;;;;;-1:-1:-1;2187:7:4;:13;;;;;;;;;;;:17;;:23;;;;;;;;;;;;;;;;;;2077:141::o;2954:99::-;3002:6;3028:13;;;;;;;;;;:17;;;;;;;;;2954:99::o;1750:172::-;397:7;:13;;;;;;;;;;:19;1821:4;;-1:-1:-1;;;;;397:19:4;420:10;397:33;389:42;;;;;;1843:27;;;-1:-1:-1;;;;;1843:27:4;;;;;;1855:4;;1843:27;;;;;;;;;;-1:-1:-1;1881:7:4;:13;;;;;;;;;;;:22;;:33;;-1:-1:-1;;1881:33:4;-1:-1:-1;;;;;1881:33:4;;;;;;;;;1750:172::o;839:154::-;397:7;:13;;;;;;;;;;:19;904:4;;-1:-1:-1;;;;;397:19:4;420:10;397:33;389:42;;;;;;926:21;;;-1:-1:-1;;;;;926:21:4;;;;;;935:4;;926:21;;;;;;;;;;-1:-1:-1;958:7:4;:13;;;;;;;;;;;:27;;-1:-1:-1;;958:27:4;-1:-1:-1;;;;;958:27:4;;;;;;;;;839:154::o",
+  "source": "pragma solidity ^0.4.25;\r\n\r\nimport './ENS.sol';\r\n\r\n/**\r\n * The ENS registry contract.\r\n */\r\ncontract ENSRegistry is ENS {\r\n    struct Record {\r\n        address owner;\r\n        address resolver;\r\n        uint64 ttl;\r\n    }\r\n\r\n    mapping (bytes32 => Record) records;\r\n\r\n    // Permits modifications only by the owner of the specified node.\r\n    modifier only_owner(bytes32 node) {\r\n        require(records[node].owner == msg.sender);\r\n        _;\r\n    }\r\n\r\n    /**\r\n     * @dev Constructs a new ENS registrar.\r\n     */\r\n    constructor() public {\r\n        records[0x0].owner = msg.sender;\r\n    }\r\n\r\n    /**\r\n     * @dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.\r\n     * @param node The node to transfer ownership of.\r\n     * @param owner The address of the new owner.\r\n     */\r\n    function setOwner(bytes32 node, address owner) public only_owner(node) {\r\n        emit Transfer(node, owner);\r\n        records[node].owner = owner;\r\n    }\r\n\r\n    /**\r\n     * @dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\r\n     * @param node The parent node.\r\n     * @param label The hash of the label specifying the subnode.\r\n     * @param owner The address of the new owner.\r\n     */\r\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) public only_owner(node) {\r\n        bytes32 subnode = keccak256(abi.encodePacked(node, label));\r\n        emit NewOwner(node, label, owner);\r\n        records[subnode].owner = owner;\r\n    }\r\n\r\n    /**\r\n     * @dev Sets the resolver address for the specified node.\r\n     * @param node The node to update.\r\n     * @param resolver The address of the resolver.\r\n     */\r\n    function setResolver(bytes32 node, address resolver) public only_owner(node) {\r\n        emit NewResolver(node, resolver);\r\n        records[node].resolver = resolver;\r\n    }\r\n\r\n    /**\r\n     * @dev Sets the TTL for the specified node.\r\n     * @param node The node to update.\r\n     * @param ttl The TTL in seconds.\r\n     */\r\n    function setTTL(bytes32 node, uint64 ttl) public only_owner(node) {\r\n        emit NewTTL(node, ttl);\r\n        records[node].ttl = ttl;\r\n    }\r\n\r\n    /**\r\n     * @dev Returns the address that owns the specified node.\r\n     * @param node The specified node.\r\n     * @return address of the owner.\r\n     */\r\n    function owner(bytes32 node) public view returns (address) {\r\n        return records[node].owner;\r\n    }\r\n\r\n    /**\r\n     * @dev Returns the address of the resolver for the specified node.\r\n     * @param node The specified node.\r\n     * @return address of the resolver.\r\n     */\r\n    function resolver(bytes32 node) public view returns (address) {\r\n        return records[node].resolver;\r\n    }\r\n\r\n    /**\r\n     * @dev Returns the TTL of a node, and any records associated with it.\r\n     * @param node The specified node.\r\n     * @return ttl of the node.\r\n     */\r\n    function ttl(bytes32 node) public view returns (uint64) {\r\n        return records[node].ttl;\r\n    }\r\n\r\n}\r\n",
+  "sourcePath": "C:\\src\\personal\\ens-registrar\\lib\\ENSRegistry.sol",
   "ast": {
-    "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/ENSRegistry.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/lib/ENSRegistry.sol",
     "exportedSymbols": {
       "ENSRegistry": [
         521
@@ -242,13 +254,13 @@
         "src": "0:24:4"
       },
       {
-        "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/ENS.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/ENS.sol",
         "file": "./ENS.sol",
         "id": 335,
         "nodeType": "ImportDirective",
         "scope": 522,
         "sourceUnit": 333,
-        "src": "26:19:4",
+        "src": "28:19:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -262,7 +274,7 @@
               "name": "ENS",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 332,
-              "src": "109:3:4",
+              "src": "116:3:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_ENS_$332",
                 "typeString": "contract ENS"
@@ -270,14 +282,14 @@
             },
             "id": 337,
             "nodeType": "InheritanceSpecifier",
-            "src": "109:3:4"
+            "src": "116:3:4"
           }
         ],
         "contractDependencies": [
           332
         ],
         "contractKind": "contract",
-        "documentation": "The ENS registry contract.",
+        "documentation": "The ENS registry contract.\r",
         "fullyImplemented": true,
         "id": 521,
         "linearizedBaseContracts": [
@@ -297,7 +309,7 @@
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
                 "scope": 344,
-                "src": "143:13:4",
+                "src": "152:13:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -308,7 +320,7 @@
                   "id": 338,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "143:7:4",
+                  "src": "152:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -323,7 +335,7 @@
                 "name": "resolver",
                 "nodeType": "VariableDeclaration",
                 "scope": 344,
-                "src": "166:16:4",
+                "src": "176:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -334,7 +346,7 @@
                   "id": 340,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "166:7:4",
+                  "src": "176:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -349,7 +361,7 @@
                 "name": "ttl",
                 "nodeType": "VariableDeclaration",
                 "scope": 344,
-                "src": "192:10:4",
+                "src": "203:10:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -360,7 +372,7 @@
                   "id": 342,
                   "name": "uint64",
                   "nodeType": "ElementaryTypeName",
-                  "src": "192:6:4",
+                  "src": "203:6:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint64",
                     "typeString": "uint64"
@@ -373,7 +385,7 @@
             "name": "Record",
             "nodeType": "StructDefinition",
             "scope": 521,
-            "src": "119:90:4",
+            "src": "127:94:4",
             "visibility": "public"
           },
           {
@@ -382,7 +394,7 @@
             "name": "records",
             "nodeType": "VariableDeclaration",
             "scope": 521,
-            "src": "215:35:4",
+            "src": "229:35:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -395,14 +407,14 @@
                 "id": 345,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
-                "src": "224:7:4",
+                "src": "238:7:4",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bytes32",
                   "typeString": "bytes32"
                 }
               },
               "nodeType": "Mapping",
-              "src": "215:27:4",
+              "src": "229:27:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                 "typeString": "mapping(bytes32 => struct ENSRegistry.Record)"
@@ -413,7 +425,7 @@
                 "name": "Record",
                 "nodeType": "UserDefinedTypeName",
                 "referencedDeclaration": 344,
-                "src": "235:6:4",
+                "src": "249:6:4",
                 "typeDescriptions": {
                   "typeIdentifier": "t_struct$_Record_$344_storage_ptr",
                   "typeString": "struct ENSRegistry.Record"
@@ -427,7 +439,7 @@
             "body": {
               "id": 363,
               "nodeType": "Block",
-              "src": "361:70:4",
+              "src": "378:73:4",
               "statements": [
                 {
                   "expression": {
@@ -455,7 +467,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 348,
-                              "src": "379:7:4",
+                              "src": "397:7:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                                 "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -469,7 +481,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 350,
-                              "src": "387:4:4",
+                              "src": "405:4:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bytes32",
                                 "typeString": "bytes32"
@@ -480,7 +492,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "379:13:4",
+                            "src": "397:13:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_Record_$344_storage",
                               "typeString": "struct ENSRegistry.Record storage ref"
@@ -494,7 +506,7 @@
                           "memberName": "owner",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 339,
-                          "src": "379:19:4",
+                          "src": "397:19:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -511,7 +523,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1199,
-                            "src": "402:3:4",
+                            "src": "420:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
@@ -525,13 +537,13 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "402:10:4",
+                          "src": "420:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "379:33:4",
+                        "src": "397:33:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -553,7 +565,7 @@
                         1203
                       ],
                       "referencedDeclaration": 1202,
-                      "src": "371:7:4",
+                      "src": "389:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
@@ -567,7 +579,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "371:42:4",
+                    "src": "389:42:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -575,12 +587,12 @@
                   },
                   "id": 361,
                   "nodeType": "ExpressionStatement",
-                  "src": "371:42:4"
+                  "src": "389:42:4"
                 },
                 {
                   "id": 362,
                   "nodeType": "PlaceholderStatement",
-                  "src": "423:1:4"
+                  "src": "442:1:4"
                 }
               ]
             },
@@ -598,7 +610,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 364,
-                  "src": "347:12:4",
+                  "src": "364:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -609,7 +621,7 @@
                     "id": 349,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "347:7:4",
+                    "src": "364:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -619,16 +631,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "346:14:4"
+              "src": "363:14:4"
             },
-            "src": "327:104:4",
+            "src": "344:107:4",
             "visibility": "internal"
           },
           {
             "body": {
               "id": 375,
               "nodeType": "Block",
-              "src": "518:48:4",
+              "src": "543:50:4",
               "statements": [
                 {
                   "expression": {
@@ -649,7 +661,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "528:7:4",
+                          "src": "554:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -666,7 +678,7 @@
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "536:3:4",
+                          "src": "562:3:4",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_0_by_1",
@@ -679,7 +691,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "528:12:4",
+                        "src": "554:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -693,7 +705,7 @@
                       "memberName": "owner",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 339,
-                      "src": "528:18:4",
+                      "src": "554:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -710,7 +722,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1199,
-                        "src": "549:3:4",
+                        "src": "575:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
@@ -724,13 +736,13 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "549:10:4",
+                      "src": "575:10:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "528:31:4",
+                    "src": "554:31:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -738,11 +750,11 @@
                   },
                   "id": 374,
                   "nodeType": "ExpressionStatement",
-                  "src": "528:31:4"
+                  "src": "554:31:4"
                 }
               ]
             },
-            "documentation": "@dev Constructs a new ENS registrar.",
+            "documentation": "@dev Constructs a new ENS registrar.\r",
             "id": 376,
             "implemented": true,
             "isConstructor": true,
@@ -754,17 +766,17 @@
               "id": 365,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "508:2:4"
+              "src": "533:2:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 366,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "518:0:4"
+              "src": "543:0:4"
             },
             "scope": 521,
-            "src": "497:69:4",
+            "src": "522:71:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -773,7 +785,7 @@
             "body": {
               "id": 398,
               "nodeType": "Block",
-              "src": "876:80:4",
+              "src": "910:83:4",
               "statements": [
                 {
                   "eventCall": {
@@ -786,7 +798,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 378,
-                        "src": "900:4:4",
+                        "src": "935:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -799,7 +811,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 380,
-                        "src": "906:5:4",
+                        "src": "941:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -822,7 +834,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 268,
-                      "src": "891:8:4",
+                      "src": "926:8:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,address)"
@@ -836,7 +848,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "891:21:4",
+                    "src": "926:21:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -844,7 +856,7 @@
                   },
                   "id": 390,
                   "nodeType": "EmitStatement",
-                  "src": "886:26:4"
+                  "src": "921:26:4"
                 },
                 {
                   "expression": {
@@ -865,7 +877,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "922:7:4",
+                          "src": "958:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -879,7 +891,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 378,
-                          "src": "930:4:4",
+                          "src": "966:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -890,7 +902,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "922:13:4",
+                        "src": "958:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -904,7 +916,7 @@
                       "memberName": "owner",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 339,
-                      "src": "922:19:4",
+                      "src": "958:19:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -919,13 +931,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 380,
-                      "src": "944:5:4",
+                      "src": "980:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "922:27:4",
+                    "src": "958:27:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -933,11 +945,11 @@
                   },
                   "id": 397,
                   "nodeType": "ExpressionStatement",
-                  "src": "922:27:4"
+                  "src": "958:27:4"
                 }
               ]
             },
-            "documentation": "@dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.\n@param node The node to transfer ownership of.\n@param owner The address of the new owner.",
+            "documentation": "@dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.\r\n@param node The node to transfer ownership of.\r\n@param owner The address of the new owner.\r",
             "id": 399,
             "implemented": true,
             "isConstructor": false,
@@ -952,7 +964,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 378,
-                    "src": "870:4:4",
+                    "src": "904:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -967,14 +979,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "859:10:4",
+                  "src": "893:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "859:16:4"
+                "src": "893:16:4"
               }
             ],
             "name": "setOwner",
@@ -989,7 +1001,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 399,
-                  "src": "823:12:4",
+                  "src": "857:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1000,7 +1012,7 @@
                     "id": 377,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "823:7:4",
+                    "src": "857:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1015,7 +1027,7 @@
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
                   "scope": 399,
-                  "src": "837:13:4",
+                  "src": "871:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1026,7 +1038,7 @@
                     "id": 379,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "837:7:4",
+                    "src": "871:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1036,17 +1048,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "822:29:4"
+              "src": "856:29:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 385,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "876:0:4"
+              "src": "910:0:4"
             },
             "scope": 521,
-            "src": "805:151:4",
+            "src": "839:154:4",
             "stateMutability": "nonpayable",
             "superFunction": 303,
             "visibility": "public"
@@ -1055,7 +1067,7 @@
             "body": {
               "id": 434,
               "nodeType": "Block",
-              "src": "1361:158:4",
+              "src": "1406:162:4",
               "statements": [
                 {
                   "assignments": [
@@ -1068,7 +1080,7 @@
                       "name": "subnode",
                       "nodeType": "VariableDeclaration",
                       "scope": 435,
-                      "src": "1371:15:4",
+                      "src": "1417:15:4",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -1079,7 +1091,7 @@
                         "id": 411,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1371:7:4",
+                        "src": "1417:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1103,7 +1115,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 401,
-                            "src": "1416:4:4",
+                            "src": "1462:4:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
                               "typeString": "bytes32"
@@ -1116,7 +1128,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 403,
-                            "src": "1422:5:4",
+                            "src": "1468:5:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
                               "typeString": "bytes32"
@@ -1141,7 +1153,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1186,
-                            "src": "1399:3:4",
+                            "src": "1445:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
@@ -1155,7 +1167,7 @@
                           "memberName": "encodePacked",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "1399:16:4",
+                          "src": "1445:16:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                             "typeString": "function () pure returns (bytes memory)"
@@ -1169,7 +1181,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1399:29:4",
+                        "src": "1445:29:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
                           "typeString": "bytes memory"
@@ -1188,7 +1200,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1193,
-                      "src": "1389:9:4",
+                      "src": "1435:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
@@ -1202,14 +1214,14 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1389:40:4",
+                    "src": "1435:40:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1371:58:4"
+                  "src": "1417:58:4"
                 },
                 {
                   "eventCall": {
@@ -1222,7 +1234,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 401,
-                        "src": "1453:4:4",
+                        "src": "1500:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1235,7 +1247,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 403,
-                        "src": "1459:5:4",
+                        "src": "1506:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1248,7 +1260,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 405,
-                        "src": "1466:5:4",
+                        "src": "1513:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1275,7 +1287,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 262,
-                      "src": "1444:8:4",
+                      "src": "1491:8:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,bytes32,address)"
@@ -1289,7 +1301,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1444:28:4",
+                    "src": "1491:28:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -1297,7 +1309,7 @@
                   },
                   "id": 426,
                   "nodeType": "EmitStatement",
-                  "src": "1439:33:4"
+                  "src": "1486:33:4"
                 },
                 {
                   "expression": {
@@ -1318,7 +1330,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "1482:7:4",
+                          "src": "1530:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -1332,7 +1344,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 412,
-                          "src": "1490:7:4",
+                          "src": "1538:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -1343,7 +1355,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1482:16:4",
+                        "src": "1530:16:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -1357,7 +1369,7 @@
                       "memberName": "owner",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 339,
-                      "src": "1482:22:4",
+                      "src": "1530:22:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1372,13 +1384,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 405,
-                      "src": "1507:5:4",
+                      "src": "1555:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "1482:30:4",
+                    "src": "1530:30:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1386,11 +1398,11 @@
                   },
                   "id": 433,
                   "nodeType": "ExpressionStatement",
-                  "src": "1482:30:4"
+                  "src": "1530:30:4"
                 }
               ]
             },
-            "documentation": "@dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\n@param node The parent node.\n@param label The hash of the label specifying the subnode.\n@param owner The address of the new owner.",
+            "documentation": "@dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\r\n@param node The parent node.\r\n@param label The hash of the label specifying the subnode.\r\n@param owner The address of the new owner.\r",
             "id": 435,
             "implemented": true,
             "isConstructor": false,
@@ -1405,7 +1417,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 401,
-                    "src": "1355:4:4",
+                    "src": "1400:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1420,14 +1432,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "1344:10:4",
+                  "src": "1389:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1344:16:4"
+                "src": "1389:16:4"
               }
             ],
             "name": "setSubnodeOwner",
@@ -1442,7 +1454,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 435,
-                  "src": "1293:12:4",
+                  "src": "1338:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1453,7 +1465,7 @@
                     "id": 400,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1293:7:4",
+                    "src": "1338:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1468,7 +1480,7 @@
                   "name": "label",
                   "nodeType": "VariableDeclaration",
                   "scope": 435,
-                  "src": "1307:13:4",
+                  "src": "1352:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1479,7 +1491,7 @@
                     "id": 402,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1307:7:4",
+                    "src": "1352:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1494,7 +1506,7 @@
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
                   "scope": 435,
-                  "src": "1322:13:4",
+                  "src": "1367:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1505,7 +1517,7 @@
                     "id": 404,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1322:7:4",
+                    "src": "1367:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1515,17 +1527,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1292:44:4"
+              "src": "1337:44:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 410,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1361:0:4"
+              "src": "1406:0:4"
             },
             "scope": 521,
-            "src": "1268:251:4",
+            "src": "1313:255:4",
             "stateMutability": "nonpayable",
             "superFunction": 289,
             "visibility": "public"
@@ -1534,7 +1546,7 @@
             "body": {
               "id": 457,
               "nodeType": "Block",
-              "src": "1771:92:4",
+              "src": "1827:95:4",
               "statements": [
                 {
                   "eventCall": {
@@ -1547,7 +1559,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 437,
-                        "src": "1798:4:4",
+                        "src": "1855:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1560,7 +1572,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 439,
-                        "src": "1804:8:4",
+                        "src": "1861:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1583,7 +1595,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 274,
-                      "src": "1786:11:4",
+                      "src": "1843:11:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,address)"
@@ -1597,7 +1609,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1786:27:4",
+                    "src": "1843:27:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -1605,7 +1617,7 @@
                   },
                   "id": 449,
                   "nodeType": "EmitStatement",
-                  "src": "1781:32:4"
+                  "src": "1838:32:4"
                 },
                 {
                   "expression": {
@@ -1626,7 +1638,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "1823:7:4",
+                          "src": "1881:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -1640,7 +1652,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 437,
-                          "src": "1831:4:4",
+                          "src": "1889:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -1651,7 +1663,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1823:13:4",
+                        "src": "1881:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -1665,7 +1677,7 @@
                       "memberName": "resolver",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 341,
-                      "src": "1823:22:4",
+                      "src": "1881:22:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1680,13 +1692,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 439,
-                      "src": "1848:8:4",
+                      "src": "1906:8:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "1823:33:4",
+                    "src": "1881:33:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1694,11 +1706,11 @@
                   },
                   "id": 456,
                   "nodeType": "ExpressionStatement",
-                  "src": "1823:33:4"
+                  "src": "1881:33:4"
                 }
               ]
             },
-            "documentation": "@dev Sets the resolver address for the specified node.\n@param node The node to update.\n@param resolver The address of the resolver.",
+            "documentation": "@dev Sets the resolver address for the specified node.\r\n@param node The node to update.\r\n@param resolver The address of the resolver.\r",
             "id": 458,
             "implemented": true,
             "isConstructor": false,
@@ -1713,7 +1725,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 437,
-                    "src": "1765:4:4",
+                    "src": "1821:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1728,14 +1740,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "1754:10:4",
+                  "src": "1810:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1754:16:4"
+                "src": "1810:16:4"
               }
             ],
             "name": "setResolver",
@@ -1750,7 +1762,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 458,
-                  "src": "1715:12:4",
+                  "src": "1771:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1761,7 +1773,7 @@
                     "id": 436,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1715:7:4",
+                    "src": "1771:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1776,7 +1788,7 @@
                   "name": "resolver",
                   "nodeType": "VariableDeclaration",
                   "scope": 458,
-                  "src": "1729:16:4",
+                  "src": "1785:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1787,7 +1799,7 @@
                     "id": 438,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1729:7:4",
+                    "src": "1785:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1797,17 +1809,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1714:32:4"
+              "src": "1770:32:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 444,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1771:0:4"
+              "src": "1827:0:4"
             },
             "scope": 521,
-            "src": "1694:169:4",
+            "src": "1750:172:4",
             "stateMutability": "nonpayable",
             "superFunction": 296,
             "visibility": "public"
@@ -1816,7 +1828,7 @@
             "body": {
               "id": 480,
               "nodeType": "Block",
-              "src": "2077:72:4",
+              "src": "2143:75:4",
               "statements": [
                 {
                   "eventCall": {
@@ -1829,7 +1841,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 460,
-                        "src": "2099:4:4",
+                        "src": "2166:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1842,7 +1854,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 462,
-                        "src": "2105:3:4",
+                        "src": "2172:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint64",
                           "typeString": "uint64"
@@ -1865,7 +1877,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 280,
-                      "src": "2092:6:4",
+                      "src": "2159:6:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint64_$returns$__$",
                         "typeString": "function (bytes32,uint64)"
@@ -1879,7 +1891,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2092:17:4",
+                    "src": "2159:17:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -1887,7 +1899,7 @@
                   },
                   "id": 472,
                   "nodeType": "EmitStatement",
-                  "src": "2087:22:4"
+                  "src": "2154:22:4"
                 },
                 {
                   "expression": {
@@ -1908,7 +1920,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "2119:7:4",
+                          "src": "2187:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -1922,7 +1934,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 460,
-                          "src": "2127:4:4",
+                          "src": "2195:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -1933,7 +1945,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "2119:13:4",
+                        "src": "2187:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -1947,7 +1959,7 @@
                       "memberName": "ttl",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 343,
-                      "src": "2119:17:4",
+                      "src": "2187:17:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint64",
                         "typeString": "uint64"
@@ -1962,13 +1974,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 462,
-                      "src": "2139:3:4",
+                      "src": "2207:3:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint64",
                         "typeString": "uint64"
                       }
                     },
-                    "src": "2119:23:4",
+                    "src": "2187:23:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -1976,11 +1988,11 @@
                   },
                   "id": 479,
                   "nodeType": "ExpressionStatement",
-                  "src": "2119:23:4"
+                  "src": "2187:23:4"
                 }
               ]
             },
-            "documentation": "@dev Sets the TTL for the specified node.\n@param node The node to update.\n@param ttl The TTL in seconds.",
+            "documentation": "@dev Sets the TTL for the specified node.\r\n@param node The node to update.\r\n@param ttl The TTL in seconds.\r",
             "id": 481,
             "implemented": true,
             "isConstructor": false,
@@ -1995,7 +2007,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 460,
-                    "src": "2071:4:4",
+                    "src": "2137:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2010,14 +2022,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "2060:10:4",
+                  "src": "2126:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2060:16:4"
+                "src": "2126:16:4"
               }
             ],
             "name": "setTTL",
@@ -2032,7 +2044,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 481,
-                  "src": "2027:12:4",
+                  "src": "2093:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2043,7 +2055,7 @@
                     "id": 459,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2027:7:4",
+                    "src": "2093:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2058,7 +2070,7 @@
                   "name": "ttl",
                   "nodeType": "VariableDeclaration",
                   "scope": 481,
-                  "src": "2041:10:4",
+                  "src": "2107:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2069,7 +2081,7 @@
                     "id": 461,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2041:6:4",
+                    "src": "2107:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -2079,17 +2091,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2026:26:4"
+              "src": "2092:26:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 467,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2077:0:4"
+              "src": "2143:0:4"
             },
             "scope": 521,
-            "src": "2011:138:4",
+            "src": "2077:141:4",
             "stateMutability": "nonpayable",
             "superFunction": 310,
             "visibility": "public"
@@ -2098,7 +2110,7 @@
             "body": {
               "id": 493,
               "nodeType": "Block",
-              "src": "2368:43:4",
+              "src": "2444:45:4",
               "statements": [
                 {
                   "expression": {
@@ -2112,7 +2124,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 348,
-                        "src": "2385:7:4",
+                        "src": "2462:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                           "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -2126,7 +2138,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 483,
-                        "src": "2393:4:4",
+                        "src": "2470:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -2137,7 +2149,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2385:13:4",
+                      "src": "2462:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Record_$344_storage",
                         "typeString": "struct ENSRegistry.Record storage ref"
@@ -2151,7 +2163,7 @@
                     "memberName": "owner",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 339,
-                    "src": "2385:19:4",
+                    "src": "2462:19:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2160,11 +2172,11 @@
                   "functionReturnParameters": 487,
                   "id": 492,
                   "nodeType": "Return",
-                  "src": "2378:26:4"
+                  "src": "2455:26:4"
                 }
               ]
             },
-            "documentation": "@dev Returns the address that owns the specified node.\n@param node The specified node.\n@return address of the owner.",
+            "documentation": "@dev Returns the address that owns the specified node.\r\n@param node The specified node.\r\n@return address of the owner.\r",
             "id": 494,
             "implemented": true,
             "isConstructor": false,
@@ -2182,7 +2194,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 494,
-                  "src": "2324:12:4",
+                  "src": "2400:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2193,7 +2205,7 @@
                     "id": 482,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2324:7:4",
+                    "src": "2400:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2203,7 +2215,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2323:14:4"
+              "src": "2399:14:4"
             },
             "payable": false,
             "returnParameters": {
@@ -2216,7 +2228,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 494,
-                  "src": "2359:7:4",
+                  "src": "2435:7:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2227,7 +2239,7 @@
                     "id": 485,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2359:7:4",
+                    "src": "2435:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2237,10 +2249,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2358:9:4"
+              "src": "2434:9:4"
             },
             "scope": 521,
-            "src": "2309:102:4",
+            "src": "2385:104:4",
             "stateMutability": "view",
             "superFunction": 317,
             "visibility": "public"
@@ -2249,7 +2261,7 @@
             "body": {
               "id": 506,
               "nodeType": "Block",
-              "src": "2646:46:4",
+              "src": "2731:48:4",
               "statements": [
                 {
                   "expression": {
@@ -2263,7 +2275,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 348,
-                        "src": "2663:7:4",
+                        "src": "2749:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                           "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -2277,7 +2289,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 496,
-                        "src": "2671:4:4",
+                        "src": "2757:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -2288,7 +2300,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2663:13:4",
+                      "src": "2749:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Record_$344_storage",
                         "typeString": "struct ENSRegistry.Record storage ref"
@@ -2302,7 +2314,7 @@
                     "memberName": "resolver",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 341,
-                    "src": "2663:22:4",
+                    "src": "2749:22:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2311,11 +2323,11 @@
                   "functionReturnParameters": 500,
                   "id": 505,
                   "nodeType": "Return",
-                  "src": "2656:29:4"
+                  "src": "2742:29:4"
                 }
               ]
             },
-            "documentation": "@dev Returns the address of the resolver for the specified node.\n@param node The specified node.\n@return address of the resolver.",
+            "documentation": "@dev Returns the address of the resolver for the specified node.\r\n@param node The specified node.\r\n@return address of the resolver.\r",
             "id": 507,
             "implemented": true,
             "isConstructor": false,
@@ -2333,7 +2345,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 507,
-                  "src": "2602:12:4",
+                  "src": "2687:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2344,7 +2356,7 @@
                     "id": 495,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2602:7:4",
+                    "src": "2687:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2354,7 +2366,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2601:14:4"
+              "src": "2686:14:4"
             },
             "payable": false,
             "returnParameters": {
@@ -2367,7 +2379,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 507,
-                  "src": "2637:7:4",
+                  "src": "2722:7:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2378,7 +2390,7 @@
                     "id": 498,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2637:7:4",
+                    "src": "2722:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2388,10 +2400,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2636:9:4"
+              "src": "2721:9:4"
             },
             "scope": 521,
-            "src": "2584:108:4",
+            "src": "2669:110:4",
             "stateMutability": "view",
             "superFunction": 324,
             "visibility": "public"
@@ -2400,7 +2412,7 @@
             "body": {
               "id": 519,
               "nodeType": "Block",
-              "src": "2916:41:4",
+              "src": "3010:43:4",
               "statements": [
                 {
                   "expression": {
@@ -2414,7 +2426,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 348,
-                        "src": "2933:7:4",
+                        "src": "3028:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                           "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -2428,7 +2440,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 509,
-                        "src": "2941:4:4",
+                        "src": "3036:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -2439,7 +2451,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2933:13:4",
+                      "src": "3028:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Record_$344_storage",
                         "typeString": "struct ENSRegistry.Record storage ref"
@@ -2453,7 +2465,7 @@
                     "memberName": "ttl",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 343,
-                    "src": "2933:17:4",
+                    "src": "3028:17:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -2462,11 +2474,11 @@
                   "functionReturnParameters": 513,
                   "id": 518,
                   "nodeType": "Return",
-                  "src": "2926:24:4"
+                  "src": "3021:24:4"
                 }
               ]
             },
-            "documentation": "@dev Returns the TTL of a node, and any records associated with it.\n@param node The specified node.\n@return ttl of the node.",
+            "documentation": "@dev Returns the TTL of a node, and any records associated with it.\r\n@param node The specified node.\r\n@return ttl of the node.\r",
             "id": 520,
             "implemented": true,
             "isConstructor": false,
@@ -2484,7 +2496,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 520,
-                  "src": "2873:12:4",
+                  "src": "2967:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2495,7 +2507,7 @@
                     "id": 508,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2873:7:4",
+                    "src": "2967:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2505,7 +2517,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2872:14:4"
+              "src": "2966:14:4"
             },
             "payable": false,
             "returnParameters": {
@@ -2518,7 +2530,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 520,
-                  "src": "2908:6:4",
+                  "src": "3002:6:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2529,7 +2541,7 @@
                     "id": 511,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2908:6:4",
+                    "src": "3002:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -2539,23 +2551,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2907:8:4"
+              "src": "3001:8:4"
             },
             "scope": 521,
-            "src": "2860:97:4",
+            "src": "2954:99:4",
             "stateMutability": "view",
             "superFunction": 331,
             "visibility": "public"
           }
         ],
         "scope": 522,
-        "src": "85:2875:4"
+        "src": "92:2966:4"
       }
     ],
-    "src": "0:2961:4"
+    "src": "0:3060:4"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/ENSRegistry.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/lib/ENSRegistry.sol",
     "exportedSymbols": {
       "ENSRegistry": [
         521
@@ -2576,13 +2588,13 @@
         "src": "0:24:4"
       },
       {
-        "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/ENS.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/ENS.sol",
         "file": "./ENS.sol",
         "id": 335,
         "nodeType": "ImportDirective",
         "scope": 522,
         "sourceUnit": 333,
-        "src": "26:19:4",
+        "src": "28:19:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -2596,7 +2608,7 @@
               "name": "ENS",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 332,
-              "src": "109:3:4",
+              "src": "116:3:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_ENS_$332",
                 "typeString": "contract ENS"
@@ -2604,14 +2616,14 @@
             },
             "id": 337,
             "nodeType": "InheritanceSpecifier",
-            "src": "109:3:4"
+            "src": "116:3:4"
           }
         ],
         "contractDependencies": [
           332
         ],
         "contractKind": "contract",
-        "documentation": "The ENS registry contract.",
+        "documentation": "The ENS registry contract.\r",
         "fullyImplemented": true,
         "id": 521,
         "linearizedBaseContracts": [
@@ -2631,7 +2643,7 @@
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
                 "scope": 344,
-                "src": "143:13:4",
+                "src": "152:13:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2642,7 +2654,7 @@
                   "id": 338,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "143:7:4",
+                  "src": "152:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -2657,7 +2669,7 @@
                 "name": "resolver",
                 "nodeType": "VariableDeclaration",
                 "scope": 344,
-                "src": "166:16:4",
+                "src": "176:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2668,7 +2680,7 @@
                   "id": 340,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "166:7:4",
+                  "src": "176:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -2683,7 +2695,7 @@
                 "name": "ttl",
                 "nodeType": "VariableDeclaration",
                 "scope": 344,
-                "src": "192:10:4",
+                "src": "203:10:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2694,7 +2706,7 @@
                   "id": 342,
                   "name": "uint64",
                   "nodeType": "ElementaryTypeName",
-                  "src": "192:6:4",
+                  "src": "203:6:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint64",
                     "typeString": "uint64"
@@ -2707,7 +2719,7 @@
             "name": "Record",
             "nodeType": "StructDefinition",
             "scope": 521,
-            "src": "119:90:4",
+            "src": "127:94:4",
             "visibility": "public"
           },
           {
@@ -2716,7 +2728,7 @@
             "name": "records",
             "nodeType": "VariableDeclaration",
             "scope": 521,
-            "src": "215:35:4",
+            "src": "229:35:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2729,14 +2741,14 @@
                 "id": 345,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
-                "src": "224:7:4",
+                "src": "238:7:4",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bytes32",
                   "typeString": "bytes32"
                 }
               },
               "nodeType": "Mapping",
-              "src": "215:27:4",
+              "src": "229:27:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                 "typeString": "mapping(bytes32 => struct ENSRegistry.Record)"
@@ -2747,7 +2759,7 @@
                 "name": "Record",
                 "nodeType": "UserDefinedTypeName",
                 "referencedDeclaration": 344,
-                "src": "235:6:4",
+                "src": "249:6:4",
                 "typeDescriptions": {
                   "typeIdentifier": "t_struct$_Record_$344_storage_ptr",
                   "typeString": "struct ENSRegistry.Record"
@@ -2761,7 +2773,7 @@
             "body": {
               "id": 363,
               "nodeType": "Block",
-              "src": "361:70:4",
+              "src": "378:73:4",
               "statements": [
                 {
                   "expression": {
@@ -2789,7 +2801,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 348,
-                              "src": "379:7:4",
+                              "src": "397:7:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                                 "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -2803,7 +2815,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 350,
-                              "src": "387:4:4",
+                              "src": "405:4:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bytes32",
                                 "typeString": "bytes32"
@@ -2814,7 +2826,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "379:13:4",
+                            "src": "397:13:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_Record_$344_storage",
                               "typeString": "struct ENSRegistry.Record storage ref"
@@ -2828,7 +2840,7 @@
                           "memberName": "owner",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 339,
-                          "src": "379:19:4",
+                          "src": "397:19:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -2845,7 +2857,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1199,
-                            "src": "402:3:4",
+                            "src": "420:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
@@ -2859,13 +2871,13 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "402:10:4",
+                          "src": "420:10:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "379:33:4",
+                        "src": "397:33:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2887,7 +2899,7 @@
                         1203
                       ],
                       "referencedDeclaration": 1202,
-                      "src": "371:7:4",
+                      "src": "389:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
@@ -2901,7 +2913,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "371:42:4",
+                    "src": "389:42:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -2909,12 +2921,12 @@
                   },
                   "id": 361,
                   "nodeType": "ExpressionStatement",
-                  "src": "371:42:4"
+                  "src": "389:42:4"
                 },
                 {
                   "id": 362,
                   "nodeType": "PlaceholderStatement",
-                  "src": "423:1:4"
+                  "src": "442:1:4"
                 }
               ]
             },
@@ -2932,7 +2944,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 364,
-                  "src": "347:12:4",
+                  "src": "364:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2943,7 +2955,7 @@
                     "id": 349,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "347:7:4",
+                    "src": "364:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2953,16 +2965,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "346:14:4"
+              "src": "363:14:4"
             },
-            "src": "327:104:4",
+            "src": "344:107:4",
             "visibility": "internal"
           },
           {
             "body": {
               "id": 375,
               "nodeType": "Block",
-              "src": "518:48:4",
+              "src": "543:50:4",
               "statements": [
                 {
                   "expression": {
@@ -2983,7 +2995,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "528:7:4",
+                          "src": "554:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -3000,7 +3012,7 @@
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "536:3:4",
+                          "src": "562:3:4",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_0_by_1",
@@ -3013,7 +3025,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "528:12:4",
+                        "src": "554:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -3027,7 +3039,7 @@
                       "memberName": "owner",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 339,
-                      "src": "528:18:4",
+                      "src": "554:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -3044,7 +3056,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1199,
-                        "src": "549:3:4",
+                        "src": "575:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
@@ -3058,13 +3070,13 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "549:10:4",
+                      "src": "575:10:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "528:31:4",
+                    "src": "554:31:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -3072,11 +3084,11 @@
                   },
                   "id": 374,
                   "nodeType": "ExpressionStatement",
-                  "src": "528:31:4"
+                  "src": "554:31:4"
                 }
               ]
             },
-            "documentation": "@dev Constructs a new ENS registrar.",
+            "documentation": "@dev Constructs a new ENS registrar.\r",
             "id": 376,
             "implemented": true,
             "isConstructor": true,
@@ -3088,17 +3100,17 @@
               "id": 365,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "508:2:4"
+              "src": "533:2:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 366,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "518:0:4"
+              "src": "543:0:4"
             },
             "scope": 521,
-            "src": "497:69:4",
+            "src": "522:71:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -3107,7 +3119,7 @@
             "body": {
               "id": 398,
               "nodeType": "Block",
-              "src": "876:80:4",
+              "src": "910:83:4",
               "statements": [
                 {
                   "eventCall": {
@@ -3120,7 +3132,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 378,
-                        "src": "900:4:4",
+                        "src": "935:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3133,7 +3145,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 380,
-                        "src": "906:5:4",
+                        "src": "941:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3156,7 +3168,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 268,
-                      "src": "891:8:4",
+                      "src": "926:8:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,address)"
@@ -3170,7 +3182,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "891:21:4",
+                    "src": "926:21:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -3178,7 +3190,7 @@
                   },
                   "id": 390,
                   "nodeType": "EmitStatement",
-                  "src": "886:26:4"
+                  "src": "921:26:4"
                 },
                 {
                   "expression": {
@@ -3199,7 +3211,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "922:7:4",
+                          "src": "958:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -3213,7 +3225,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 378,
-                          "src": "930:4:4",
+                          "src": "966:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -3224,7 +3236,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "922:13:4",
+                        "src": "958:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -3238,7 +3250,7 @@
                       "memberName": "owner",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 339,
-                      "src": "922:19:4",
+                      "src": "958:19:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -3253,13 +3265,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 380,
-                      "src": "944:5:4",
+                      "src": "980:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "922:27:4",
+                    "src": "958:27:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -3267,11 +3279,11 @@
                   },
                   "id": 397,
                   "nodeType": "ExpressionStatement",
-                  "src": "922:27:4"
+                  "src": "958:27:4"
                 }
               ]
             },
-            "documentation": "@dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.\n@param node The node to transfer ownership of.\n@param owner The address of the new owner.",
+            "documentation": "@dev Transfers ownership of a node to a new address. May only be called by the current owner of the node.\r\n@param node The node to transfer ownership of.\r\n@param owner The address of the new owner.\r",
             "id": 399,
             "implemented": true,
             "isConstructor": false,
@@ -3286,7 +3298,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 378,
-                    "src": "870:4:4",
+                    "src": "904:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3301,14 +3313,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "859:10:4",
+                  "src": "893:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "859:16:4"
+                "src": "893:16:4"
               }
             ],
             "name": "setOwner",
@@ -3323,7 +3335,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 399,
-                  "src": "823:12:4",
+                  "src": "857:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3334,7 +3346,7 @@
                     "id": 377,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "823:7:4",
+                    "src": "857:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3349,7 +3361,7 @@
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
                   "scope": 399,
-                  "src": "837:13:4",
+                  "src": "871:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3360,7 +3372,7 @@
                     "id": 379,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "837:7:4",
+                    "src": "871:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -3370,17 +3382,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "822:29:4"
+              "src": "856:29:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 385,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "876:0:4"
+              "src": "910:0:4"
             },
             "scope": 521,
-            "src": "805:151:4",
+            "src": "839:154:4",
             "stateMutability": "nonpayable",
             "superFunction": 303,
             "visibility": "public"
@@ -3389,7 +3401,7 @@
             "body": {
               "id": 434,
               "nodeType": "Block",
-              "src": "1361:158:4",
+              "src": "1406:162:4",
               "statements": [
                 {
                   "assignments": [
@@ -3402,7 +3414,7 @@
                       "name": "subnode",
                       "nodeType": "VariableDeclaration",
                       "scope": 435,
-                      "src": "1371:15:4",
+                      "src": "1417:15:4",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -3413,7 +3425,7 @@
                         "id": 411,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1371:7:4",
+                        "src": "1417:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3437,7 +3449,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 401,
-                            "src": "1416:4:4",
+                            "src": "1462:4:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
                               "typeString": "bytes32"
@@ -3450,7 +3462,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 403,
-                            "src": "1422:5:4",
+                            "src": "1468:5:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
                               "typeString": "bytes32"
@@ -3475,7 +3487,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1186,
-                            "src": "1399:3:4",
+                            "src": "1445:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
@@ -3489,7 +3501,7 @@
                           "memberName": "encodePacked",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "1399:16:4",
+                          "src": "1445:16:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                             "typeString": "function () pure returns (bytes memory)"
@@ -3503,7 +3515,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1399:29:4",
+                        "src": "1445:29:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_memory_ptr",
                           "typeString": "bytes memory"
@@ -3522,7 +3534,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1193,
-                      "src": "1389:9:4",
+                      "src": "1435:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
@@ -3536,14 +3548,14 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1389:40:4",
+                    "src": "1435:40:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1371:58:4"
+                  "src": "1417:58:4"
                 },
                 {
                   "eventCall": {
@@ -3556,7 +3568,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 401,
-                        "src": "1453:4:4",
+                        "src": "1500:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3569,7 +3581,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 403,
-                        "src": "1459:5:4",
+                        "src": "1506:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3582,7 +3594,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 405,
-                        "src": "1466:5:4",
+                        "src": "1513:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3609,7 +3621,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 262,
-                      "src": "1444:8:4",
+                      "src": "1491:8:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,bytes32,address)"
@@ -3623,7 +3635,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1444:28:4",
+                    "src": "1491:28:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -3631,7 +3643,7 @@
                   },
                   "id": 426,
                   "nodeType": "EmitStatement",
-                  "src": "1439:33:4"
+                  "src": "1486:33:4"
                 },
                 {
                   "expression": {
@@ -3652,7 +3664,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "1482:7:4",
+                          "src": "1530:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -3666,7 +3678,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 412,
-                          "src": "1490:7:4",
+                          "src": "1538:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -3677,7 +3689,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1482:16:4",
+                        "src": "1530:16:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -3691,7 +3703,7 @@
                       "memberName": "owner",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 339,
-                      "src": "1482:22:4",
+                      "src": "1530:22:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -3706,13 +3718,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 405,
-                      "src": "1507:5:4",
+                      "src": "1555:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "1482:30:4",
+                    "src": "1530:30:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -3720,11 +3732,11 @@
                   },
                   "id": 433,
                   "nodeType": "ExpressionStatement",
-                  "src": "1482:30:4"
+                  "src": "1530:30:4"
                 }
               ]
             },
-            "documentation": "@dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\n@param node The parent node.\n@param label The hash of the label specifying the subnode.\n@param owner The address of the new owner.",
+            "documentation": "@dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\r\n@param node The parent node.\r\n@param label The hash of the label specifying the subnode.\r\n@param owner The address of the new owner.\r",
             "id": 435,
             "implemented": true,
             "isConstructor": false,
@@ -3739,7 +3751,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 401,
-                    "src": "1355:4:4",
+                    "src": "1400:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3754,14 +3766,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "1344:10:4",
+                  "src": "1389:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1344:16:4"
+                "src": "1389:16:4"
               }
             ],
             "name": "setSubnodeOwner",
@@ -3776,7 +3788,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 435,
-                  "src": "1293:12:4",
+                  "src": "1338:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3787,7 +3799,7 @@
                     "id": 400,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1293:7:4",
+                    "src": "1338:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3802,7 +3814,7 @@
                   "name": "label",
                   "nodeType": "VariableDeclaration",
                   "scope": 435,
-                  "src": "1307:13:4",
+                  "src": "1352:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3813,7 +3825,7 @@
                     "id": 402,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1307:7:4",
+                    "src": "1352:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3828,7 +3840,7 @@
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
                   "scope": 435,
-                  "src": "1322:13:4",
+                  "src": "1367:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3839,7 +3851,7 @@
                     "id": 404,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1322:7:4",
+                    "src": "1367:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -3849,17 +3861,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1292:44:4"
+              "src": "1337:44:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 410,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1361:0:4"
+              "src": "1406:0:4"
             },
             "scope": 521,
-            "src": "1268:251:4",
+            "src": "1313:255:4",
             "stateMutability": "nonpayable",
             "superFunction": 289,
             "visibility": "public"
@@ -3868,7 +3880,7 @@
             "body": {
               "id": 457,
               "nodeType": "Block",
-              "src": "1771:92:4",
+              "src": "1827:95:4",
               "statements": [
                 {
                   "eventCall": {
@@ -3881,7 +3893,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 437,
-                        "src": "1798:4:4",
+                        "src": "1855:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3894,7 +3906,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 439,
-                        "src": "1804:8:4",
+                        "src": "1861:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3917,7 +3929,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 274,
-                      "src": "1786:11:4",
+                      "src": "1843:11:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bytes32,address)"
@@ -3931,7 +3943,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1786:27:4",
+                    "src": "1843:27:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -3939,7 +3951,7 @@
                   },
                   "id": 449,
                   "nodeType": "EmitStatement",
-                  "src": "1781:32:4"
+                  "src": "1838:32:4"
                 },
                 {
                   "expression": {
@@ -3960,7 +3972,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "1823:7:4",
+                          "src": "1881:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -3974,7 +3986,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 437,
-                          "src": "1831:4:4",
+                          "src": "1889:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -3985,7 +3997,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1823:13:4",
+                        "src": "1881:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -3999,7 +4011,7 @@
                       "memberName": "resolver",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 341,
-                      "src": "1823:22:4",
+                      "src": "1881:22:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -4014,13 +4026,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 439,
-                      "src": "1848:8:4",
+                      "src": "1906:8:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "1823:33:4",
+                    "src": "1881:33:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -4028,11 +4040,11 @@
                   },
                   "id": 456,
                   "nodeType": "ExpressionStatement",
-                  "src": "1823:33:4"
+                  "src": "1881:33:4"
                 }
               ]
             },
-            "documentation": "@dev Sets the resolver address for the specified node.\n@param node The node to update.\n@param resolver The address of the resolver.",
+            "documentation": "@dev Sets the resolver address for the specified node.\r\n@param node The node to update.\r\n@param resolver The address of the resolver.\r",
             "id": 458,
             "implemented": true,
             "isConstructor": false,
@@ -4047,7 +4059,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 437,
-                    "src": "1765:4:4",
+                    "src": "1821:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4062,14 +4074,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "1754:10:4",
+                  "src": "1810:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1754:16:4"
+                "src": "1810:16:4"
               }
             ],
             "name": "setResolver",
@@ -4084,7 +4096,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 458,
-                  "src": "1715:12:4",
+                  "src": "1771:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4095,7 +4107,7 @@
                     "id": 436,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1715:7:4",
+                    "src": "1771:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4110,7 +4122,7 @@
                   "name": "resolver",
                   "nodeType": "VariableDeclaration",
                   "scope": 458,
-                  "src": "1729:16:4",
+                  "src": "1785:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4121,7 +4133,7 @@
                     "id": 438,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1729:7:4",
+                    "src": "1785:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -4131,17 +4143,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1714:32:4"
+              "src": "1770:32:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 444,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1771:0:4"
+              "src": "1827:0:4"
             },
             "scope": 521,
-            "src": "1694:169:4",
+            "src": "1750:172:4",
             "stateMutability": "nonpayable",
             "superFunction": 296,
             "visibility": "public"
@@ -4150,7 +4162,7 @@
             "body": {
               "id": 480,
               "nodeType": "Block",
-              "src": "2077:72:4",
+              "src": "2143:75:4",
               "statements": [
                 {
                   "eventCall": {
@@ -4163,7 +4175,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 460,
-                        "src": "2099:4:4",
+                        "src": "2166:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4176,7 +4188,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 462,
-                        "src": "2105:3:4",
+                        "src": "2172:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint64",
                           "typeString": "uint64"
@@ -4199,7 +4211,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 280,
-                      "src": "2092:6:4",
+                      "src": "2159:6:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint64_$returns$__$",
                         "typeString": "function (bytes32,uint64)"
@@ -4213,7 +4225,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2092:17:4",
+                    "src": "2159:17:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -4221,7 +4233,7 @@
                   },
                   "id": 472,
                   "nodeType": "EmitStatement",
-                  "src": "2087:22:4"
+                  "src": "2154:22:4"
                 },
                 {
                   "expression": {
@@ -4242,7 +4254,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 348,
-                          "src": "2119:7:4",
+                          "src": "2187:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                             "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -4256,7 +4268,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 460,
-                          "src": "2127:4:4",
+                          "src": "2195:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
@@ -4267,7 +4279,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "2119:13:4",
+                        "src": "2187:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Record_$344_storage",
                           "typeString": "struct ENSRegistry.Record storage ref"
@@ -4281,7 +4293,7 @@
                       "memberName": "ttl",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 343,
-                      "src": "2119:17:4",
+                      "src": "2187:17:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint64",
                         "typeString": "uint64"
@@ -4296,13 +4308,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 462,
-                      "src": "2139:3:4",
+                      "src": "2207:3:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint64",
                         "typeString": "uint64"
                       }
                     },
-                    "src": "2119:23:4",
+                    "src": "2187:23:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -4310,11 +4322,11 @@
                   },
                   "id": 479,
                   "nodeType": "ExpressionStatement",
-                  "src": "2119:23:4"
+                  "src": "2187:23:4"
                 }
               ]
             },
-            "documentation": "@dev Sets the TTL for the specified node.\n@param node The node to update.\n@param ttl The TTL in seconds.",
+            "documentation": "@dev Sets the TTL for the specified node.\r\n@param node The node to update.\r\n@param ttl The TTL in seconds.\r",
             "id": 481,
             "implemented": true,
             "isConstructor": false,
@@ -4329,7 +4341,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 460,
-                    "src": "2071:4:4",
+                    "src": "2137:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4344,14 +4356,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 364,
-                  "src": "2060:10:4",
+                  "src": "2126:10:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_bytes32_$",
                     "typeString": "modifier (bytes32)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2060:16:4"
+                "src": "2126:16:4"
               }
             ],
             "name": "setTTL",
@@ -4366,7 +4378,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 481,
-                  "src": "2027:12:4",
+                  "src": "2093:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4377,7 +4389,7 @@
                     "id": 459,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2027:7:4",
+                    "src": "2093:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4392,7 +4404,7 @@
                   "name": "ttl",
                   "nodeType": "VariableDeclaration",
                   "scope": 481,
-                  "src": "2041:10:4",
+                  "src": "2107:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4403,7 +4415,7 @@
                     "id": 461,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2041:6:4",
+                    "src": "2107:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -4413,17 +4425,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2026:26:4"
+              "src": "2092:26:4"
             },
             "payable": false,
             "returnParameters": {
               "id": 467,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2077:0:4"
+              "src": "2143:0:4"
             },
             "scope": 521,
-            "src": "2011:138:4",
+            "src": "2077:141:4",
             "stateMutability": "nonpayable",
             "superFunction": 310,
             "visibility": "public"
@@ -4432,7 +4444,7 @@
             "body": {
               "id": 493,
               "nodeType": "Block",
-              "src": "2368:43:4",
+              "src": "2444:45:4",
               "statements": [
                 {
                   "expression": {
@@ -4446,7 +4458,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 348,
-                        "src": "2385:7:4",
+                        "src": "2462:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                           "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -4460,7 +4472,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 483,
-                        "src": "2393:4:4",
+                        "src": "2470:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4471,7 +4483,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2385:13:4",
+                      "src": "2462:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Record_$344_storage",
                         "typeString": "struct ENSRegistry.Record storage ref"
@@ -4485,7 +4497,7 @@
                     "memberName": "owner",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 339,
-                    "src": "2385:19:4",
+                    "src": "2462:19:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -4494,11 +4506,11 @@
                   "functionReturnParameters": 487,
                   "id": 492,
                   "nodeType": "Return",
-                  "src": "2378:26:4"
+                  "src": "2455:26:4"
                 }
               ]
             },
-            "documentation": "@dev Returns the address that owns the specified node.\n@param node The specified node.\n@return address of the owner.",
+            "documentation": "@dev Returns the address that owns the specified node.\r\n@param node The specified node.\r\n@return address of the owner.\r",
             "id": 494,
             "implemented": true,
             "isConstructor": false,
@@ -4516,7 +4528,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 494,
-                  "src": "2324:12:4",
+                  "src": "2400:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4527,7 +4539,7 @@
                     "id": 482,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2324:7:4",
+                    "src": "2400:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4537,7 +4549,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2323:14:4"
+              "src": "2399:14:4"
             },
             "payable": false,
             "returnParameters": {
@@ -4550,7 +4562,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 494,
-                  "src": "2359:7:4",
+                  "src": "2435:7:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4561,7 +4573,7 @@
                     "id": 485,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2359:7:4",
+                    "src": "2435:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -4571,10 +4583,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2358:9:4"
+              "src": "2434:9:4"
             },
             "scope": 521,
-            "src": "2309:102:4",
+            "src": "2385:104:4",
             "stateMutability": "view",
             "superFunction": 317,
             "visibility": "public"
@@ -4583,7 +4595,7 @@
             "body": {
               "id": 506,
               "nodeType": "Block",
-              "src": "2646:46:4",
+              "src": "2731:48:4",
               "statements": [
                 {
                   "expression": {
@@ -4597,7 +4609,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 348,
-                        "src": "2663:7:4",
+                        "src": "2749:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                           "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -4611,7 +4623,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 496,
-                        "src": "2671:4:4",
+                        "src": "2757:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4622,7 +4634,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2663:13:4",
+                      "src": "2749:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Record_$344_storage",
                         "typeString": "struct ENSRegistry.Record storage ref"
@@ -4636,7 +4648,7 @@
                     "memberName": "resolver",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 341,
-                    "src": "2663:22:4",
+                    "src": "2749:22:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -4645,11 +4657,11 @@
                   "functionReturnParameters": 500,
                   "id": 505,
                   "nodeType": "Return",
-                  "src": "2656:29:4"
+                  "src": "2742:29:4"
                 }
               ]
             },
-            "documentation": "@dev Returns the address of the resolver for the specified node.\n@param node The specified node.\n@return address of the resolver.",
+            "documentation": "@dev Returns the address of the resolver for the specified node.\r\n@param node The specified node.\r\n@return address of the resolver.\r",
             "id": 507,
             "implemented": true,
             "isConstructor": false,
@@ -4667,7 +4679,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 507,
-                  "src": "2602:12:4",
+                  "src": "2687:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4678,7 +4690,7 @@
                     "id": 495,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2602:7:4",
+                    "src": "2687:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4688,7 +4700,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2601:14:4"
+              "src": "2686:14:4"
             },
             "payable": false,
             "returnParameters": {
@@ -4701,7 +4713,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 507,
-                  "src": "2637:7:4",
+                  "src": "2722:7:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4712,7 +4724,7 @@
                     "id": 498,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2637:7:4",
+                    "src": "2722:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -4722,10 +4734,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2636:9:4"
+              "src": "2721:9:4"
             },
             "scope": 521,
-            "src": "2584:108:4",
+            "src": "2669:110:4",
             "stateMutability": "view",
             "superFunction": 324,
             "visibility": "public"
@@ -4734,7 +4746,7 @@
             "body": {
               "id": 519,
               "nodeType": "Block",
-              "src": "2916:41:4",
+              "src": "3010:43:4",
               "statements": [
                 {
                   "expression": {
@@ -4748,7 +4760,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 348,
-                        "src": "2933:7:4",
+                        "src": "3028:7:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Record_$344_storage_$",
                           "typeString": "mapping(bytes32 => struct ENSRegistry.Record storage ref)"
@@ -4762,7 +4774,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 509,
-                        "src": "2941:4:4",
+                        "src": "3036:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4773,7 +4785,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2933:13:4",
+                      "src": "3028:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Record_$344_storage",
                         "typeString": "struct ENSRegistry.Record storage ref"
@@ -4787,7 +4799,7 @@
                     "memberName": "ttl",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 343,
-                    "src": "2933:17:4",
+                    "src": "3028:17:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -4796,11 +4808,11 @@
                   "functionReturnParameters": 513,
                   "id": 518,
                   "nodeType": "Return",
-                  "src": "2926:24:4"
+                  "src": "3021:24:4"
                 }
               ]
             },
-            "documentation": "@dev Returns the TTL of a node, and any records associated with it.\n@param node The specified node.\n@return ttl of the node.",
+            "documentation": "@dev Returns the TTL of a node, and any records associated with it.\r\n@param node The specified node.\r\n@return ttl of the node.\r",
             "id": 520,
             "implemented": true,
             "isConstructor": false,
@@ -4818,7 +4830,7 @@
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "scope": 520,
-                  "src": "2873:12:4",
+                  "src": "2967:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4829,7 +4841,7 @@
                     "id": 508,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2873:7:4",
+                    "src": "2967:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4839,7 +4851,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2872:14:4"
+              "src": "2966:14:4"
             },
             "payable": false,
             "returnParameters": {
@@ -4852,7 +4864,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 520,
-                  "src": "2908:6:4",
+                  "src": "3002:6:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4863,7 +4875,7 @@
                     "id": 511,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2908:6:4",
+                    "src": "3002:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint64",
                       "typeString": "uint64"
@@ -4873,79 +4885,92 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2907:8:4"
+              "src": "3001:8:4"
             },
             "scope": 521,
-            "src": "2860:97:4",
+            "src": "2954:99:4",
             "stateMutability": "view",
             "superFunction": 331,
             "visibility": "public"
           }
         ],
         "scope": 522,
-        "src": "85:2875:4"
+        "src": "92:2966:4"
       }
     ],
-    "src": "0:2961:4"
+    "src": "0:3060:4"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
   },
-  "networks": {},
-  "schemaVersion": "3.0.1",
-  "updatedAt": "2019-02-12T15:01:48.003Z",
+  "networks": {
+    "1": {
+      "events": {},
+      "links": {},
+      "address": "0x314159265dd8dbb310642f98f50c066173c1259b",
+      "transactionHash": null
+    },
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x112234455c3a32fd11230c42e7bccd4a84e02010",
+      "transactionHash": "0x5424684e2754836a6c52f45ec048d3a3e6b33faacb93bdebd8038458c65c6fe1"
+    }
+  },
+  "schemaVersion": "3.0.0",
+  "updatedAt": "2019-01-03T09:34:52.145Z",
   "devdoc": {
     "methods": {
       "owner(bytes32)": {
-        "details": "Returns the address that owns the specified node.",
+        "details": "Returns the address that owns the specified node.\r",
         "params": {
-          "node": "The specified node."
+          "node": "The specified node.\r"
         },
-        "return": "address of the owner."
+        "return": "address of the owner.\r"
       },
       "resolver(bytes32)": {
-        "details": "Returns the address of the resolver for the specified node.",
+        "details": "Returns the address of the resolver for the specified node.\r",
         "params": {
-          "node": "The specified node."
+          "node": "The specified node.\r"
         },
-        "return": "address of the resolver."
+        "return": "address of the resolver.\r"
       },
       "setOwner(bytes32,address)": {
-        "details": "Transfers ownership of a node to a new address. May only be called by the current owner of the node.",
+        "details": "Transfers ownership of a node to a new address. May only be called by the current owner of the node.\r",
         "params": {
-          "node": "The node to transfer ownership of.",
-          "owner": "The address of the new owner."
+          "node": "The node to transfer ownership of.\r",
+          "owner": "The address of the new owner.\r"
         }
       },
       "setResolver(bytes32,address)": {
-        "details": "Sets the resolver address for the specified node.",
+        "details": "Sets the resolver address for the specified node.\r",
         "params": {
-          "node": "The node to update.",
-          "resolver": "The address of the resolver."
+          "node": "The node to update.\r",
+          "resolver": "The address of the resolver.\r"
         }
       },
       "setSubnodeOwner(bytes32,bytes32,address)": {
-        "details": "Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.",
+        "details": "Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.\r",
         "params": {
-          "label": "The hash of the label specifying the subnode.",
-          "node": "The parent node.",
-          "owner": "The address of the new owner."
+          "label": "The hash of the label specifying the subnode.\r",
+          "node": "The parent node.\r",
+          "owner": "The address of the new owner.\r"
         }
       },
       "setTTL(bytes32,uint64)": {
-        "details": "Sets the TTL for the specified node.",
+        "details": "Sets the TTL for the specified node.\r",
         "params": {
-          "node": "The node to update.",
-          "ttl": "The TTL in seconds."
+          "node": "The node to update.\r",
+          "ttl": "The TTL in seconds.\r"
         }
       },
       "ttl(bytes32)": {
-        "details": "Returns the TTL of a node, and any records associated with it.",
+        "details": "Returns the TTL of a node, and any records associated with it.\r",
         "params": {
-          "node": "The specified node."
+          "node": "The specified node.\r"
         },
-        "return": "ttl of the node."
+        "return": "ttl of the node.\r"
       }
     }
   },

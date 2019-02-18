@@ -8,14 +8,14 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820e0e66aaaf88cbd7c0e1e98065a7b6a92942054992a6b9eb744b3e3e7e4cf19430029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820e0e66aaaf88cbd7c0e1e98065a7b6a92942054992a6b9eb744b3e3e7e4cf19430029",
-  "sourceMap": "96:54:1:-;;;125:23;8:9:-1;5:2;;;30:1;27;20:12;5:2;125:23:1;96:54;;;;;;",
-  "deployedSourceMap": "96:54:1:-;;;;;",
-  "source": "pragma solidity ^0.4.25;\n\nimport \"../lib/ENSRegistry.sol\";\nimport \"../lib/PublicResolver.sol\";\n\ncontract TestArtifacts {\n    constructor() public {}\n}\n",
-  "sourcePath": "C:/Users/Gaspari/Office/TM/ens/git/contracts/TestArtifacts.sol",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820e87cb3a0a845a8f64f547e5513524e6cde58b5144aeb6d220359659821f8c3f20029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820e87cb3a0a845a8f64f547e5513524e6cde58b5144aeb6d220359659821f8c3f20029",
+  "sourceMap": "101:56:1:-;;;131:23;8:9:-1;5:2;;;30:1;27;20:12;5:2;131:23:1;101:56;;;;;;",
+  "deployedSourceMap": "101:56:1:-;;;;;",
+  "source": "pragma solidity ^0.4.25;\r\n\r\nimport \"../lib/ENSRegistry.sol\";\r\nimport \"../lib/PublicResolver.sol\";\r\n\r\ncontract TestArtifacts {\r\n    constructor() public {}\r\n}\r\n",
+  "sourcePath": "C:/src/personal/ens-registrar/contracts/TestArtifacts.sol",
   "ast": {
-    "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/contracts/TestArtifacts.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/contracts/TestArtifacts.sol",
     "exportedSymbols": {
       "TestArtifacts": [
         65
@@ -36,24 +36,24 @@
         "src": "0:24:1"
       },
       {
-        "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/ENSRegistry.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/ENSRegistry.sol",
         "file": "../lib/ENSRegistry.sol",
         "id": 59,
         "nodeType": "ImportDirective",
         "scope": 66,
         "sourceUnit": 522,
-        "src": "26:32:1",
+        "src": "28:32:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/PublicResolver.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/PublicResolver.sol",
         "file": "../lib/PublicResolver.sol",
         "id": 60,
         "nodeType": "ImportDirective",
         "scope": 66,
         "sourceUnit": 1033,
-        "src": "59:35:1",
+        "src": "62:35:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -74,7 +74,7 @@
             "body": {
               "id": 63,
               "nodeType": "Block",
-              "src": "146:2:1",
+              "src": "152:2:1",
               "statements": []
             },
             "documentation": null,
@@ -89,30 +89,30 @@
               "id": 61,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "136:2:1"
+              "src": "142:2:1"
             },
             "payable": false,
             "returnParameters": {
               "id": 62,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "146:0:1"
+              "src": "152:0:1"
             },
             "scope": 65,
-            "src": "125:23:1",
+            "src": "131:23:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 66,
-        "src": "96:54:1"
+        "src": "101:56:1"
       }
     ],
-    "src": "0:151:1"
+    "src": "0:159:1"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/contracts/TestArtifacts.sol",
+    "absolutePath": "/C/src/personal/ens-registrar/contracts/TestArtifacts.sol",
     "exportedSymbols": {
       "TestArtifacts": [
         65
@@ -133,24 +133,24 @@
         "src": "0:24:1"
       },
       {
-        "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/ENSRegistry.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/ENSRegistry.sol",
         "file": "../lib/ENSRegistry.sol",
         "id": 59,
         "nodeType": "ImportDirective",
         "scope": 66,
         "sourceUnit": 522,
-        "src": "26:32:1",
+        "src": "28:32:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Users/Gaspari/Office/TM/ens/git/lib/PublicResolver.sol",
+        "absolutePath": "/C/src/personal/ens-registrar/lib/PublicResolver.sol",
         "file": "../lib/PublicResolver.sol",
         "id": 60,
         "nodeType": "ImportDirective",
         "scope": 66,
         "sourceUnit": 1033,
-        "src": "59:35:1",
+        "src": "62:35:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -171,7 +171,7 @@
             "body": {
               "id": 63,
               "nodeType": "Block",
-              "src": "146:2:1",
+              "src": "152:2:1",
               "statements": []
             },
             "documentation": null,
@@ -186,35 +186,35 @@
               "id": 61,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "136:2:1"
+              "src": "142:2:1"
             },
             "payable": false,
             "returnParameters": {
               "id": 62,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "146:0:1"
+              "src": "152:0:1"
             },
             "scope": 65,
-            "src": "125:23:1",
+            "src": "131:23:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 66,
-        "src": "96:54:1"
+        "src": "101:56:1"
       }
     ],
-    "src": "0:151:1"
+    "src": "0:159:1"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.1",
-  "updatedAt": "2019-02-11T16:20:07.123Z",
+  "schemaVersion": "3.0.0",
+  "updatedAt": "2019-01-02T14:27:03.535Z",
   "devdoc": {
     "methods": {}
   },
