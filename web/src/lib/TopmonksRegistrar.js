@@ -1,6 +1,6 @@
 const source = require('../contracts/TopmonksRegistrar.json');
 
-class TopmonksRegistrar {
+export default class TopmonksRegistrar {
   constructor(config, networkId) {
     this.config = config;
     this.contract = new config.web3.eth.Contract(source.abi, config.getRegistrarAddress(networkId));
@@ -22,5 +22,3 @@ class TopmonksRegistrar {
     return this.contract.events.DebugValue();
   }
 }
-
-module.exports = TopmonksRegistrar;

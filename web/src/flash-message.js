@@ -1,16 +1,9 @@
 import React from 'react';
 
 export default function FlashMessage ({ message }) {
-  if(message) {
-    let spinner;
-    if (message.spin) {
-      spinner = <i className="fa fa-spinner fa-spin"></i>;
-    }
-
+  if (message) {
     return(
       <div className={`alert alert-${message.type}`} role="alert">
-        {spinner}
-        &nbsp;
         {message.text}
 
         {message.txLink 

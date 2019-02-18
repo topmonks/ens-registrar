@@ -16,7 +16,7 @@ module.exports = async function(deployer, _, accounts) {
       network: 'mainnet', // ganache_cli | ropsten | mainnet
       deployENS: false, // default false. If false, it is read from the addresses/[network].js file
       createResolver: false, // default false. If false, it is read from the addresses/[network].js file
-      createTopmonksRegistrar: true, // default false. If false, it is read from the addresses/[network].js file
+      createTopmonksRegistrar: false, // default false. If false, it is read from the addresses/[network].js file
       // registerTopmonksDomain should be false in all networks except local Ganache. Otherwise it will fail, when already registered
       registerTopmonksDomain: false, // default false. Should be true when we also createTopmonksRegistrar is true. Registers topmonks.eth
       registerSubdomain: false, // default true
@@ -27,7 +27,7 @@ module.exports = async function(deployer, _, accounts) {
       topmonksAccount: accounts[0]
     };
 
-    const addresses = require("../addresses/" + config.network);    
+    const addresses = require("../addresses/" + config.network);
 
     let ensAddress = addresses.ensAddress;
     let resolverAddress = addresses.resolverAddress;
@@ -141,7 +141,7 @@ module.exports = async function(deployer, _, accounts) {
         await ens.methods
           .setSubnodeOwner(namehash('eth'), web3.utils.sha3("topmonks"), topmonksRegistrarAddress)
           .send({ 
-            from: accounts[0],
+            from: accounts[1],
             gas: 4000000,
             gasPrice: config.gasPrice
         });
