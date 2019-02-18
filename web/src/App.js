@@ -153,6 +153,7 @@ class App extends Component {
         .on('receipt', (receipt) => {
           this.setState({
             ethCallInProgress: false,
+            ethCallFinished: true,
             ethCallSuccess: true,
             message: {
               text: `Domain ${domain} has been registered to your address`,
@@ -257,6 +258,7 @@ class App extends Component {
         availabilityChecked: false
       },
       message: null,
+      ethCallInProgress: false,
       ethCallFinished: false,
       ethCallSuccess: false,
     });
