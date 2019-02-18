@@ -462,7 +462,7 @@ class App extends Component {
 
                     <FlashMessage message={this.state.message} />
                     {callSuccess && (
-                      <a href='#' onClick={this.resetForm}>Register another address?</a>
+                      <button type='button' className='btn btn-outline-dark btn-outline-alt' onClick={this.resetForm}>Register another address?</button>
                     )}
 
                   </div>

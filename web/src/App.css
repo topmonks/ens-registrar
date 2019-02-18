@@ -226,6 +226,14 @@ label {
 .btn.btn-success:focus {
     background-color: #67e5a2;
 }
+.btn-outline-alt {
+    color: #202020;
+    background-color: transparent;
+}
+.btn-outline-alt:hover {
+    color: #202020;
+    background-color: #eee;
+}
 
 .availability .circle {
     margin-right: 0.4rem;
