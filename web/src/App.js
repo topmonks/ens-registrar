@@ -156,7 +156,7 @@ class App extends Component {
             ethCallFinished: true,
             ethCallSuccess: true,
             message: {
-              text: `Domain ${domain} has been registered to your address`,
+              text: `Domain ${domain} has been successfully associated with your address`,
               type: 'success',
               txLink: null,
             }
