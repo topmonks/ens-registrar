@@ -186,7 +186,7 @@ class App extends Component {
             ethCallInProgress: false,
             ethCallFinished: true,
             message: {
-              text: `We are sorry, registratin of domain ${domain} failed.`,
+              text: `We are sorry, the registration of your domain failed. Try to check your MetaMask.`,
               type: 'danger',
               txLink,
             }
