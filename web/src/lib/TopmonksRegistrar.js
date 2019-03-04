@@ -6,15 +6,21 @@ export default class TopmonksRegistrar {
     this.contract = new config.web3.eth.Contract(source.abi, config.getRegistrarAddress(networkId));
   }
 
-  register(subdomain, account) {
-    let node = this.config.web3.utils.sha3(subdomain);
+  async register(subdomain, address, options = {}) {
+    const node = this.config.web3.utils.sha3(subdomain);
+    const account = options.from || this.config.web3.defaultAccount;
 
-    return this.contract.methods.register(node, account)
+    const gasPrices = await this.config.getCurrentGasPrices();
+    const estimatedGas = await this.contract.methods
+      .register(node, address)
+      .estimateGas({ from: account });
+
+    debugger;
+    return this.contract.methods.register(node, address)
       .send({
-        // According to https://www.npmjs.com/package/ethereum-ens the caller of setSubnodeOwner() must be owner of the parent domain
-        // which means that this method can be only called by the parent domain owner as well (Because of msg.sender)
+        gasPrice: gasPrices.medium * 1000000000, // convert from gwei to wei
+        gas: estimatedGas + 500000, // Add some gas if it costs more
         from: account,
-        gas: '4700000' // This is the max on Ropsten but it still fails
        });
   }
 

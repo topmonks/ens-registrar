@@ -13,7 +13,21 @@ if (typeof web3 !== 'undefined') {
   web3js = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
+// Returns gas prices in gwei
+const getCurrentGasPrices = async () => {
+  const response = await fetch("https://ethgasstation.info/json/ethgasAPI.json")
+    .then(r => r.json())
+  const prices = {
+    low: response.safeLow / 10,
+    medium: response.average / 10,
+    high: response.fast / 10
+  }
+
+  return prices
+}
+
 export default {
   ...addresses,
   web3: web3js,
+  getCurrentGasPrices,
 }

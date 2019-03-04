@@ -95,6 +95,7 @@ class App extends Component {
       });
 
       window.ethereum.enable().then(accounts => {
+        config.web3.defaultAccount = accounts[0];
         this.setState({
           accounts,
           selectedAccount: accounts[0],
@@ -148,57 +149,57 @@ class App extends Component {
 
     const isAvailable = await this.checkAvailability();
 
-    if (isAvailable) {
-      this.contracts.topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount, { gas: 50000 })
-        .on('receipt', (receipt) => {
-          this.setState({
-            ethCallInProgress: false,
-            ethCallFinished: true,
-            ethCallSuccess: true,
-            message: {
-              text: `Domain ${domain} has been successfully associated with your address`,
-              type: 'success',
-              txLink: null,
-            }
-          });
-          event.target.reset();
-        })
-        .on('error', (error) => {
-          // oh boy, the error contains stringified tx receipt, prepended with some error message
-          // I need to parse the object from it, to get the transactionHash
-          log(error);
-
-          let txLink;
-
-          // If the error message contained transaction receipt
-          // then try to parse it and show link to etherscan.io
-          const txObj = parseTransactionFromError(error);
-
-          if (txObj) {
-            const tx = txObj.transactionHash;
-            const etherscanLink = this.state.networkType === 'main'
-              ? 'https://etherscan.io/'
-              : `https://${this.state.networkType}.etherscan.io/`;
-            txLink = `${etherscanLink}tx/${tx}`;
-          }
-
-          this.setState({
-            ethCallInProgress: false,
-            ethCallFinished: true,
-            message: {
-              text: `We are sorry, the registration of your domain failed. Try to check your MetaMask.`,
-              type: 'danger',
-              txLink,
-            }
-          });
-
-          // Check availability again. Has the domain been taken by someone else in the meantime?
-          this.checkAvailability();
-        });
-    } else {
+    if (!isAvailable) {
       // domain is not available.
       // message is already displayed by checkAvailability() method
       event.target.reset();
+      return;
+    }
+
+    try {
+      const receipt = await this.contracts.topmonksRegistrar.register(this.state.subdomain, this.state.selectedAccount);
+      this.setState({
+        ethCallInProgress: false,
+        ethCallFinished: true,
+        ethCallSuccess: true,
+        message: {
+          text: `Domain ${domain} has been successfully associated with your address. ${receipt.transactionHash}`,
+          type: 'success',
+          txLink: null,
+        }
+      });
+      event.target.reset();
+    } catch (error) {
+      // oh boy, the error contains stringified tx receipt, prepended with some error message
+      // I need to parse the object from it, to get the transactionHash
+      log(error);
+
+      let txLink;
+
+      // If the error message contained transaction receipt
+      // then try to parse it and show link to etherscan.io
+      const txObj = parseTransactionFromError(error);
+
+      if (txObj) {
+        const tx = txObj.transactionHash;
+        const etherscanLink = this.state.networkType === 'main'
+          ? 'https://etherscan.io/'
+          : `https://${this.state.networkType}.etherscan.io/`;
+        txLink = `${etherscanLink}tx/${tx}`;
+      }
+
+      this.setState({
+        ethCallInProgress: false,
+        ethCallFinished: true,
+        message: {
+          text: `We are sorry, the registration of your domain failed. Try to check your MetaMask.`,
+          type: 'danger',
+          txLink,
+        }
+      });
+
+      // Check availability again. Has the domain been taken by someone else in the meantime?
+      this.checkAvailability();
     }
   }
 
@@ -374,12 +375,12 @@ class App extends Component {
                           : (<span className="right">Not connected to any ETH network</span>)}
 
                         <div className="input-group">
-                          {/* <select 
-                        className="form-control" 
+                          {/* <select
+                        className="form-control"
                         id="addressSelect"
                         onChange={this.setAccount}
                         value={this.state.selectedAccount}
-                        required="true">
+                        required={true}>
                         {this.state.accounts.map(addr =>
                           <option
                             value={addr}
@@ -394,7 +395,7 @@ class App extends Component {
                             onChange={this.setAccount}
                             value={this.state.selectedAccount}
                             placeholder="Please, fill your account address"
-                            required="true" />
+                            required={true} />
 
                           <div className="input-group-append">
                             <span className="btn clickable input-group-text"
@@ -422,7 +423,7 @@ class App extends Component {
                               className="form-control"
                               placeholder="e.g. alice"
                               pattern="[a-zA-Z0-9-_]*"
-                              required="true"
+                              required={true}
                               value={this.state.subdomain}
                               onChange={this.handleChange}
                             />
